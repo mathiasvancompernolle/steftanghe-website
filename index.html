@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Stef Tanghe – Land- en tuinbouwmachines in Izegem</title>
-<meta name="description" content="Verkoop, verhuur, onderhoud en herstellingen van land- en tuinbouwmachines in Izegem. Kubota te huur met frees, klepelmaaier of hakselaar.">
+<meta name="i18n-title" content="meta.home.title">
+<meta name="description" data-key="meta.home.desc" content="Verkoop, verhuur, onderhoud en herstellingen van land- en tuinbouwmachines in Izegem. Kubota te huur met frees, klepelmaaier of hakselaar.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#13782F">
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
@@ -20,26 +21,32 @@
 
 <header class="balk balk-transparant" id="balk">
   <div class="wrap balk-inner">
-    <a href="./" class="balk-logo"><img src="img/logo.png" width="700" height="199" alt="Stef Tanghe, land- en tuinbouwmachines"></a>
-    <button class="hamburger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu openen">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-    </button>
-    <nav class="menu" id="menu" aria-label="Hoofdmenu">
-      <div class="dropdown">
-        <button class="menu-knop" type="button" aria-expanded="false" aria-controls="diensten-menu">Diensten
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="dropdown-paneel" id="diensten-menu">
-          <a href="#aanbod"><strong>Verkoop</strong><span>Nieuwe en tweedehands machines</span></a>
-          <a href="verhuur.html"><strong>Verhuur</strong><span>Kubota met werktuigen, per dag of week</span></a>
-          <a href="#diensten"><strong>Onderhoud</strong><span>Een vaste beurt voor het seizoen</span></a>
-          <a href="#diensten"><strong>Herstellingen</strong><span>Snel terug aan het werk na een panne</span></a>
+    <a href="./" class="balk-logo" data-intern><img src="img/logo.png" width="700" height="199" alt="Stef Tanghe, land- en tuinbouwmachines" data-i18n-attr="alt:alt.logo"></a>
+    <div class="balk-rechts">
+      <nav class="menu" id="menu" aria-label="Hoofdmenu">
+        <div class="dropdown">
+          <button class="menu-knop" type="button" aria-expanded="false" aria-controls="diensten-menu"><span data-i18n="nav.diensten">Diensten</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="dropdown-paneel" id="diensten-menu">
+            <a href="#aanbod"><strong data-i18n="nav.verkoop">Verkoop</strong><span data-i18n="nav.verkoop.sub">Nieuwe en tweedehands machines</span></a>
+            <a href="verhuur.html" data-intern><strong data-i18n="nav.verhuur">Verhuur</strong><span data-i18n="nav.verhuur.sub">Kubota met werktuigen, per dag of week</span></a>
+            <a href="#diensten"><strong data-i18n="nav.onderhoud">Onderhoud</strong><span data-i18n="nav.onderhoud.sub">Een vaste beurt voor het seizoen</span></a>
+            <a href="#diensten"><strong data-i18n="nav.herstel">Herstellingen</strong><span data-i18n="nav.herstel.sub">Snel terug aan het werk na een panne</span></a>
+          </div>
         </div>
+        <a href="verhuur.html" data-intern data-i18n="nav.huren">Tractor huren</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+        <a href="tel:+32473235755" class="btn btn-oranje" data-i18n="nav.bel">Bel 0473 23 57 55</a>
+      </nav>
+      <div class="taalkiezer" id="taalkiezer">
+        <button class="taal-knop" type="button" aria-expanded="false" aria-controls="taal-lijst" aria-label="Taal kiezen"></button>
+        <div class="taal-lijst" id="taal-lijst"></div>
       </div>
-      <a href="verhuur.html">Tractor huren</a>
-      <a href="#contact">Contact</a>
-      <a href="tel:+32473235755" class="btn btn-oranje">Bel 0473 23 57 55</a>
-    </nav>
+      <button class="hamburger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu openen" data-i18n-attr="aria-label:menu.open">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -50,23 +57,23 @@
       <img src="img/kubota.jpg" alt="" width="1800" height="1350" fetchpriority="high">
     </picture>
     <div class="wrap hero-inhoud">
-      <h1>Land- en tuinbouw&shy;machines</h1>
-      <p>Verkoop, verhuur, onderhoud en herstellingen. Kwaliteit en service op maat, bij Stef Tanghe in Izegem.</p>
+      <h1 data-i18n-html="hero.h1">Land- en tuinbouw&shy;machines</h1>
+      <p data-i18n="hero.p">Verkoop, verhuur, onderhoud en herstellingen. Kwaliteit en service op maat, bij Stef Tanghe in Izegem.</p>
       <div class="knoppen">
-        <a href="verhuur.html" class="btn btn-oranje">Tractor huren</a>
-        <a href="#contact" class="btn btn-rand-wit">Herstelling aanvragen</a>
+        <a href="verhuur.html" class="btn btn-oranje" data-intern data-i18n="nav.huren">Tractor huren</a>
+        <a href="#contact" class="btn btn-rand-wit" data-i18n="hero.herstel">Herstelling aanvragen</a>
       </div>
     </div>
   </section>
 
   <section class="sectie" id="diensten">
     <div class="wrap">
-      <h2 class="sectie-titel">Wat Stef voor u doet</h2>
+      <h2 class="sectie-titel" data-i18n="diensten.titel">Wat Stef voor u doet</h2>
       <div class="diensten">
-        <div class="dienst"><h3>Verkoop</h3><p>Nieuwe en tweedehands machines, gekozen voor uw werk en uw terrein.</p></div>
-        <div class="dienst"><h3>Verhuur</h3><p>Een machine nodig voor een dag of een seizoen? Huur ze bij Stef.</p></div>
-        <div class="dienst"><h3>Onderhoud</h3><p>Een vaste beurt, zodat uw machine klaar is als het seizoen begint.</p></div>
-        <div class="dienst"><h3>Herstellingen</h3><p>Panne? Stef zoekt de oorzaak en zet het snel en vakkundig recht.</p></div>
+        <div class="dienst"><h3 data-i18n="nav.verkoop">Verkoop</h3><p data-i18n="dienst.verkoop">Nieuwe en tweedehands machines, gekozen voor uw werk en uw terrein.</p></div>
+        <div class="dienst"><h3 data-i18n="nav.verhuur">Verhuur</h3><p data-i18n="dienst.verhuur">Een machine nodig voor een dag of een seizoen? Huur ze bij Stef.</p></div>
+        <div class="dienst"><h3 data-i18n="nav.onderhoud">Onderhoud</h3><p data-i18n="dienst.onderhoud">Een vaste beurt, zodat uw machine klaar is als het seizoen begint.</p></div>
+        <div class="dienst"><h3 data-i18n="nav.herstel">Herstellingen</h3><p data-i18n="dienst.herstel">Panne? Stef zoekt de oorzaak en zet het snel en vakkundig recht.</p></div>
       </div>
     </div>
   </section>
@@ -75,12 +82,12 @@
     <div class="huurblok">
       <picture>
         <source srcset="img/kubota-hakselaar.webp" type="image/webp">
-        <img src="img/kubota-hakselaar.jpg" alt="Kubota met hakselaar aangekoppeld" width="1200" height="900" loading="lazy">
+        <img src="img/kubota-hakselaar.jpg" alt="Kubota met hakselaar aangekoppeld" data-i18n-attr="alt:alt.kubota.hakselaar" width="1200" height="900" loading="lazy">
       </picture>
       <div class="huurblok-tekst">
-        <h2>Kubota te huur</h2>
-        <p>Met frontlader, en naar keuze een frees, klepelmaaier of hakselaar. Per dag, weekend of week, vanaf € 110.</p>
-        <a href="verhuur.html" class="btn btn-oranje">Stel uw huur samen</a>
+        <h2 data-i18n="huur.titel">Kubota te huur</h2>
+        <p data-i18n="huur.p">Met frontlader, en naar keuze een frees, klepelmaaier of hakselaar. Per dag, weekend of week, vanaf € 110.</p>
+        <a href="verhuur.html" class="btn btn-oranje" data-intern data-i18n="huur.knop">Stel uw huur samen</a>
       </div>
     </div>
   </section>
@@ -88,7 +95,7 @@
   <section class="sectie aanbod-sectie" id="aanbod">
     <div class="wrap">
       <div class="aanbod-kop">
-        <h2 class="sectie-titel">Nu te koop</h2>
+        <h2 class="sectie-titel" data-i18n="aanbod.titel">Nu te koop</h2>
         <span class="todo">Machines te koop: nog toe te voegen</span>
       </div>
       <div class="aanbod">
@@ -103,13 +110,13 @@
     <div class="wrap over">
       <picture>
         <source srcset="img/bord.webp" type="image/webp">
-        <img src="img/bord.jpg" alt="Het bord van Stef Tanghe langs een veldweg" width="1200" height="1500" loading="lazy">
+        <img src="img/bord.jpg" alt="Het bord van Stef Tanghe langs een veldweg" data-i18n-attr="alt:alt.bord" width="1200" height="1500" loading="lazy">
       </picture>
       <div class="over-tekst">
-        <h2 class="sectie-titel" style="margin: 0">Dit is Stef</h2>
+        <h2 class="sectie-titel" style="margin: 0" data-i18n="over.titel">Dit is Stef</h2>
         <p class="todo">Korte voorstelling van Stef: nog toe te voegen</p>
-        <p>Machines voor land- en tuinbouw, reiniging en meer. Kwaliteit en service op maat.</p>
-        <div class="knoppen"><a href="tel:+32473235755" class="btn btn-groen">Bel Stef: +32 473 23 57 55</a></div>
+        <p data-i18n="over.p">Machines voor land- en tuinbouw, reiniging en meer. Kwaliteit en service op maat.</p>
+        <div class="knoppen"><a href="tel:+32473235755" class="btn btn-groen" data-i18n="bel.stef">Bel Stef: +32 473 23 57 55</a></div>
       </div>
     </div>
   </section>
@@ -119,7 +126,7 @@
   <div class="wrap contact-inner">
     <div>
       <img src="img/logo-vierkant.png" alt="" width="96" height="96" class="contact-logo" loading="lazy">
-      <h2>Machine stil?<br>Bel Stef.</h2>
+      <h2 data-i18n-html="contact.home">Machine stil?<br>Bel Stef.</h2>
       <a href="tel:+32473235755" class="btn btn-oranje" style="font-size: 22px">+32 473 23 57 55</a>
     </div>
     <div class="contact-gegevens">
@@ -130,8 +137,9 @@
     </div>
   </div>
 </footer>
-<div class="voet"><div class="wrap">© <span data-jaar>2026</span> Stef Tanghe – Land- en tuinbouwmachines</div></div>
+<div class="voet"><div class="wrap">© <span data-jaar>2026</span> Stef Tanghe – <span data-i18n="voet.sub">Land- en tuinbouwmachines</span></div></div>
 
+<script src="js/i18n.js"></script>
 <script src="js/main.js" defer></script>
 </body>
 </html>

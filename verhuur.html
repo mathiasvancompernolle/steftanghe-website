@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kubota huren in Izegem – Stef Tanghe</title>
-<meta name="description" content="Huur een Kubota B1820 met frontlader in Izegem, met frees, klepelmaaier of hakselaar. Per dag, weekend of week. Stel uw huur samen en vraag ze aan via WhatsApp.">
+<meta name="i18n-title" content="meta.verhuur.title">
+<meta name="description" data-key="meta.verhuur.desc" content="Huur een Kubota B1820 met frontlader in Izegem, met frees, klepelmaaier of hakselaar. Per dag, weekend of week.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#13782F">
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
@@ -19,26 +20,32 @@
 
 <header class="balk balk-licht" id="balk">
   <div class="wrap balk-inner">
-    <a href="./" class="balk-logo"><img src="img/logo.png" width="700" height="199" alt="Stef Tanghe, land- en tuinbouwmachines"></a>
-    <button class="hamburger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu openen">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-    </button>
-    <nav class="menu" id="menu" aria-label="Hoofdmenu">
-      <div class="dropdown">
-        <button class="menu-knop" type="button" aria-expanded="false" aria-controls="diensten-menu">Diensten
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="dropdown-paneel" id="diensten-menu">
-          <a href="./#aanbod"><strong>Verkoop</strong><span>Nieuwe en tweedehands machines</span></a>
-          <a href="verhuur.html"><strong>Verhuur</strong><span>Kubota met werktuigen, per dag of week</span></a>
-          <a href="./#diensten"><strong>Onderhoud</strong><span>Een vaste beurt voor het seizoen</span></a>
-          <a href="./#diensten"><strong>Herstellingen</strong><span>Snel terug aan het werk na een panne</span></a>
+    <a href="./" class="balk-logo" data-intern><img src="img/logo.png" width="700" height="199" alt="Stef Tanghe, land- en tuinbouwmachines" data-i18n-attr="alt:alt.logo"></a>
+    <div class="balk-rechts">
+      <nav class="menu" id="menu" aria-label="Hoofdmenu">
+        <div class="dropdown">
+          <button class="menu-knop" type="button" aria-expanded="false" aria-controls="diensten-menu"><span data-i18n="nav.diensten">Diensten</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="dropdown-paneel" id="diensten-menu">
+            <a href="./#aanbod" data-intern><strong data-i18n="nav.verkoop">Verkoop</strong><span data-i18n="nav.verkoop.sub">Nieuwe en tweedehands machines</span></a>
+            <a href="verhuur.html" data-intern><strong data-i18n="nav.verhuur">Verhuur</strong><span data-i18n="nav.verhuur.sub">Kubota met werktuigen, per dag of week</span></a>
+            <a href="./#diensten" data-intern><strong data-i18n="nav.onderhoud">Onderhoud</strong><span data-i18n="nav.onderhoud.sub">Een vaste beurt voor het seizoen</span></a>
+            <a href="./#diensten" data-intern><strong data-i18n="nav.herstel">Herstellingen</strong><span data-i18n="nav.herstel.sub">Snel terug aan het werk na een panne</span></a>
+          </div>
         </div>
+        <a href="verhuur.html" data-intern aria-current="page" data-i18n="nav.huren">Tractor huren</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+        <a href="tel:+32473235755" class="btn btn-oranje" data-i18n="nav.bel">Bel 0473 23 57 55</a>
+      </nav>
+      <div class="taalkiezer" id="taalkiezer">
+        <button class="taal-knop" type="button" aria-expanded="false" aria-controls="taal-lijst" aria-label="Taal kiezen"></button>
+        <div class="taal-lijst" id="taal-lijst"></div>
       </div>
-      <a href="verhuur.html" aria-current="page">Tractor huren</a>
-      <a href="#contact">Contact</a>
-      <a href="tel:+32473235755" class="btn btn-oranje">Bel 0473 23 57 55</a>
-    </nav>
+      <button class="hamburger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu openen" data-i18n-attr="aria-label:menu.open">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -47,21 +54,21 @@
     <div class="wrap">
       <div class="pagina-kop-inner">
         <div>
-          <h1>Huur de Kubota</h1>
-          <p class="onder">B1820 met frontlader, werktuigen naar keuze</p>
+          <h1 data-i18n="v.h1">Huur de Kubota</h1>
+          <p class="onder" data-i18n="v.onder">B1820 met frontlader, werktuigen naar keuze</p>
         </div>
-        <p class="intro">Compact genoeg voor de tuin, sterk genoeg voor de weide. Kies wat u wilt doen, Stef zet de juiste werktuigen klaar.</p>
+        <p class="intro" data-i18n="v.intro">Compact genoeg voor de tuin, sterk genoeg voor de weide. Kies wat u wilt doen, Stef zet de juiste werktuigen klaar.</p>
       </div>
       <div class="galerij">
-        <div class="galerij-hoofd"><img id="hoofdfoto" src="img/kubota.jpg" alt="Kubota met frontlader en frees" width="1800" height="1350" fetchpriority="high"></div>
+        <div class="galerij-hoofd"><img id="hoofdfoto" src="img/kubota.jpg" alt="Kubota B1820" width="1800" height="1350" fetchpriority="high"></div>
         <div class="galerij-duimen" id="duimen"></div>
       </div>
     </div>
   </section>
 
   <section class="wrap" style="padding-top: 72px">
-    <h2 class="sectie-titel" style="margin-bottom: 8px">Wat wilt u doen?</h2>
-    <p style="margin-bottom: 24px; color: var(--inkt-zacht)">Kies een klus, dan staan de juiste werktuigen al aangevinkt.</p>
+    <h2 class="sectie-titel" style="margin-bottom: 8px" data-i18n="v.klus.titel">Wat wilt u doen?</h2>
+    <p style="margin-bottom: 24px; color: var(--inkt-zacht)" data-i18n="v.klus.sub">Kies een klus, dan staan de juiste werktuigen al aangevinkt.</p>
     <div class="klussen" id="klussen"></div>
   </section>
 
@@ -69,16 +76,16 @@
     <div class="config">
       <div>
         <div class="stap">
-          <h2>1. Hoe lang?</h2>
+          <h2 data-i18n="v.stap1">1. Hoe lang?</h2>
           <div class="periodes" id="periodes"></div>
         </div>
         <div class="stap">
-          <h2>2. Werktuigen erbij</h2>
-          <p style="color: var(--inkt-zacht)">De frontlader zit altijd inbegrepen.</p>
+          <h2 data-i18n="v.stap2">2. Werktuigen erbij</h2>
+          <p style="color: var(--inkt-zacht)" data-i18n="v.stap2.sub">De frontlader zit altijd inbegrepen.</p>
           <div class="werktuigen" id="werktuigen"></div>
         </div>
         <div class="stap">
-          <label for="startdatum">3. Vanaf wanneer?</label>
+          <label for="startdatum" data-i18n="v.stap3">3. Vanaf wanneer?</label>
           <input type="date" id="startdatum" class="datum">
         </div>
         <div class="specs">
@@ -88,15 +95,15 @@
       </div>
 
       <aside class="samenvatting" aria-labelledby="uw-huur">
-        <h2 id="uw-huur">Uw huur</h2>
+        <h2 id="uw-huur" data-i18n="v.uwhuur">Uw huur</h2>
         <div class="lijnen" id="lijnen" aria-live="polite"></div>
-        <div class="totaal"><span style="font-weight: 600">Totaal</span><strong id="totaal">€ 110</strong></div>
-        <a id="wa-link" class="btn btn-groen" href="https://wa.me/32473235755" target="_blank" rel="noopener">Aanvraag sturen via WhatsApp</a>
+        <div class="totaal"><span style="font-weight: 600" data-i18n="v.totaal">Totaal</span><strong id="totaal">€ 110</strong></div>
+        <a id="wa-link" class="btn btn-groen" href="https://wa.me/32473235755" target="_blank" rel="noopener" data-i18n="v.wa">Aanvraag sturen via WhatsApp</a>
         <div class="alt-links">
-          <a href="tel:+32473235755">Bel 0473 23 57 55</a>
-          <a id="mail-link" href="mailto:info@steftanghe.be">Mail uw aanvraag</a>
+          <a href="tel:+32473235755" data-i18n="nav.bel">Bel 0473 23 57 55</a>
+          <a id="mail-link" href="mailto:info@steftanghe.be" data-i18n="v.mail">Mail uw aanvraag</a>
         </div>
-        <p style="font-size: 15px; color: var(--inkt-zacht)">Stef bevestigt uw reservatie persoonlijk.</p>
+        <p style="font-size: 15px; color: var(--inkt-zacht)" data-i18n="v.bevestigt">Stef bevestigt uw reservatie persoonlijk.</p>
         <div class="todo-blok">
           <span>Btw (incl. of excl.): nog toe te voegen</span>
           <span>Waarborg: nog toe te voegen</span>
@@ -111,7 +118,7 @@
   <div class="wrap contact-inner">
     <div>
       <img src="img/logo-vierkant.png" alt="" width="96" height="96" class="contact-logo" loading="lazy">
-      <h2>Vragen over de huur?<br>Bel Stef.</h2>
+      <h2 data-i18n-html="contact.verhuur">Vragen over de huur?<br>Bel Stef.</h2>
       <a href="tel:+32473235755" class="btn btn-oranje" style="font-size: 22px">+32 473 23 57 55</a>
     </div>
     <div class="contact-gegevens">
@@ -121,8 +128,9 @@
     </div>
   </div>
 </footer>
-<div class="voet"><div class="wrap">© <span data-jaar>2026</span> Stef Tanghe – Land- en tuinbouwmachines</div></div>
+<div class="voet"><div class="wrap">© <span data-jaar>2026</span> Stef Tanghe – <span data-i18n="voet.sub">Land- en tuinbouwmachines</span></div></div>
 
+<script src="js/i18n.js"></script>
 <script src="js/main.js" defer></script>
 <script src="js/verhuur.js" defer></script>
 </body>

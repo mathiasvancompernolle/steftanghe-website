@@ -12,7 +12,7 @@
   }
   function zetMenu(open) {
     hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    hamburger.setAttribute('aria-label', open ? 'Menu sluiten' : 'Menu openen');
+    hamburger.setAttribute('aria-label', window.ST ? window.ST.t(open ? 'menu.sluiten' : 'menu.open') : (open ? 'Menu sluiten' : 'Menu openen'));
     menu.classList.toggle('open', open);
     if (open) balk.classList.add('is-vast'); else updateBalk();
   }

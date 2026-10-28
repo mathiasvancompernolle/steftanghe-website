@@ -1,5 +1,6 @@
 // Verhuurconfigurator Kubota B1820
 // Prijzen aanpassen? Wijzig enkel de tabel TARIEVEN hieronder.
+// Teksten staan in js/i18n.js.
 (function () {
   var TARIEVEN = {
     kubota:       { dag: 110, weekend: 130, week: 450 },
@@ -8,25 +9,21 @@
     hakselaar:    { dag: 110, weekend: 130, week: 330 }
   };
   var WERKTUIGEN = [
-    { id: 'frees', naam: 'Frees', uitleg: 'Grond losmaken en zaaiklaar leggen.', foto: 'img/frees.jpg' },
-    { id: 'klepelmaaier', naam: 'Klepelmaaier', uitleg: 'Hoog gras, ruigte en bermen maaien.', foto: '' },
-    { id: 'hakselaar', naam: 'Hakselaar', uitleg: 'Snoeihout en takken versnipperen.', foto: 'img/hakselaar.jpg' }
+    { id: 'frees', foto: 'img/frees.jpg' },
+    { id: 'klepelmaaier', foto: '' },
+    { id: 'hakselaar', foto: 'img/hakselaar.jpg' }
   ];
   var KLUSSEN = [
-    { id: 'frezen', titel: 'Grond frezen', combo: 'Kubota + frees', zet: ['frees'] },
-    { id: 'hakselen', titel: 'Snoeihout hakselen', combo: 'Kubota + hakselaar', zet: ['hakselaar'] },
-    { id: 'maaien', titel: 'Weide of ruigte maaien', combo: 'Kubota + klepelmaaier', zet: ['klepelmaaier'] },
-    { id: 'verzetten', titel: 'Grond of zand verzetten', combo: 'Kubota met frontlader', zet: [] }
+    { id: 'frezen', zet: ['frees'] },
+    { id: 'hakselen', zet: ['hakselaar'] },
+    { id: 'maaien', zet: ['klepelmaaier'] },
+    { id: 'verzetten', zet: [] }
   ];
-  var FOTOS = [
-    { src: 'img/kubota.jpg', alt: 'Kubota met frontlader en frees' },
-    { src: 'img/kubota-hakselaar.jpg', alt: 'Kubota met hakselaar aangekoppeld' },
-    { src: 'img/frees.jpg', alt: 'Achterkant van de Kubota met frees' },
-    { src: 'img/hakselaar.jpg', alt: 'Pezzolato-hakselaar van dichtbij' }
-  ];
-  var PERIODES = [['dag', 'Dag'], ['weekend', 'Weekend'], ['week', 'Week']];
+  var FOTOS = ['img/kubota.jpg', 'img/kubota-hakselaar.jpg', 'img/frees.jpg', 'img/hakselaar.jpg'];
+  var PERIODES = ['dag', 'weekend', 'week'];
 
-  var staat = { periode: 'dag', gekozen: {}, klus: '', datum: '' };
+  var t = window.ST.t;
+  var staat = { periode: 'dag', gekozen: {}, klus: '', datum: '', foto: 0 };
   var $ = function (id) { return document.getElementById(id); };
   function el(tag, attrs, html) {
     var e = document.createElement(tag);
@@ -34,63 +31,69 @@
     if (html != null) e.innerHTML = html;
     return e;
   }
-  function datumNL(iso) {
+  function datumTekst(iso) {
     if (!iso) return '';
-    var d = new Date(iso + 'T12:00:00');
-    return d.toLocaleDateString('nl-BE', { weekday: 'long', day: 'numeric', month: 'long' });
+    return new Date(iso + 'T12:00:00').toLocaleDateString(window.ST.locale(), { weekday: 'long', day: 'numeric', month: 'long' });
   }
+  function naam(id) { return t('w.' + id); }
 
-  // Galerij
-  FOTOS.forEach(function (f, i) {
-    var b = el('button', { type: 'button', class: 'duim', 'aria-label': f.alt, 'aria-pressed': i === 0 ? 'true' : 'false' },
-      '<img src="' + f.src + '" alt="" loading="lazy">');
+  // Galerij (bouwt één keer)
+  FOTOS.forEach(function (src, i) {
+    var b = el('button', { type: 'button', class: 'duim', 'aria-pressed': i === 0 ? 'true' : 'false', 'aria-label': 'Foto ' + (i + 1) },
+      '<img src="' + src + '" alt="" loading="lazy">');
     b.addEventListener('click', function () {
-      $('hoofdfoto').src = f.src; $('hoofdfoto').alt = f.alt;
+      staat.foto = i; $('hoofdfoto').src = src;
       document.querySelectorAll('.duim').forEach(function (d) { d.setAttribute('aria-pressed', d === b ? 'true' : 'false'); });
     });
     $('duimen').appendChild(b);
   });
 
-  // Klussen
-  KLUSSEN.forEach(function (k) {
-    var b = el('button', { type: 'button', class: 'klus', 'data-klus': k.id, 'aria-pressed': 'false' },
-      '<strong>' + k.titel + '</strong><span>' + k.combo + '</span>');
-    b.addEventListener('click', function () {
-      staat.klus = k.id; staat.gekozen = {};
-      k.zet.forEach(function (id) { staat.gekozen[id] = true; });
-      render();
-    });
-    $('klussen').appendChild(b);
-  });
-
-  // Periodes
-  PERIODES.forEach(function (p) {
-    var b = el('button', { type: 'button', class: 'periode', 'data-periode': p[0] },
-      '<strong>' + p[1] + '</strong><span>Kubota € ' + TARIEVEN.kubota[p[0]] + '</span>');
-    b.addEventListener('click', function () { staat.periode = p[0]; render(); });
-    $('periodes').appendChild(b);
-  });
-
-  // Werktuigen
-  WERKTUIGEN.forEach(function (w) {
-    var beeld = w.foto
-      ? '<img src="' + w.foto + '" alt="" loading="lazy">'
-      : '<span class="geen-foto">Foto nog toe te voegen</span>';
-    var l = el('label', { class: 'werktuig', for: 'wt-' + w.id },
-      beeld + '<span class="werktuig-tekst"><span class="werktuig-kop"><strong>' + w.naam +
-      '</strong><input type="checkbox" id="wt-' + w.id + '"></span><span class="werktuig-uitleg">' + w.uitleg +
-      '</span><span class="werktuig-prijs" data-prijs="' + w.id + '"></span></span>');
-    $('werktuigen').appendChild(l);
-    l.querySelector('input').addEventListener('change', function (e) {
-      staat.gekozen[w.id] = e.target.checked; staat.klus = ''; render();
-    });
-  });
-
   $('startdatum').min = new Date().toISOString().slice(0, 10);
   $('startdatum').addEventListener('change', function (e) { staat.datum = e.target.value; render(); });
 
+  // Klussen, periodes en werktuigen: opnieuw opgebouwd bij taalwissel
+  function bouw() {
+    $('klussen').innerHTML = '';
+    KLUSSEN.forEach(function (k) {
+      var combo = k.zet.length ? 'Kubota + ' + naam(k.zet[0]).toLowerCase() : t('k.lader');
+      var b = el('button', { type: 'button', class: 'klus', 'data-klus': k.id },
+        '<strong>' + t('k.' + k.id) + '</strong><span>' + combo + '</span>');
+      b.addEventListener('click', function () {
+        staat.klus = k.id; staat.gekozen = {};
+        k.zet.forEach(function (id) { staat.gekozen[id] = true; });
+        render();
+      });
+      $('klussen').appendChild(b);
+    });
+
+    $('periodes').innerHTML = '';
+    PERIODES.forEach(function (p) {
+      var b = el('button', { type: 'button', class: 'periode', 'data-periode': p },
+        '<strong>' + t('p.' + p) + '</strong><span>Kubota € ' + TARIEVEN.kubota[p] + '</span>');
+      b.addEventListener('click', function () { staat.periode = p; render(); });
+      $('periodes').appendChild(b);
+    });
+
+    $('werktuigen').innerHTML = '';
+    WERKTUIGEN.forEach(function (w) {
+      var beeld = w.foto
+        ? '<img src="' + w.foto + '" alt="" loading="lazy">'
+        : '<span class="geen-foto">Foto nog toe te voegen</span>';
+      var l = el('label', { class: 'werktuig', for: 'wt-' + w.id },
+        beeld + '<span class="werktuig-tekst"><span class="werktuig-kop"><strong>' + naam(w.id) +
+        '</strong><input type="checkbox" id="wt-' + w.id + '"></span><span class="werktuig-uitleg">' + t('w.' + w.id + '.uitleg') +
+        '</span><span class="werktuig-prijs" data-prijs="' + w.id + '"></span></span>');
+      $('werktuigen').appendChild(l);
+      l.querySelector('input').addEventListener('change', function (e) {
+        staat.gekozen[w.id] = e.target.checked; staat.klus = ''; render();
+      });
+    });
+    render();
+  }
+
   function render() {
     var per = staat.periode;
+    var perWoord = t('pk.' + per);
     document.querySelectorAll('.periode').forEach(function (b) {
       b.setAttribute('aria-pressed', b.dataset.periode === per ? 'true' : 'false');
     });
@@ -101,27 +104,30 @@
       var aan = !!staat.gekozen[w.id];
       $('wt-' + w.id).checked = aan;
       $('wt-' + w.id).closest('.werktuig').classList.toggle('gekozen', aan);
-      document.querySelector('[data-prijs="' + w.id + '"]').textContent = '+ € ' + TARIEVEN[w.id][per] + ' per ' + per;
+      document.querySelector('[data-prijs="' + w.id + '"]').textContent = '+ € ' + TARIEVEN[w.id][per] + ' ' + t('per') + ' ' + perWoord;
     });
 
-    var lijnen = [['Kubota B1820 + frontlader', TARIEVEN.kubota[per]]];
-    WERKTUIGEN.forEach(function (w) { if (staat.gekozen[w.id]) lijnen.push([w.naam, TARIEVEN[w.id][per]]); });
+    var lijnen = [[t('lijn.kubota'), TARIEVEN.kubota[per]]];
+    WERKTUIGEN.forEach(function (w) { if (staat.gekozen[w.id]) lijnen.push([naam(w.id), TARIEVEN[w.id][per]]); });
     var totaal = lijnen.reduce(function (s, l) { return s + l[1]; }, 0);
+    var vanaf = staat.datum ? ', ' + t('vanaf') + ' ' + datumTekst(staat.datum) : '';
 
     var html = lijnen.map(function (l) {
       return '<div class="lijn"><span>' + l[0] + '</span><span style="font-weight:600">€ ' + l[1] + '</span></div>';
     }).join('');
-    html += '<div class="lijn lijn-zacht"><span>Periode</span><span>1 ' + per + (staat.datum ? ', vanaf ' + datumNL(staat.datum) : '') + '</span></div>';
+    html += '<div class="lijn lijn-zacht"><span>' + t('periode') + '</span><span>1 ' + perWoord + vanaf + '</span></div>';
     $('lijnen').innerHTML = html;
     $('totaal').textContent = '€ ' + totaal;
 
-    var namen = WERKTUIGEN.filter(function (w) { return staat.gekozen[w.id]; }).map(function (w) { return w.naam.toLowerCase(); });
-    var tekst = 'Hallo Stef, ik wil graag de Kubota huren voor 1 ' + per +
-      (staat.datum ? ', vanaf ' + datumNL(staat.datum) : '') +
-      (namen.length ? ', met ' + namen.join(' en ') : '') +
-      '. Totaal volgens de website: € ' + totaal + '.';
+    var namen = WERKTUIGEN.filter(function (w) { return staat.gekozen[w.id]; }).map(function (w) { return naam(w.id).toLowerCase(); });
+    if (window.ST.taal() === 'de') namen = WERKTUIGEN.filter(function (w) { return staat.gekozen[w.id]; }).map(function (w) { return naam(w.id); });
+    var tekst = t('msg.start') + ' ' + perWoord + vanaf +
+      (namen.length ? ', ' + t('msg.met') + ' ' + namen.join(' ' + t('en') + ' ') : '') +
+      t('msg.de.huren') + '. ' + t('msg.eind') + ' € ' + totaal + '.';
     $('wa-link').href = 'https://wa.me/32473235755?text=' + encodeURIComponent(tekst);
-    $('mail-link').href = 'mailto:info@steftanghe.be?subject=' + encodeURIComponent('Huuraanvraag Kubota') + '&body=' + encodeURIComponent(tekst);
+    $('mail-link').href = 'mailto:info@steftanghe.be?subject=' + encodeURIComponent(t('msg.onderwerp')) + '&body=' + encodeURIComponent(tekst);
   }
-  render();
+
+  document.addEventListener('taal', bouw);
+  bouw();
 })();
