@@ -76,8 +76,8 @@ p { margin: 0; }
   .hamburger { display: inline-flex; }
   .balk-logo img { height: 48px; }
   /* Zijmenu dat van rechts inschuift */
-  .menu { display: flex; position: fixed; top: 0; right: 0; bottom: 0; width: min(84vw, 380px); flex-direction: column; align-items: stretch; gap: 0; background: #0B2E17; color: #fff; padding: 88px 28px 32px; overflow-y: auto; transform: translateX(100%); visibility: hidden; transition: transform 0.35s cubic-bezier(.2,.7,.2,1), visibility 0s linear 0.35s; z-index: 2; }
-  .menu.open { transform: translateX(0); visibility: visible; transition: transform 0.35s cubic-bezier(.2,.7,.2,1), visibility 0s; }
+  .menu { display: flex; position: fixed; top: 0; right: 0; bottom: 0; width: min(84vw, 380px); flex-direction: column; align-items: stretch; gap: 0; background: #0B2E17; color: #fff; padding: 88px 28px 32px; overflow-y: auto; transform: translateX(100%); visibility: hidden; transition: transform 0.5s cubic-bezier(.2,.7,.2,1), visibility 0s linear 0.5s; z-index: 2; }
+  .menu.open { transform: translateX(0); visibility: visible; transition: transform 0.5s cubic-bezier(.2,.7,.2,1), visibility 0s; }
   .menu-sluit { display: inline-flex; position: absolute; top: 20px; right: 16px; width: 48px; height: 48px; align-items: center; justify-content: center; background: none; border: 0; color: #fff; cursor: pointer; }
   .menu > a:not(.btn), .menu-knop, .balk-transparant:not(.is-vast) .menu > a:not(.btn), .balk-transparant:not(.is-vast) .menu-knop { color: #fff; font-family: var(--cond); font-weight: 700; font-size: 26px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.18); }
   .menu > a[aria-current="page"] { color: #FFB27F; text-decoration: none; }
@@ -92,7 +92,7 @@ p { margin: 0; }
   .menu-sociaal { display: flex; gap: 8px; margin-top: 28px; }
   .menu-sociaal a { display: inline-flex; width: 48px; height: 48px; align-items: center; justify-content: center; color: #fff; border-radius: 50%; }
   .menu-sociaal a:hover { background: rgba(255,255,255,0.1); color: #fff; }
-  .menu-achtergrond { display: block; position: fixed; inset: 0; background: rgba(5, 15, 9, 0.6); opacity: 0; pointer-events: none; transition: opacity 0.35s; z-index: 1; }
+  .menu-achtergrond { display: block; position: fixed; inset: 0; background: rgba(5, 15, 9, 0.6); opacity: 0; pointer-events: none; transition: opacity 0.5s; z-index: 1; }
   .menu-achtergrond.open { opacity: 1; pointer-events: auto; }
   body.menu-open { overflow: hidden; }
 }
