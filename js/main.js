@@ -10,20 +10,26 @@
     dropKnop.setAttribute('aria-expanded', open ? 'true' : 'false');
     dropPaneel.classList.toggle('open', open);
   }
+  var sluitKnop = menu.querySelector('.menu-sluit');
+  var achtergrond = document.querySelector('.menu-achtergrond');
   function zetMenu(open) {
+    var wasOpen = menu.classList.contains('open');
     hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    hamburger.setAttribute('aria-label', window.ST ? window.ST.t(open ? 'menu.sluiten' : 'menu.open') : (open ? 'Menu sluiten' : 'Menu openen'));
     menu.classList.toggle('open', open);
-    if (open) balk.classList.add('is-vast'); else updateBalk();
+    if (achtergrond) achtergrond.classList.toggle('open', open);
+    document.body.classList.toggle('menu-open', open);
+    if (open && sluitKnop) setTimeout(function () { sluitKnop.focus(); }, 50);
+    if (!open && wasOpen) { zetDropdown(false); hamburger.focus(); }
   }
 
   dropKnop.addEventListener('click', function (e) {
     e.stopPropagation();
     zetDropdown(dropKnop.getAttribute('aria-expanded') !== 'true');
   });
-  hamburger.addEventListener('click', function () {
-    zetMenu(hamburger.getAttribute('aria-expanded') !== 'true');
-  });
+  hamburger.addEventListener('click', function () { zetMenu(true); });
+  if (sluitKnop) sluitKnop.addEventListener('click', function () { zetMenu(false); });
+  if (achtergrond) achtergrond.addEventListener('click', function () { zetMenu(false); });
+  window.matchMedia('(min-width: 901px)').addEventListener('change', function (e) { if (e.matches) zetMenu(false); });
   document.addEventListener('click', function (e) {
     if (!dropPaneel.contains(e.target) && e.target !== dropKnop) zetDropdown(false);
   });

@@ -68,17 +68,35 @@ p { margin: 0; }
 .dropdown-paneel a:hover { background: var(--grond); color: var(--inkt); }
 .dropdown-paneel strong { font-family: var(--cond); font-weight: 700; font-size: 22px; line-height: 1.1; }
 .dropdown-paneel span { font-size: 15px; color: var(--inkt-zacht); }
-.hamburger { display: none; background: var(--plaat); border: 0; border-radius: 10px; width: 48px; height: 48px; align-items: center; justify-content: center; cursor: pointer; color: var(--inkt); }
+.hamburger { display: none; background: none; border: 0; width: 48px; height: 48px; align-items: center; justify-content: center; cursor: pointer; color: var(--inkt); }
+.balk-transparant:not(.is-vast) .hamburger { color: #fff; }
+.menu-sluit, .menu-sociaal, .menu-achtergrond { display: none; }
 
 @media (max-width: 900px) {
   .hamburger { display: inline-flex; }
   .balk-logo img { height: 48px; }
-  .menu { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 4px; background: var(--plaat); padding: 12px 20px 20px; box-shadow: 0 16px 32px rgba(18,36,26,0.18); }
-  .menu.open { display: flex; }
-  .menu > a, .menu-knop, .balk-transparant:not(.is-vast) .menu > a:not(.btn), .balk-transparant:not(.is-vast) .menu-knop { color: var(--inkt); padding: 10px 0; font-size: 19px; }
-  .menu .btn { margin-top: 8px; }
-  .dropdown-paneel { position: static; width: auto; margin: 0 0 8px; box-shadow: none; background: var(--grond); }
+  /* Zijmenu dat van rechts inschuift */
+  .menu { display: flex; position: fixed; top: 0; right: 0; bottom: 0; width: min(84vw, 380px); flex-direction: column; align-items: stretch; gap: 0; background: #0B2E17; color: #fff; padding: 88px 28px 32px; overflow-y: auto; transform: translateX(100%); visibility: hidden; transition: transform 0.35s cubic-bezier(.2,.7,.2,1), visibility 0s linear 0.35s; z-index: 2; }
+  .menu.open { transform: translateX(0); visibility: visible; transition: transform 0.35s cubic-bezier(.2,.7,.2,1), visibility 0s; }
+  .menu-sluit { display: inline-flex; position: absolute; top: 20px; right: 16px; width: 48px; height: 48px; align-items: center; justify-content: center; background: none; border: 0; color: #fff; cursor: pointer; }
+  .menu > a:not(.btn), .menu-knop, .balk-transparant:not(.is-vast) .menu > a:not(.btn), .balk-transparant:not(.is-vast) .menu-knop { color: #fff; font-family: var(--cond); font-weight: 700; font-size: 26px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.18); }
+  .menu > a[aria-current="page"] { color: #FFB27F; text-decoration: none; }
+  .dropdown { border-bottom: 1px solid rgba(255,255,255,0.18); }
+  .menu-knop { width: 100%; justify-content: space-between; border-bottom: 0 !important; }
+  .dropdown-paneel { position: static; width: auto; margin: 0 0 12px; padding: 0; box-shadow: none; background: none; }
+  .dropdown-paneel a { color: #fff; padding: 10px 0 10px 4px; }
+  .dropdown-paneel a:hover { background: none; color: #FFB27F; }
+  .dropdown-paneel strong { font-size: 20px; }
+  .dropdown-paneel span { color: #B9CBB9; }
+  .menu .btn { margin-top: 28px; }
+  .menu-sociaal { display: flex; gap: 8px; margin-top: 28px; }
+  .menu-sociaal a { display: inline-flex; width: 48px; height: 48px; align-items: center; justify-content: center; color: #fff; border-radius: 50%; }
+  .menu-sociaal a:hover { background: rgba(255,255,255,0.1); color: #fff; }
+  .menu-achtergrond { display: block; position: fixed; inset: 0; background: rgba(5, 15, 9, 0.6); opacity: 0; pointer-events: none; transition: opacity 0.35s; z-index: 1; }
+  .menu-achtergrond.open { opacity: 1; pointer-events: auto; }
+  body.menu-open { overflow: hidden; }
 }
+@media (prefers-reduced-motion: reduce) { .menu, .menu.open { transition: none; } }
 
 /* ---------- Hero ---------- */
 .hero { position: relative; min-height: 100svh; min-height: 100vh; display: flex; align-items: flex-end; background: #0E1A12; color: #fff; overflow: hidden; }
