@@ -49,7 +49,8 @@ p { margin: 0; }
 .todo { color: var(--todo); border: 1px dashed var(--oranje); border-radius: 8px; padding: 2px 8px; font-size: 0.9em; }
 
 /* ---------- Menubalk ---------- */
-.balk { position: fixed; top: 0; left: 0; right: 0; z-index: 50; transition: background 0.25s, box-shadow 0.25s; }
+.balk { position: fixed; top: 0; left: 0; right: 0; z-index: 50; transition: background 0.25s, box-shadow 0.25s, transform 0.3s ease; }
+.balk.is-weg { transform: translateY(-100%); box-shadow: none; }
 .balk-licht, .balk.is-vast { background: rgba(231, 235, 228, 0.97); box-shadow: 0 1px 0 var(--lijn); }
 .balk-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 14px; padding-bottom: 14px; }
 .balk-logo img { height: 58px; width: auto; }

@@ -39,7 +39,29 @@
     if (menu.classList.contains('open')) return;
     balk.classList.toggle('is-vast', window.scrollY > 40);
   }
-  window.addEventListener('scroll', updateBalk, { passive: true });
+
+  // Balk verdwijnt bij naar beneden scrollen, komt terug bij naar boven scrollen
+  var vorige = window.scrollY;
+  function iets_open() {
+    return menu.classList.contains('open') ||
+      dropPaneel.classList.contains('open') ||
+      !!document.querySelector('.taal-lijst.open');
+  }
+  function verberg() {
+    var y = window.scrollY;
+    var verschil = y - vorige;
+    if (y < 120 || iets_open()) {
+      balk.classList.remove('is-weg');
+    } else if (verschil > 6) {
+      balk.classList.add('is-weg');
+      zetDropdown(false);
+    } else if (verschil < -6) {
+      balk.classList.remove('is-weg');
+    }
+    if (Math.abs(verschil) > 6) vorige = y;
+  }
+  window.addEventListener('scroll', function () { updateBalk(); verberg(); }, { passive: true });
+  balk.addEventListener('focusin', function () { balk.classList.remove('is-weg'); });
   updateBalk();
 
   document.querySelectorAll('[data-jaar]').forEach(function (el) {
