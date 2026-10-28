@@ -46,6 +46,11 @@
     'voet.sub': { nl: 'Land- en tuinbouwmachines', en: 'Agricultural and garden machinery', fr: 'Machines agricoles et de jardin', de: 'Land- und Gartenbaumaschinen' },
     'alt.logo': { nl: 'Stef Tanghe, land- en tuinbouwmachines', en: 'Stef Tanghe, agricultural and garden machinery', fr: 'Stef Tanghe, machines agricoles et de jardin', de: 'Stef Tanghe, Land- und Gartenbaumaschinen' },
 
+    'voet.voorwaarden': { nl: 'Huurvoorwaarden', en: 'Rental terms', fr: 'Conditions de location', de: 'Mietbedingungen' },
+    'voet.privacy': { nl: 'Privacybeleid', en: 'Privacy policy', fr: 'Politique de confidentialité', de: 'Datenschutz' },
+    'meta.privacy': { nl: 'Privacybeleid – Stef Tanghe', en: 'Privacy policy – Stef Tanghe', fr: 'Politique de confidentialité – Stef Tanghe', de: 'Datenschutz – Stef Tanghe' },
+    'meta.voorwaarden': { nl: 'Huurvoorwaarden – Stef Tanghe', en: 'Rental terms – Stef Tanghe', fr: 'Conditions de location – Stef Tanghe', de: 'Mietbedingungen – Stef Tanghe' },
+
     // Homepage
     'hero.h1': { nl: 'Land- en tuinbouw&shy;machines', en: 'Agricultural &amp; garden machinery', fr: 'Machines agricoles et de jardin', de: 'Land- und Garten&shy;bau&shy;maschinen' },
     'hero.p': { nl: 'Verkoop, verhuur, onderhoud en herstellingen. Kwaliteit en service op maat, bij Stef Tanghe in Izegem.', en: 'Sales, rental, maintenance and repairs. Quality and tailored service from Stef Tanghe in Izegem.', fr: 'Vente, location, entretien et réparations. Qualité et service sur mesure, chez Stef Tanghe à Izegem.', de: 'Verkauf, Vermietung, Wartung und Reparaturen. Qualität und maßgeschneiderter Service bei Stef Tanghe in Izegem.' },
