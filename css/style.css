@@ -255,23 +255,84 @@ p { margin: 0; }
 .categorie li { padding: 10px 0; border-bottom: 1px solid var(--lijn); }
 
 /* ---------- Verkooppagina ---------- */
-.filterbalk { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 32px; }
-.filters { display: flex; flex-wrap: wrap; gap: 10px; }
-.filter { min-height: 48px; padding: 10px 18px; border-radius: 999px; border: 2px solid var(--groen); background: var(--plaat); color: var(--inkt); font: inherit; font-weight: 600; cursor: pointer; }
-.filter span { font-weight: 500; color: var(--inkt-zacht); margin-left: 4px; }
-.filter[aria-pressed="true"] { background: var(--groen); color: #fff; }
-.filter[aria-pressed="true"] span { color: #CFE3D2; }
-.teller { color: var(--inkt-zacht); }
-.producten { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 20px; }
-.product { background: var(--plaat); border-radius: 20px; border-top: 8px solid var(--groen); padding: 24px; display: flex; flex-direction: column; gap: 10px; }
-.product-reiniging { border-top-color: var(--oranje); }
-.product-aanbouw { border-top-color: #0B2E17; }
-.product-cat { font-size: 15px; font-weight: 600; color: var(--groen); }
-.product h2 { font-weight: 700; font-size: 32px; line-height: 1.05; }
-.product-tekst { color: var(--inkt-zacht); }
+.kruimel { font-size: 15px; color: var(--inkt-zacht); margin-bottom: 16px; }
+.kruimel a { color: var(--inkt-zacht); }
+.kruimel a:hover { color: var(--groen); }
+.verkoop-layout { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 40px; align-items: start; padding-top: 48px; padding-bottom: 96px; }
+.filter-knop { display: none; }
+.filterpaneel { position: sticky; top: 24px; background: var(--plaat); border-radius: 20px; padding: 24px; max-height: calc(100vh - 48px); overflow-y: auto; }
+.filter-kop { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 16px; }
+.filter-kop h2 { font-weight: 800; font-size: 32px; }
+.wis { background: none; border: 0; padding: 0; font: inherit; font-size: 15px; color: var(--groen); text-decoration: underline; cursor: pointer; min-height: 44px; }
+.zoekveld { position: relative; margin-bottom: 20px; }
+.zoekveld svg { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--inkt-zacht); }
+.zoekveld input { width: 100%; min-height: 48px; padding: 0 14px 0 42px; border: 2px solid #8FA394; border-radius: 12px; font: inherit; background: #fff; color: var(--inkt); }
+.filterpaneel fieldset { border: 0; padding: 0; margin: 0 0 20px; }
+.filterpaneel legend { font-family: var(--cond); font-weight: 700; font-size: 22px; margin-bottom: 6px; padding: 0; }
+.filterpaneel ul { list-style: none; margin: 0; padding: 0; }
+.vink { display: flex; align-items: center; gap: 10px; min-height: 36px; cursor: pointer; font-size: 16px; }
+.vink input { width: 20px; height: 20px; accent-color: var(--groen); flex: none; margin: 0; }
+.vink .aantal { color: var(--inkt-zacht); margin-left: auto; font-size: 14px; }
+.vink.leeg { color: #8C978F; }
+.teller { color: var(--inkt-zacht); margin-bottom: 16px; }
+.geen { padding: 32px; background: var(--plaat); border-radius: 20px; }
+.producten { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 20px; }
+.product { display: flex; flex-direction: column; background: var(--plaat); border-radius: 20px; overflow: hidden; color: var(--inkt); text-decoration: none; border: 2px solid transparent; transition: border-color 0.2s, transform 0.2s; }
+.product:hover { color: var(--inkt); border-color: var(--groen); transform: translateY(-2px); }
+.product-beeld { display: block; aspect-ratio: 16 / 10; background: var(--groen); }
+.product-beeld img { width: 100%; height: 100%; object-fit: cover; }
+.kaart-zonder-foto { display: flex; align-items: flex-end; height: 100%; padding: 14px 18px; box-sizing: border-box; font-size: 14px; color: rgba(255,255,255,0.75); background-image: repeating-linear-gradient(135deg, rgba(255,255,255,0.06) 0 12px, transparent 12px 24px); }
+.product-reiniging .product-beeld, .product-reiniging.detail-zonder-foto { background: var(--oranje); }
+.product-reiniging .kaart-zonder-foto { color: rgba(18,36,26,0.7); }
+.product-bouw .product-beeld, .product-bouw.detail-zonder-foto { background: #0B2E17; }
+.product-gereedschap .product-beeld, .product-gereedschap.detail-zonder-foto { background: #3D4F43; }
+.product-aanbouw .product-beeld, .product-aanbouw.detail-zonder-foto { background: #2E6B3E; }
+.product-body { display: flex; flex-direction: column; gap: 8px; padding: 20px; flex: 1; }
+.product-cat { font-size: 14px; font-weight: 600; color: var(--groen); }
+.product-titel { font-family: var(--cond); font-weight: 700; font-size: 28px; line-height: 1.05; }
+.product-tekst { color: var(--inkt-zacht); font-size: 16px; }
 .product-merken { font-size: 15px; font-weight: 600; }
-.product-merken.todo { align-self: flex-start; font-weight: 400; }
-.product-knoppen { margin-top: auto; padding-top: 8px; display: flex; flex-wrap: wrap; gap: 10px; }
-.product-knoppen .btn { min-height: 48px; padding: 10px 18px; }
-.categorie h3 a { color: inherit; text-decoration: none; }
-.categorie h3 a:hover { color: var(--groen); text-decoration: underline; }
+.product-actie { margin-top: auto; padding-top: 10px; font-weight: 600; color: var(--groen); }
+@media (max-width: 900px) {
+  .verkoop-layout { grid-template-columns: 1fr; gap: 16px; }
+  .filter-knop { display: inline-flex; gap: 8px; justify-self: start; }
+  .filterpaneel { display: none; position: static; max-height: none; }
+  .filterpaneel.open { display: block; }
+}
+
+/* Detail */
+.detail-kop h1 { font-size: clamp(48px, 7vw, 112px); }
+.detail-beeld:has(.todo) { margin-bottom: -24px; }
+.detail-beeld img, .detail-zonder-foto { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; border-radius: 24px; }
+.detail-zonder-foto { display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; gap: 12px; padding: 32px; box-sizing: border-box; background: var(--groen); color: #fff; font-family: var(--cond); font-weight: 800; font-size: clamp(40px, 6vw, 88px); line-height: 0.9; }
+.detail-zonder-foto .todo { font-family: "Barlow", sans-serif; font-weight: 400; font-size: 15px; color: #FFE2CF; border-color: #FFB27F; }
+.detail-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 48px; margin-top: 48px; align-items: start; }
+@media (max-width: 960px) { .detail-grid { grid-template-columns: 1fr; } }
+.detail-tekst { display: flex; flex-direction: column; gap: 14px; max-width: 70ch; }
+.detail-tekst h2 { font-weight: 700; font-size: 34px; margin-top: 16px; }
+.detail-intro { font-size: 22px; line-height: 1.45; }
+.detail-merken { background: var(--plaat); border-radius: 16px; padding: 20px 24px; }
+.detail-merken h2 { font-size: 22px; margin: 0 0 4px; }
+.detail-merken p { font-weight: 600; font-size: 19px; }
+.terug { font-weight: 600; }
+.offerte { position: sticky; top: 104px; background: var(--plaat); border: 12px solid var(--groen); border-radius: 32px; padding: 28px; display: flex; flex-direction: column; gap: 16px; }
+.offerte h2 { font-weight: 800; font-size: 34px; color: var(--groen); }
+.offerte form { display: flex; flex-direction: column; gap: 6px; }
+.offerte label { font-weight: 600; margin-top: 8px; }
+.offerte input, .offerte textarea { width: 100%; min-height: 48px; padding: 10px 14px; border: 2px solid #8FA394; border-radius: 12px; font: inherit; background: #fff; color: var(--inkt); }
+.offerte .btn { margin-top: 16px; width: 100%; }
+@media (max-width: 960px) { .offerte { position: static; } }
+
+/* Homepage: categorietegels */
+.categorie-tegels { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 1200px) { .categorie-tegels { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 700px) { .categorie-tegels { grid-template-columns: 1fr; } }
+.cat-tegel { display: flex; flex-direction: column; gap: 6px; min-height: 200px; padding: 24px; border-radius: 20px; background: var(--groen); color: #fff; text-decoration: none; transition: transform 0.2s; }
+.cat-tegel:hover { color: #fff; transform: translateY(-3px); }
+.cat-tegel.product-reiniging { background: var(--oranje); color: var(--inkt); }
+.cat-tegel.product-bouw { background: #0B2E17; }
+.cat-tegel.product-gereedschap { background: #3D4F43; }
+.cat-tegel.product-aanbouw { background: #2E6B3E; }
+.cat-tegel-naam { font-family: var(--cond); font-weight: 800; font-size: clamp(24px, 1.9vw, 34px); line-height: 1; overflow-wrap: anywhere; hyphens: auto; }
+.cat-tegel-aantal { font-weight: 600; opacity: 0.9; }
+.cat-tegel-vb { margin-top: auto; font-size: 15px; opacity: 0.85; }

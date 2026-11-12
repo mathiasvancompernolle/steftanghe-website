@@ -112,6 +112,35 @@
     'contact.verkoop': { nl: 'Op zoek naar een machine?<br>Bel Stef.', en: 'Looking for a machine?<br>Call Stef.', fr: 'Vous cherchez une machine ?<br>Appelez Stef.', de: 'Sie suchen eine Maschine?<br>Rufen Sie Stef an.' },
     'aanbod.alles': { nl: 'Bekijk het volledige aanbod', en: 'See the full range', fr: 'Voir toute l’offre', de: 'Gesamtes Angebot ansehen' },
 
+    'kr.home': { nl: 'Home', en: 'Home', fr: 'Accueil', de: 'Startseite' },
+    'vk.filter': { nl: 'Filter', en: 'Filter', fr: 'Filtrer', de: 'Filter' },
+    'vk.wis': { nl: 'Verwijder alle filters', en: 'Clear all filters', fr: 'Supprimer tous les filtres', de: 'Alle Filter entfernen' },
+    'vk.zoek': { nl: 'Zoeken', en: 'Search', fr: 'Rechercher', de: 'Suchen' },
+    'vk.percat': { nl: 'Volgens categorie', en: 'By category', fr: 'Par catégorie', de: 'Nach Kategorie' },
+    'vk.permerk': { nl: 'Volgens merk', en: 'By brand', fr: 'Par marque', de: 'Nach Marke' },
+    'vk.geen': { nl: 'Geen machines gevonden. Pas je filters aan of bel Stef: hij zoekt het voor je uit.', en: 'No machines found. Adjust your filters or call Stef: he will look into it for you.', fr: 'Aucune machine trouvée. Modifiez vos filtres ou appelez Stef : il cherche pour vous.', de: 'Keine Maschinen gefunden. Passen Sie die Filter an oder rufen Sie Stef an.' },
+    'vk.resultaat': { nl: 'resultaat', en: 'result', fr: 'résultat', de: 'Ergebnis' },
+    'vk.resultaten': { nl: 'resultaten', en: 'results', fr: 'résultats', de: 'Ergebnisse' },
+    'vk.meerinfo': { nl: 'Meer info', en: 'More info', fr: 'Plus d’infos', de: 'Mehr Infos' },
+    'vk.kopen': { nl: 'Kopen', en: 'Buy', fr: 'Acheter', de: 'Kaufen' },
+    'vd.merken': { nl: 'Merken', en: 'Brands', fr: 'Marques', de: 'Marken' },
+    'vd.h.advies': { nl: 'Advies op maat', en: 'Tailored advice', fr: 'Conseils sur mesure', de: 'Persönliche Beratung' },
+    'vd.advies': { nl: 'Elke tuin en elk werk is anders. Stef bekijkt samen met jou welk model past bij je oppervlakte, terrein en gebruik, en laat je waar mogelijk eerst proberen.', en: 'Every garden and every job is different. Stef helps you choose the model that fits your area, terrain and use, and where possible lets you try it first.', fr: 'Chaque jardin et chaque travail est différent. Stef vous aide à choisir le modèle adapté à votre surface, votre terrain et votre usage, et vous laisse l’essayer si possible.', de: 'Jeder Garten und jede Arbeit ist anders. Stef hilft Ihnen, das passende Modell für Fläche, Gelände und Einsatz zu finden, und lässt Sie wenn möglich vorher testen.' },
+    'vd.h.service': { nl: 'Onderhoud en herstellingen', en: 'Servicing and repairs', fr: 'Entretien et réparations', de: 'Wartung und Reparaturen' },
+    'vd.service': { nl: 'Na aankoop blijf je welkom in onze werkplaats voor onderhoud en herstellingen. We hebben steeds een ruime voorraad wisselstukken, ook voor andere merken zoals Honda en Husqvarna.', en: 'After purchase you remain welcome in our workshop for servicing and repairs. We always keep a large stock of spare parts, also for other brands such as Honda and Husqvarna.', fr: 'Après l’achat, notre atelier reste à votre service pour l’entretien et les réparations. Nous avons toujours un large stock de pièces, aussi pour d’autres marques comme Honda et Husqvarna.', de: 'Nach dem Kauf sind Sie in unserer Werkstatt für Wartung und Reparatur willkommen. Wir haben stets einen großen Ersatzteilvorrat, auch für andere Marken wie Honda und Husqvarna.' },
+    'vd.h.regio': { nl: '{x} kopen in Izegem en omgeving', en: '{x} in Izegem and the surrounding area', fr: '{x} à Izegem et environs', de: '{x} in Izegem und Umgebung' },
+    'vd.regio': { nl: 'Je vindt ons in Izegem, vlak bij Meulebeke, Ingelmunster, Lendelede, Emelgem en Kachtem. Geen vaste openingsuren: bel of stuur even een bericht en we spreken af.', en: 'You will find us in Izegem, close to Meulebeke, Ingelmunster, Lendelede, Emelgem and Kachtem. No fixed opening hours: call or send a message and we will arrange a time.', fr: 'Vous nous trouvez à Izegem, près de Meulebeke, Ingelmunster, Lendelede, Emelgem et Kachtem. Pas d’horaires fixes : appelez ou envoyez un message pour convenir d’un moment.', de: 'Sie finden uns in Izegem, nahe Meulebeke, Ingelmunster, Lendelede, Emelgem und Kachtem. Keine festen Öffnungszeiten: rufen Sie an oder schreiben Sie, dann vereinbaren wir einen Termin.' },
+    'vd.terug': { nl: 'Naar overzicht verkoop', en: 'Back to all products', fr: 'Retour à l’aperçu', de: 'Zur Verkaufsübersicht' },
+    'vd.offerte': { nl: 'Vraag offerte aan', en: 'Request a quote', fr: 'Demander un devis', de: 'Angebot anfragen' },
+    'vd.naam': { nl: 'Naam', en: 'Name', fr: 'Nom', de: 'Name' },
+    'vd.tel': { nl: 'Telefoon', en: 'Phone', fr: 'Téléphone', de: 'Telefon' },
+    'vd.bericht': { nl: 'Bericht', en: 'Message', fr: 'Message', de: 'Nachricht' },
+    'vd.verstuur': { nl: 'Verstuur via WhatsApp', en: 'Send via WhatsApp', fr: 'Envoyer via WhatsApp', de: 'Per WhatsApp senden' },
+    'vd.msg.offerte': { nl: 'Graag een offerte.', en: 'I would like a quote.', fr: 'Je souhaite recevoir un devis.', de: 'Ich hätte gerne ein Angebot.' },
+    'vd.meta': { nl: 'Te koop bij Stef Tanghe in Izegem, met onderhoud in eigen werkplaats.', en: 'For sale at Stef Tanghe in Izegem, with servicing in our own workshop.', fr: 'En vente chez Stef Tanghe à Izegem, avec entretien dans notre atelier.', de: 'Erhältlich bei Stef Tanghe in Izegem, mit Wartung in eigener Werkstatt.' },
+    'aanbod.machine': { nl: 'machine', en: 'machine', fr: 'machine', de: 'Maschine' },
+    'aanbod.machines': { nl: 'machines', en: 'machines', fr: 'machines', de: 'Maschinen' },
+
     // Verhuurpagina
     'v.h1': { nl: 'Huur de Kubota', en: 'Rent the Kubota', fr: 'Louez le Kubota', de: 'Mieten Sie den Kubota' },
     'v.onder': { nl: 'B1820 met frontlader, werktuigen naar keuze', en: 'B1820 with front loader, implements of your choice', fr: 'B1820 avec chargeur frontal, outils au choix', de: 'B1820 mit Frontlader, Anbaugeräte nach Wahl' },
@@ -237,6 +266,13 @@
     pasToe();
   }
 
-  window.ST = { t: t, taal: function () { return huidig; }, locale: function () { return TALEN[huidig].locale; }, zet: zet };
+  function link(h) {
+    if (huidig === 'nl') return h;
+    var hash = '', i = h.indexOf('#');
+    if (i > -1) { hash = h.slice(i); h = h.slice(0, i); }
+    return h + (h.indexOf('?') > -1 ? '&' : '?') + 'lang=' + huidig + hash;
+  }
+
+  window.ST = { link: link, t: t, taal: function () { return huidig; }, locale: function () { return TALEN[huidig].locale; }, zet: zet };
   pasToe();
 })();

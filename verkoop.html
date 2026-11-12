@@ -65,6 +65,7 @@
 <main>
   <section class="pagina-kop">
     <div class="wrap">
+      <nav class="kruimel" aria-label="Kruimelpad"><a href="./" data-intern data-i18n="kr.home">Home</a> <span aria-hidden="true">»</span> <span data-i18n="vk.h1">Verkoop</span></nav>
       <div class="pagina-kop-inner">
         <div>
           <h1 data-i18n="vk.h1">Verkoop</h1>
@@ -75,12 +76,35 @@
     </div>
   </section>
 
-  <section class="wrap" style="padding-top: 48px; padding-bottom: 96px">
-    <div class="filterbalk">
-      <div class="filters" id="filters" role="group" aria-label="Categorie"></div>
-      <span class="teller" id="teller" aria-live="polite"></span>
+  <section class="wrap verkoop-layout">
+    <button type="button" class="btn btn-rand filter-knop" id="filter-knop" aria-expanded="false" aria-controls="filterpaneel">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+      <span data-i18n="vk.filter">Filter</span> <span id="filter-knop-aantal"></span>
+    </button>
+    <aside class="filterpaneel" id="filterpaneel" aria-label="Filter">
+      <div class="filter-kop">
+        <h2 data-i18n="vk.filter">Filter</h2>
+        <button type="button" class="wis" id="wis" hidden data-i18n="vk.wis">Verwijder alle filters</button>
+      </div>
+      <form id="zoekform" role="search" class="zoekveld">
+        <label for="zoek" class="sr-only" data-i18n="vk.zoek">Zoeken</label>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input type="search" id="zoek" autocomplete="off" placeholder="Zoeken" data-i18n-attr="placeholder:vk.zoek">
+      </form>
+      <fieldset>
+        <legend data-i18n="vk.percat">Volgens categorie</legend>
+        <ul id="filter-cat"></ul>
+      </fieldset>
+      <fieldset>
+        <legend data-i18n="vk.permerk">Volgens merk</legend>
+        <ul id="filter-merk" class="merklijst"></ul>
+      </fieldset>
+    </aside>
+    <div class="verkoop-resultaten">
+      <p class="teller" id="teller" aria-live="polite"></p>
+      <div class="producten" id="producten"></div>
+      <p class="geen" id="geen" hidden data-i18n="vk.geen">Geen machines gevonden. Pas je filters aan of bel Stef: hij zoekt het voor je uit.</p>
     </div>
-    <div class="producten" id="producten"></div>
   </section>
 </main>
 
@@ -119,6 +143,7 @@
 
 <script src="js/i18n.js"></script>
 <script src="js/main.js" defer></script>
+<script src="js/assortiment.js" defer></script>
 <script src="js/verkoop.js" defer></script>
 </body>
 </html>
