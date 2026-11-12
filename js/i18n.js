@@ -96,6 +96,22 @@
     'cat.a.hakselaar': { nl: 'Hakselaars', en: 'Wood chippers', fr: 'Broyeurs de branches', de: 'Häcksler' },
     'cat.a.lader': { nl: 'Frontladers en bakken', en: 'Front loaders and buckets', fr: 'Chargeurs frontaux et godets', de: 'Frontlader und Schaufeln' },
 
+    // Verkooppagina
+    'meta.verkoop.title': { nl: 'Verkoop tuin- en reinigingsmachines – Stef Tanghe', en: 'Garden and cleaning machinery for sale – Stef Tanghe', fr: 'Vente de machines de jardin et de nettoyage – Stef Tanghe', de: 'Garten- und Reinigungsmaschinen kaufen – Stef Tanghe' },
+    'meta.verkoop.desc': { nl: 'Tuin- en reinigingsmachines kopen bij Stef Tanghe in Izegem: maaiers, robotmaaiers, hakselaars, kettingzagen, hogedrukreinigers en aanbouwdelen voor compacte tractoren.', en: 'Buy garden and cleaning machinery from Stef Tanghe in Izegem: mowers, robotic mowers, chippers, chainsaws, pressure washers and compact tractor implements.', fr: 'Achetez vos machines de jardin et de nettoyage chez Stef Tanghe à Izegem : tondeuses, robots, broyeurs, tronçonneuses, nettoyeurs haute pression et outils pour tracteurs compacts.', de: 'Garten- und Reinigungsmaschinen bei Stef Tanghe in Izegem: Mäher, Mähroboter, Häcksler, Kettensägen, Hochdruckreiniger und Anbaugeräte für Kompakttraktoren.' },
+    'vk.h1': { nl: 'Verkoop', en: 'For sale', fr: 'Vente', de: 'Verkauf' },
+    'vk.onder': { nl: 'Tuin- en reinigingsmachines, met service na aankoop', en: 'Garden and cleaning machinery, with after-sales service', fr: 'Machines de jardin et de nettoyage, avec service après-vente', de: 'Garten- und Reinigungsmaschinen, mit Kundendienst' },
+    'vk.intro': { nl: 'Doe-het-zelver of vakman: Stef helpt je kiezen en blijft je machine onderhouden in eigen werkplaats.', en: 'DIY gardener or professional: Stef helps you choose and keeps servicing your machine in his own workshop.', fr: 'Bricoleur ou professionnel : Stef vous aide à choisir et entretient votre machine dans son propre atelier.', de: 'Heimwerker oder Profi: Stef hilft bei der Auswahl und wartet Ihre Maschine in der eigenen Werkstatt.' },
+    'vk.alle': { nl: 'Alles', en: 'All', fr: 'Tout', de: 'Alle' },
+    'vk.type': { nl: 'type machine', en: 'type of machine', fr: 'type de machine', de: 'Maschinentyp' },
+    'vk.types': { nl: 'types machines', en: 'types of machines', fr: 'types de machines', de: 'Maschinentypen' },
+    'vk.info': { nl: 'Info vragen', en: 'Ask for info', fr: 'Demander des infos', de: 'Info anfragen' },
+    'vk.bel': { nl: 'Bellen', en: 'Call', fr: 'Appeler', de: 'Anrufen' },
+    'vk.msg': { nl: 'Hallo Stef, ik heb interesse in:', en: 'Hello Stef, I am interested in:', fr: 'Bonjour Stef, je suis intéressé(e) par :', de: 'Hallo Stef, ich interessiere mich für:' },
+    'vk.msg2': { nl: 'Kan je me meer info geven?', en: 'Could you give me more information?', fr: 'Pouvez-vous m’en dire plus ?', de: 'Kannst du mir mehr Infos geben?' },
+    'contact.verkoop': { nl: 'Op zoek naar een machine?<br>Bel Stef.', en: 'Looking for a machine?<br>Call Stef.', fr: 'Vous cherchez une machine ?<br>Appelez Stef.', de: 'Sie suchen eine Maschine?<br>Rufen Sie Stef an.' },
+    'aanbod.alles': { nl: 'Bekijk het volledige aanbod', en: 'See the full range', fr: 'Voir toute l’offre', de: 'Gesamtes Angebot ansehen' },
+
     // Verhuurpagina
     'v.h1': { nl: 'Huur de Kubota', en: 'Rent the Kubota', fr: 'Louez le Kubota', de: 'Mieten Sie den Kubota' },
     'v.onder': { nl: 'B1820 met frontlader, werktuigen naar keuze', en: 'B1820 with front loader, implements of your choice', fr: 'B1820 avec chargeur frontal, outils au choix', de: 'B1820 mit Frontlader, Anbaugeräte nach Wahl' },
