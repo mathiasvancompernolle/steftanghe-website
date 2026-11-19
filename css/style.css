@@ -542,44 +542,6 @@ body.dialoog-open, body.filter-open { overflow: hidden; }
   body.filter-open .actiebalk { transform: translateY(140%); }
 }
 
-/* ---------- Keuzehulp ---------- */
-.kh-banner { display: flex; align-items: center; gap: 16px; width: 100%; margin: 0 0 20px; padding: 16px 20px; border: 0; border-radius: 20px; background: linear-gradient(110deg, var(--groen) 0%, #1A8C3B 100%); color: #fff; font: inherit; text-align: left; cursor: pointer; box-shadow: 0 10px 30px rgba(19,120,47,0.25); transition: transform 0.2s, box-shadow 0.2s; }
-.kh-banner:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(19,120,47,0.32); }
-.kh-banner-icoon { flex: none; display: inline-flex; width: 56px; height: 56px; align-items: center; justify-content: center; border-radius: 16px; background: rgba(255,255,255,0.16); }
-.kh-banner-tekst { display: flex; flex-direction: column; flex: 1; line-height: 1.25; }
-.kh-banner-tekst strong { font-size: 26px; font-weight: 800; }
-.kh-banner-tekst span { color: #D4EBD8; font-size: 17px; }
-.kh-banner-pijl { flex: none; padding: 10px 18px; border-radius: 999px; background: var(--oranje); color: var(--inkt); font-weight: 700; white-space: nowrap; }
-@media (max-width: 640px) { .kh-banner { flex-wrap: wrap; } .kh-banner-icoon { width: 46px; height: 46px; } .kh-banner-tekst { flex-basis: calc(100% - 62px); } .kh-banner-tekst strong { font-size: 22px; } .kh-banner-pijl { width: 100%; text-align: center; } }
-
-.kh { width: min(640px, calc(100vw - 24px)); max-height: calc(100vh - 32px); border: 0; border-radius: 28px; padding: 0; background: var(--plaat); color: var(--inkt); box-shadow: 0 30px 80px rgba(5,15,9,0.4); overflow: auto; }
-.kh::backdrop { background: rgba(5,15,9,0.6); backdrop-filter: blur(3px); }
-.kh[open] { animation: kh-in 0.35s cubic-bezier(.2,.7,.2,1); }
-@keyframes kh-in { from { opacity: 0; transform: translateY(20px) scale(0.98); } }
-.kh-kop { display: flex; align-items: center; justify-content: space-between; padding: 18px 20px 10px 28px; }
-.kh-label { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--groen); }
-.kh-sluit { display: inline-flex; width: 44px; height: 44px; align-items: center; justify-content: center; border: 0; border-radius: 50%; background: var(--grond); color: var(--inkt); cursor: pointer; }
-.kh-voortgang { height: 6px; margin: 0 28px; border-radius: 3px; background: var(--grond); overflow: hidden; }
-.kh-voortgang span { display: block; height: 100%; width: 0; background: var(--oranje); border-radius: 3px; transition: width 0.4s cubic-bezier(.2,.7,.2,1); }
-.kh-inhoud { padding: 24px 28px 28px; }
-.kh-stap { font-size: 15px; color: var(--inkt-zacht); margin-bottom: 4px; }
-.kh-vraag { font-weight: 800; font-size: clamp(30px, 5vw, 40px); margin-bottom: 20px; outline: none; }
-.kh-opties { display: grid; gap: 10px; }
-.kh-optie { min-height: 58px; padding: 12px 20px; border-radius: 16px; border: 2px solid #C3CEBF; background: #fff; font: inherit; font-size: 21px; font-weight: 600; text-align: left; color: var(--inkt); cursor: pointer; transition: border-color 0.15s, background 0.15s, transform 0.15s; }
-.kh-optie:hover { border-color: var(--groen); background: #F1F8F1; }
-.kh-optie:active { transform: scale(0.99); }
-.kh-optie[aria-pressed="true"] { border-color: var(--groen); background: #E3F0E3; }
-.kh-terug { margin-top: 16px; border: 0; background: none; font: inherit; color: var(--groen); font-weight: 700; cursor: pointer; padding: 8px 0; }
-.kh-res-p { color: var(--inkt-zacht); margin: -8px 0 18px; }
-.kh-resultaten { display: grid; gap: 12px; }
-.kh-res { display: flex; gap: 16px; align-items: center; padding: 10px; border-radius: 18px; background: #fff; color: var(--inkt); text-decoration: none; border: 2px solid transparent; transition: border-color 0.2s; }
-.kh-res:hover { color: var(--inkt); border-color: var(--groen); }
-.kh-res img { flex: none; width: 128px; height: 80px; object-fit: cover; border-radius: 12px; }
-.kh-res strong { display: block; font-size: 24px; font-weight: 800; line-height: 1.1; }
-.kh-res span span { display: block; font-size: 16px; color: var(--inkt-zacht); }
-.kh-acties { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-@media (max-width: 480px) { .kh-inhoud { padding: 20px; } .kh-kop { padding-left: 20px; } .kh-voortgang { margin: 0 20px; } .kh-res img { width: 96px; height: 64px; } .kh-acties .btn { flex: 1 1 100%; } }
-
 /* ---------- Lightbox (verhuur) ---------- */
 #hoofdfoto { cursor: zoom-in; }
 .lightbox { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; background: rgba(5,12,8,0.94); opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0s linear 0.3s; }
