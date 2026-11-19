@@ -77,6 +77,14 @@ p { margin: 0; }
 .balk-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 14px; padding-bottom: 14px; }
 .balk-logo img { height: 58px; width: auto; }
 .menu { display: flex; align-items: center; gap: 28px; font-weight: 500; }
+/* Desktop: logo links, menu exact in het midden, taalkiezer rechts */
+@media (min-width: 901px) {
+  .balk-inner { display: grid; grid-template-columns: 1fr auto 1fr; }
+  .balk-inner > .balk-rechts { display: contents; }
+  .balk-logo { grid-column: 1; justify-self: start; }
+  .menu { grid-column: 2; gap: clamp(28px, 3.4vw, 56px); font-size: 22px; font-weight: 600; letter-spacing: 0.01em; }
+  .taalkiezer { grid-column: 3; justify-self: end; }
+}
 .menu > a, .menu-knop { color: #fff; text-decoration: none; }
 .menu > a:not(.btn) { position: relative; padding: 6px 0; }
 .menu > a:not(.btn)::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; border-radius: 2px; background: var(--oranje); transform: scaleX(0); transform-origin: left; transition: transform 0.25s ease; }
