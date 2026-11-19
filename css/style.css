@@ -1,8 +1,7 @@
 /* Stef Tanghe – land- & tuinbouwmachines */
 
-@font-face { font-family: "Barlow"; font-weight: 400; font-display: swap; src: url("../fonts/barlow-latin-400-normal.woff2") format("woff2"); }
-@font-face { font-family: "Barlow"; font-weight: 500; font-display: swap; src: url("../fonts/barlow-latin-500-normal.woff2") format("woff2"); }
-@font-face { font-family: "Barlow"; font-weight: 600; font-display: swap; src: url("../fonts/barlow-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Barlow Condensed"; font-weight: 400; font-display: swap; src: url("../fonts/barlow-condensed-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Barlow Condensed"; font-weight: 500; font-display: swap; src: url("../fonts/barlow-condensed-latin-500-normal.woff2") format("woff2"); }
 @font-face { font-family: "Barlow Condensed"; font-weight: 600; font-display: swap; src: url("../fonts/barlow-condensed-latin-600-normal.woff2") format("woff2"); }
 @font-face { font-family: "Barlow Condensed"; font-weight: 700; font-display: swap; src: url("../fonts/barlow-condensed-latin-700-normal.woff2") format("woff2"); }
 @font-face { font-family: "Barlow Condensed"; font-weight: 800; font-display: swap; src: url("../fonts/barlow-condensed-latin-800-normal.woff2") format("woff2"); }
@@ -25,7 +24,7 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 96px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
-body { margin: 0; background: var(--grond); color: var(--inkt); font-family: "Barlow", system-ui, sans-serif; font-size: 18px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+body { margin: 0; background: var(--grond); color: var(--inkt); font-family: var(--cond); font-size: 20px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
 img { max-width: 100%; height: auto; display: block; }
 a { color: var(--groen); }
 a:hover { color: var(--groen-donker); }
@@ -311,7 +310,7 @@ p { margin: 0; }
 .detail-beeld:has(.todo) { margin-bottom: -24px; }
 .detail-beeld img, .detail-zonder-foto { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; border-radius: 24px; }
 .detail-zonder-foto { display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; gap: 12px; padding: 32px; box-sizing: border-box; background: var(--groen); color: #fff; font-family: var(--cond); font-weight: 800; font-size: clamp(40px, 6vw, 88px); line-height: 0.9; }
-.detail-zonder-foto .todo { font-family: "Barlow", sans-serif; font-weight: 400; font-size: 15px; color: #FFE2CF; border-color: #FFB27F; }
+.detail-zonder-foto .todo { font-family: var(--cond); font-weight: 400; font-size: 15px; color: #FFE2CF; border-color: #FFB27F; }
 .detail-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 48px; margin-top: 48px; align-items: start; }
 @media (max-width: 960px) { .detail-grid { grid-template-columns: 1fr; } }
 .detail-tekst { display: flex; flex-direction: column; gap: 14px; max-width: 70ch; }
