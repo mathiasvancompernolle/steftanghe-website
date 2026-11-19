@@ -162,6 +162,17 @@ window.ASSORTIMENT = (function () {
       'Kunstmest, zaad of strooizout nauwkeurig verdelen.', 'Spread fertiliser, seed or road salt accurately.', 'Épandre engrais, semences ou sel avec précision.', 'Dünger, Saatgut oder Streusalz präzise verteilen.')
   ];
 
+  // Sfeerfoto's (Pixabay, vrij te gebruiken; bronnen in img/verkoop/bronnen.json) in img/verkoop/<slug>.webp.
+  // Een eigen foto via het laatste argument van m() gaat altijd voor.
+  var FOTOS = ['zitmaaiers', 'zitmaaiers-zero-turn', 'frontmaaiers', 'robotmaaiers', 'hakselaars', 'verticuteermachines',
+    'motoculteurs-en-hakfrezen', 'loopmaaiers-op-benzine', 'loopmaaiers-op-accu', 'ontmollers', 'kettingzagen', 'zaagmachines',
+    'houtklievers', 'heggenschaar-op-accu', 'snoeizagen', 'snoeischaren', 'bladzuigers-op-2-of-4takt', 'bladzuigers-op-accu',
+    'bladblazers-op-2-of-4takt', 'palenrammers', 'sproeitoestellen', 'schoonmaakmachines', 'veegmachines-voor-buiten',
+    'stroomgroepen', 'compressors', 'verwarmingstoestellen', 'ventilators', 'handgereedschap', 'rotoreg', 'gazonmaaiers',
+    'bermmaaiers', 'overtopfrezen', 'maaiarmen', 'sproeimachines', 'houtklievers-aanbouw', 'aardappelrooier',
+    'mestverspreider', 'kunstmeststrooiers'];
+  AANBOD.forEach(function (a) { if (!a.foto && FOTOS.indexOf(a.slug) > -1) a.foto = 'img/verkoop/' + a.slug + '.webp'; });
+
   function cat(id) { for (var i = 0; i < CATS.length; i++) if (CATS[i].id === id) return CATS[i]; }
   function zoek(slug) { for (var i = 0; i < AANBOD.length; i++) if (AANBOD[i].slug === slug) return AANBOD[i]; }
   function merken() {

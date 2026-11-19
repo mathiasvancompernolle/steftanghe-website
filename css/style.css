@@ -280,7 +280,7 @@ p { margin: 0; }
 .product { display: flex; flex-direction: column; background: #fff; border-radius: 20px; overflow: hidden; color: var(--inkt); text-decoration: none; border: 2px solid transparent; box-shadow: 0 1px 3px rgba(18,36,26,0.08), 0 8px 24px rgba(18,36,26,0.06); transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; }
 .product:hover { color: var(--inkt); border-color: var(--groen); transform: translateY(-3px); box-shadow: 0 2px 6px rgba(18,36,26,0.1), 0 16px 32px rgba(18,36,26,0.1); }
 .product-beeld { display: block; aspect-ratio: 16 / 10; background: var(--groen); border-bottom: 1px solid var(--lijn); }
-.product-beeld img { width: 100%; height: 100%; object-fit: cover; }
+.product-beeld img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; }
 .kaart-zonder-foto { display: flex; align-items: flex-end; height: 100%; padding: 14px 18px; box-sizing: border-box; font-size: 14px; color: rgba(255,255,255,0.75); background-image: repeating-linear-gradient(135deg, rgba(255,255,255,0.06) 0 12px, transparent 12px 24px); }
 .product-reiniging .product-beeld, .product-reiniging.detail-zonder-foto { background: var(--oranje); }
 .product-reiniging .kaart-zonder-foto { color: rgba(18,36,26,0.7); }
