@@ -7,6 +7,7 @@
   var dropPaneel = document.getElementById('diensten-menu');
 
   function zetDropdown(open) {
+    if (!dropKnop || !dropPaneel) return;   // (uitklapmenu is optioneel)
     dropKnop.setAttribute('aria-expanded', open ? 'true' : 'false');
     dropPaneel.classList.toggle('open', open);
   }
@@ -22,7 +23,7 @@
     if (!open && wasOpen) { zetDropdown(false); hamburger.focus(); }
   }
 
-  dropKnop.addEventListener('click', function (e) {
+  if (dropKnop) dropKnop.addEventListener('click', function (e) {
     e.stopPropagation();
     zetDropdown(dropKnop.getAttribute('aria-expanded') !== 'true');
   });
@@ -31,7 +32,7 @@
   if (achtergrond) achtergrond.addEventListener('click', function () { zetMenu(false); });
   window.matchMedia('(min-width: 901px)').addEventListener('change', function (e) { if (e.matches) zetMenu(false); });
   document.addEventListener('click', function (e) {
-    if (!dropPaneel.contains(e.target) && e.target !== dropKnop) zetDropdown(false);
+    if (dropPaneel && !dropPaneel.contains(e.target) && e.target !== dropKnop) zetDropdown(false);
   });
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') { zetDropdown(false); zetMenu(false); }
@@ -50,7 +51,7 @@
   var vorige = window.scrollY;
   function iets_open() {
     return menu.classList.contains('open') ||
-      dropPaneel.classList.contains('open') ||
+      (dropPaneel && dropPaneel.classList.contains('open')) ||
       !!document.querySelector('.taal-lijst.open');
   }
   function verberg() {

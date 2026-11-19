@@ -39,6 +39,7 @@
     'nav.onderhoud.sub': { nl: 'Een vaste beurt voor het seizoen', en: 'A regular service before the season', fr: 'Un entretien régulier avant la saison', de: 'Regelmäßige Wartung vor der Saison' },
     'nav.herstel': { nl: 'Herstellingen', en: 'Repairs', fr: 'Réparations', de: 'Reparaturen' },
     'nav.herstel.sub': { nl: 'Snel terug aan het werk na een panne', en: 'Back to work quickly after a breakdown', fr: 'Vite au travail après une panne', de: 'Nach einer Panne schnell wieder einsatzbereit' },
+    'nav.service': { nl: 'Service', en: 'Service', fr: 'Atelier', de: 'Service' },
     'nav.huren': { nl: 'Tractor huren', en: 'Rent a tractor', fr: 'Louer un tracteur', de: 'Traktor mieten' },
     'nav.contact': { nl: 'Contact', en: 'Contact', fr: 'Contact', de: 'Kontakt' },
     'nav.bel': { nl: 'Bel 0473 23 57 55', en: 'Call 0473 23 57 55', fr: 'Appelez le 0473 23 57 55', de: 'Anrufen: 0473 23 57 55' },
