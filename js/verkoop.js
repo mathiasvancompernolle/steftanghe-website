@@ -70,8 +70,9 @@
           '<span class="product-cat">' + esc(A.cat(a.cat).naam[taal()]) + '</span>' +
           '<span class="product-titel">' + esc(a.naam[taal()]) + '</span>' +
           '<span class="product-tekst">' + esc(a.tekst[taal()]) + '</span>' +
-          '<span class="product-merken">' + a.merken.map(esc).join(' <span aria-hidden="true">|</span> ') + '</span>' +
-          '<span class="product-actie">' + t('vk.meerinfo') + ' <span aria-hidden="true">|</span> ' + t('vk.kopen') + '</span>' +
+          '<span class="product-merken"><span>' + a.merken.map(esc).join(' | ') + '</span></span>' +
+          '<span class="product-actie">' + t('vk.meerinfo') + ' <span aria-hidden="true">|</span> ' + t('vk.kopen') +
+            ' <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>' +
         '</span></a>';
     }).join('');
   }

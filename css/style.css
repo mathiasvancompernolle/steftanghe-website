@@ -265,8 +265,9 @@ p { margin: 0; }
 .filter-kop h2 { font-weight: 800; font-size: 32px; }
 .wis { background: none; border: 0; padding: 0; font: inherit; font-size: 15px; color: var(--groen); text-decoration: underline; cursor: pointer; min-height: 44px; }
 .zoekveld { position: relative; margin-bottom: 20px; }
-.zoekveld svg { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--inkt-zacht); }
-.zoekveld input { width: 100%; min-height: 48px; padding: 0 14px 0 42px; border: 2px solid #8FA394; border-radius: 12px; font: inherit; background: #fff; color: var(--inkt); }
+.zoekveld svg { position: absolute; left: 22px; top: 50%; transform: translateY(-50%); color: var(--inkt-zacht); }
+.zoekveld input { width: 100%; min-height: 56px; padding: 0 22px 0 54px; border: 2px solid transparent; border-radius: 999px; font: inherit; font-size: 17px; background: #fff; color: var(--inkt); box-shadow: 0 1px 3px rgba(18,36,26,0.08); }
+.zoekveld input:focus { outline: none; border-color: var(--groen); }
 .filterpaneel fieldset { border: 0; padding: 0; margin: 0 0 20px; }
 .filterpaneel legend { font-family: var(--cond); font-weight: 700; font-size: 22px; margin-bottom: 6px; padding: 0; }
 .filterpaneel ul { list-style: none; margin: 0; padding: 0; }
@@ -277,9 +278,9 @@ p { margin: 0; }
 .teller { color: var(--inkt-zacht); margin-bottom: 16px; }
 .geen { padding: 32px; background: var(--plaat); border-radius: 20px; }
 .producten { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 20px; }
-.product { display: flex; flex-direction: column; background: var(--plaat); border-radius: 20px; overflow: hidden; color: var(--inkt); text-decoration: none; border: 2px solid transparent; transition: border-color 0.2s, transform 0.2s; }
-.product:hover { color: var(--inkt); border-color: var(--groen); transform: translateY(-2px); }
-.product-beeld { display: block; aspect-ratio: 16 / 10; background: var(--groen); }
+.product { display: flex; flex-direction: column; background: #fff; border-radius: 20px; overflow: hidden; color: var(--inkt); text-decoration: none; border: 2px solid transparent; box-shadow: 0 1px 3px rgba(18,36,26,0.08), 0 8px 24px rgba(18,36,26,0.06); transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; }
+.product:hover { color: var(--inkt); border-color: var(--groen); transform: translateY(-3px); box-shadow: 0 2px 6px rgba(18,36,26,0.1), 0 16px 32px rgba(18,36,26,0.1); }
+.product-beeld { display: block; aspect-ratio: 16 / 10; background: var(--groen); border-bottom: 1px solid var(--lijn); }
 .product-beeld img { width: 100%; height: 100%; object-fit: cover; }
 .kaart-zonder-foto { display: flex; align-items: flex-end; height: 100%; padding: 14px 18px; box-sizing: border-box; font-size: 14px; color: rgba(255,255,255,0.75); background-image: repeating-linear-gradient(135deg, rgba(255,255,255,0.06) 0 12px, transparent 12px 24px); }
 .product-reiniging .product-beeld, .product-reiniging.detail-zonder-foto { background: var(--oranje); }
@@ -287,12 +288,17 @@ p { margin: 0; }
 .product-bouw .product-beeld, .product-bouw.detail-zonder-foto { background: #0B2E17; }
 .product-gereedschap .product-beeld, .product-gereedschap.detail-zonder-foto { background: #3D4F43; }
 .product-aanbouw .product-beeld, .product-aanbouw.detail-zonder-foto { background: #2E6B3E; }
-.product-body { display: flex; flex-direction: column; gap: 8px; padding: 20px; flex: 1; }
-.product-cat { font-size: 14px; font-weight: 600; color: var(--groen); }
-.product-titel { font-family: var(--cond); font-weight: 700; font-size: 28px; line-height: 1.05; }
+.product-body { display: flex; flex-direction: column; gap: 8px; padding: 22px 20px 20px; flex: 1; }
+.product-cat { font-size: 13px; font-weight: 600; color: var(--groen); text-transform: uppercase; letter-spacing: 0.08em; }
+.product-titel { font-family: var(--cond); font-weight: 800; font-size: 30px; line-height: 1.02; }
 .product-tekst { color: var(--inkt-zacht); font-size: 16px; }
-.product-merken { font-size: 15px; font-weight: 600; }
-.product-actie { margin-top: auto; padding-top: 10px; font-weight: 600; color: var(--groen); }
+.product-merken { display: block; margin-top: 2px; }
+.product-merken span { display: inline-block; padding: 4px 10px; border-radius: 999px; background: var(--grond); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--inkt-zacht); }
+.product-actie { margin-top: auto; display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 46px; border-radius: 999px; background: var(--oranje); color: var(--inkt); font-family: var(--cond); font-weight: 700; font-size: 18px; text-transform: uppercase; letter-spacing: 0.03em; transition: background 0.2s; }
+.product-merken { margin-bottom: 14px; }
+.product:hover .product-actie { background: #F47E3A; }
+.product:hover .product-actie svg { transform: translateX(3px); }
+.product-actie svg { transition: transform 0.2s; }
 @media (max-width: 900px) {
   .verkoop-layout { grid-template-columns: 1fr; gap: 16px; }
   .filter-knop { display: inline-flex; gap: 8px; justify-self: start; }

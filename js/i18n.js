@@ -116,7 +116,7 @@
     'kr.home': { nl: 'Home', en: 'Home', fr: 'Accueil', de: 'Startseite' },
     'vk.filter': { nl: 'Filter', en: 'Filter', fr: 'Filtrer', de: 'Filter' },
     'vk.wis': { nl: 'Verwijder alle filters', en: 'Clear all filters', fr: 'Supprimer tous les filtres', de: 'Alle Filter entfernen' },
-    'vk.zoek': { nl: 'Zoeken', en: 'Search', fr: 'Rechercher', de: 'Suchen' },
+    'vk.zoek': { nl: 'Zoek binnen verkoop', en: 'Search our range', fr: 'Rechercher dans la vente', de: 'Im Verkauf suchen' },
     'vk.percat': { nl: 'Volgens categorie', en: 'By category', fr: 'Par catégorie', de: 'Nach Kategorie' },
     'vk.permerk': { nl: 'Volgens merk', en: 'By brand', fr: 'Par marque', de: 'Nach Marke' },
     'vk.geen': { nl: 'Geen machines gevonden. Pas je filters aan of bel Stef: hij zoekt het voor je uit.', en: 'No machines found. Adjust your filters or call Stef: he will look into it for you.', fr: 'Aucune machine trouvée. Modifiez vos filtres ou appelez Stef : il cherche pour vous.', de: 'Keine Maschinen gefunden. Passen Sie die Filter an oder rufen Sie Stef an.' },

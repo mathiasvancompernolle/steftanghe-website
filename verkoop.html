@@ -86,11 +86,6 @@
         <h2 data-i18n="vk.filter">Filter</h2>
         <button type="button" class="wis" id="wis" hidden data-i18n="vk.wis">Verwijder alle filters</button>
       </div>
-      <form id="zoekform" role="search" class="zoekveld">
-        <label for="zoek" class="sr-only" data-i18n="vk.zoek">Zoeken</label>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-        <input type="search" id="zoek" autocomplete="off" placeholder="Zoeken" data-i18n-attr="placeholder:vk.zoek">
-      </form>
       <fieldset>
         <legend data-i18n="vk.percat">Volgens categorie</legend>
         <ul id="filter-cat"></ul>
@@ -101,6 +96,11 @@
       </fieldset>
     </aside>
     <div class="verkoop-resultaten">
+      <form id="zoekform" role="search" class="zoekveld">
+        <label for="zoek" class="sr-only" data-i18n="vk.zoek">Zoek binnen verkoop</label>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input type="search" id="zoek" autocomplete="off" placeholder="Zoek binnen verkoop" data-i18n-attr="placeholder:vk.zoek">
+      </form>
       <p class="teller" id="teller" aria-live="polite"></p>
       <div class="producten" id="producten"></div>
       <p class="geen" id="geen" hidden data-i18n="vk.geen">Geen machines gevonden. Pas je filters aan of bel Stef: hij zoekt het voor je uit.</p>
