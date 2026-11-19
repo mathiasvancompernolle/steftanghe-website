@@ -29,7 +29,7 @@
         </button>
         <a href="verkoop.html" data-intern data-i18n="nav.verkoop">Verkoop</a>
         <a href="verhuur.html" data-intern data-i18n="nav.verhuur">Verhuur</a>
-        <a href="./#herstelling" data-intern data-i18n="nav.service">Service</a>
+        <a href="service.html" data-intern data-i18n="nav.service">Service</a>
         <a href="#contact" data-i18n="nav.contact">Contact</a>
         <a href="tel:+32473235755" class="btn btn-oranje" data-i18n="nav.bel">Bel 0473 23 57 55</a>
         <div class="menu-sociaal">
@@ -64,7 +64,7 @@
       <p data-i18n="hero.p">Verkoop, verhuur en herstel in Izegem en Meulebeke. Voor de doe-het-zelver én de vakman.</p>
       <div class="knoppen">
         <a href="verhuur.html" class="btn btn-oranje" data-intern data-i18n="nav.huren">Tractor huren</a>
-        <a href="#herstelling" class="btn btn-rand-wit" data-i18n="hero.herstel">Herstelling aanvragen</a>
+        <a href="service.html#aanvragen" class="btn btn-rand-wit" data-intern data-i18n="hero.herstel">Herstelling aanvragen</a>
       </div>
       <ul class="troeven">
         <li data-i18n="usp.werkplaats">Eigen werkplaats in Izegem</li>
@@ -107,12 +107,12 @@
           <h3 data-i18n="nav.verhuur">Verhuur</h3><p data-i18n="dienst.verhuur">Een machine nodig voor een dag of een seizoen? Huur ze uit onze verhuurvloot.</p>
           <span class="dienst-link"><span data-i18n="dl.verhuur">Stel je huur samen</span> <span aria-hidden="true">→</span></span>
         </a>
-        <a class="dienst" href="#herstelling" data-soort="onderhoud">
+        <a class="dienst" href="service.html?soort=onderhoud#aanvragen" data-intern>
           <span class="dienst-icoon" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 0 1-4 0v-.1A1.7 1.7 0 0 0 9 19.4a1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 0 1 0-4h.1A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 0 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 0 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></span>
           <h3 data-i18n="nav.onderhoud">Onderhoud</h3><p data-i18n="dienst.onderhoud">Een vaste beurt, zodat je machine klaar is als het seizoen begint.</p>
           <span class="dienst-link"><span data-i18n="dl.onderhoud">Plan een beurt</span> <span aria-hidden="true">→</span></span>
         </a>
-        <a class="dienst" href="#herstelling" data-soort="herstel">
+        <a class="dienst" href="service.html?soort=herstel#aanvragen" data-intern>
           <span class="dienst-icoon" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9l-3.8 3.8z"/></svg></span>
           <h3 data-i18n="nav.herstel">Herstellingen</h3><p data-i18n="dienst.herstel">Ook voor Honda, Husqvarna en machines die je elders kocht. Ruime voorraad wisselstukken.</p>
           <span class="dienst-link"><span data-i18n="dl.herstel">Vraag een herstelling aan</span> <span aria-hidden="true">→</span></span>
@@ -153,40 +153,20 @@
   </section>
 
   <section class="sectie herstel-sectie" id="herstelling">
-    <div class="wrap herstel">
+    <div class="wrap herstel herstel-teaser">
       <div class="herstel-uitleg">
-        <h2 class="sectie-titel" data-i18n="h.titel">Herstelling of onderhoud aanvragen</h2>
-        <p class="herstel-sub" data-i18n="h.sub">Laat kort weten wat er scheelt. Stef belt of stuurt je een bericht om een moment af te spreken.</p>
-        <ol class="stappen">
-          <li><strong data-i18n="s1.t">Laat weten wat er scheelt</strong><span data-i18n="s1.p">Via dit formulier, WhatsApp of telefoon. Een foto van de machine of het typeplaatje helpt.</span></li>
-          <li><strong data-i18n="s2.t">Breng je machine binnen</strong><span data-i18n="s2.p">Op een afgesproken moment, in de werkplaats in Izegem.</span></li>
-          <li><strong data-i18n="s3.t">Klaar voor het werk</strong><span data-i18n="s3.p">Stef herstelt of onderhoudt je machine en laat weten wanneer ze klaar is.</span></li>
-        </ol>
+        <h2 class="sectie-titel" data-i18n="sv.onder">Onderhoud, herstelling en slijpdienst</h2>
+        <p class="herstel-sub" data-i18n="sv.intro">In de eigen werkplaats in Izegem houdt Stef je tuinmachines en compacte tractor in topconditie, waar je ze ook kocht.</p>
+        <div class="knoppen">
+          <a href="service.html#aanvragen" class="btn btn-groen btn-groot" data-intern data-i18n="sv.aanvragen">Service aanvragen</a>
+          <a href="service.html" class="btn btn-rand btn-groot" data-intern data-i18n="sv.meer">Meer over onze service</a>
+        </div>
       </div>
-      <form class="herstel-form" id="herstelform">
-        <fieldset class="soort-keuze">
-          <legend data-i18n="h.soort">Wat heb je nodig?</legend>
-          <label><input type="radio" name="soort" value="herstel" checked><span data-i18n="h.herstel">Herstelling</span></label>
-          <label><input type="radio" name="soort" value="onderhoud"><span data-i18n="h.onderhoud">Onderhoudsbeurt</span></label>
-        </fieldset>
-        <label for="h-machine" data-i18n="h.machine">Machine en merk</label>
-        <input id="h-machine" name="machine" required placeholder="bv. Honda grasmaaier" data-i18n-attr="placeholder:h.machine.ph">
-        <label for="h-probleem" data-i18n="h.probleem">Wat scheelt er?</label>
-        <textarea id="h-probleem" name="probleem" rows="3" placeholder="bv. start niet meer, trekt slecht, jaarlijkse beurt…" data-i18n-attr="placeholder:h.probleem.ph"></textarea>
-        <div class="form-rij">
-          <div><label for="h-naam" data-i18n="vd.naam">Naam</label><input id="h-naam" name="naam" autocomplete="name" required></div>
-          <div><label for="h-tel" data-i18n="vd.tel">Telefoon</label><input id="h-tel" name="tel" type="tel" autocomplete="tel"></div>
-        </div>
-        <button type="submit" class="btn btn-groen btn-groot">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2 .7 2.8.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.2z"/></svg>
-          <span data-i18n="vd.verstuur">Verstuur via WhatsApp</span>
-        </button>
-        <div class="alt-links">
-          <span data-i18n="h.of">Liever meteen iemand aan de lijn?</span>
-          <a href="tel:+32473235755" data-i18n="nav.bel">Bel 0473 23 57 55</a>
-          <a id="h-mail" href="mailto:info@steftanghe.be" data-i18n="v.mail">Mail uw aanvraag</a>
-        </div>
-      </form>
+      <ol class="stappen">
+        <li><strong data-i18n="s1.t">Laat weten wat er scheelt</strong><span data-i18n="s1.p"></span></li>
+        <li><strong data-i18n="s2.t">Breng je machine binnen of laat ze ophalen</strong><span data-i18n="s2.p"></span></li>
+        <li><strong data-i18n="s3.t">Klaar voor het werk</strong><span data-i18n="s3.p"></span></li>
+      </ol>
     </div>
   </section>
 </main>
@@ -207,7 +187,7 @@
         <ul>
           <li><a href="verkoop.html" data-intern data-i18n="nav.verkoop">Verkoop</a></li>
           <li><a href="verhuur.html" data-intern data-i18n="nav.verhuur">Verhuur</a></li>
-          <li><a href="./#herstelling" data-intern data-i18n="nav.service">Service</a></li>
+          <li><a href="service.html" data-intern data-i18n="nav.service">Service</a></li>
           <li><a href="voorwaarden.html" data-intern data-i18n="voet.voorwaarden">Huurvoorwaarden</a></li>
         </ul>
       </div>

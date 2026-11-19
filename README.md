@@ -5,6 +5,7 @@ Website van Stef Tanghe – land- en tuinbouwmachines (Izegem).
 Gewone HTML/CSS/JS, geen build-stap. Hosting via Cloudflare (Workers & Pages), elke push naar `main` gaat automatisch online.
 
 - `index.html` – homepage
+- `service.html` – onderhoud, herstelling, slijpdienst en afhaaldienst, met aanvraagformulier (`js/service.js`)
 - `verhuur.html` – verhuurconfigurator Kubota (prijzen in `js/verhuur.js`, tabel `TARIEVEN`)
 - `css/style.css` – alle opmaak
 - `img/`, `fonts/` – afbeeldingen en zelf-gehoste lettertypes
