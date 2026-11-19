@@ -53,7 +53,7 @@ p { margin: 0; }
 .todo { color: var(--todo); border: 1px dashed var(--oranje); border-radius: 8px; padding: 2px 8px; font-size: 0.9em; }
 
 /* ---------- Topbalk (enkel desktop) ---------- */
-.topbalk { background: #0B2E17; color: #D6E2D5; font-size: 15px; font-weight: 500; max-height: var(--topbalk); overflow: hidden; transition: max-height 0.3s ease, opacity 0.3s ease; }
+.topbalk { background: #071F0F; color: #D6E2D5; font-size: 15px; font-weight: 500; max-height: var(--topbalk); overflow: hidden; transition: max-height 0.3s ease, opacity 0.3s ease; }
 .topbalk-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: var(--topbalk); }
 .topbalk-troeven { list-style: none; margin: 0; padding: 0; display: flex; gap: 26px; }
 .topbalk-troeven li { display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; }
@@ -73,13 +73,17 @@ p { margin: 0; }
 /* ---------- Menubalk ---------- */
 .balk { position: fixed; top: 0; left: 0; right: 0; z-index: 50; transition: background 0.25s, box-shadow 0.25s, transform 0.3s ease; }
 .balk.is-weg { transform: translateY(-100%); box-shadow: none; }
-.balk-licht, .balk.is-vast { background: rgba(231, 235, 228, 0.97); box-shadow: 0 1px 0 var(--lijn); }
+.balk-licht, .balk.is-vast { background: rgba(11, 46, 23, 0.97); box-shadow: 0 6px 24px rgba(5, 15, 9, 0.18); backdrop-filter: blur(6px); }
 .balk-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 14px; padding-bottom: 14px; }
 .balk-logo img { height: 58px; width: auto; }
 .menu { display: flex; align-items: center; gap: 28px; font-weight: 500; }
-.menu > a, .menu-knop { color: var(--inkt); text-decoration: none; }
+.menu > a, .menu-knop { color: #fff; text-decoration: none; }
+.menu > a:not(.btn) { position: relative; padding: 6px 0; }
+.menu > a:not(.btn)::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; border-radius: 2px; background: var(--oranje); transform: scaleX(0); transform-origin: left; transition: transform 0.25s ease; }
+.menu > a:not(.btn):hover { color: #FFD2B3; }
+.menu > a:not(.btn):hover::after, .menu > a[aria-current="page"]::after { transform: scaleX(1); }
 .balk-transparant:not(.is-vast) .menu > a:not(.btn), .balk-transparant:not(.is-vast) .menu-knop { color: #fff; }
-.menu > a[aria-current="page"] { color: var(--groen); font-weight: 700; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 3px; }
+.menu > a[aria-current="page"] { color: #fff; font-weight: 700; }
 .menu-knop { background: none; border: 0; padding: 0; min-height: 44px; font: inherit; font-weight: 500; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
 .menu-knop svg { transition: transform 0.2s; }
 .menu-knop[aria-expanded="true"] svg { transform: rotate(180deg); }
@@ -90,8 +94,7 @@ p { margin: 0; }
 .dropdown-paneel a:hover { background: var(--grond); color: var(--inkt); }
 .dropdown-paneel strong { font-family: var(--cond); font-weight: 700; font-size: 22px; line-height: 1.1; }
 .dropdown-paneel span { font-size: 15px; color: var(--inkt-zacht); }
-.hamburger { display: none; background: none; border: 0; width: 48px; height: 48px; align-items: center; justify-content: center; cursor: pointer; color: var(--inkt); }
-.balk-transparant:not(.is-vast) .hamburger { color: #fff; }
+.hamburger { display: none; background: none; border: 0; width: 48px; height: 48px; align-items: center; justify-content: center; cursor: pointer; color: #fff; }
 .menu-sluit, .menu-sociaal, .menu-achtergrond { display: none; }
 
 @media (max-width: 900px) {
@@ -103,6 +106,7 @@ p { margin: 0; }
   .menu-sluit { display: inline-flex; position: absolute; top: 20px; right: 16px; width: 48px; height: 48px; align-items: center; justify-content: center; background: none; border: 0; color: #fff; cursor: pointer; }
   .menu > a:not(.btn), .menu-knop, .balk-transparant:not(.is-vast) .menu > a:not(.btn), .balk-transparant:not(.is-vast) .menu-knop { color: #fff; font-family: var(--cond); font-weight: 700; font-size: 26px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.18); }
   .menu > a[aria-current="page"] { color: #FFB27F; text-decoration: none; }
+  .menu > a:not(.btn)::after { display: none; }
   .dropdown { border-bottom: 1px solid rgba(255,255,255,0.18); }
   .menu-knop { width: 100%; justify-content: space-between; border-bottom: 0 !important; }
   .dropdown-paneel { position: static; width: auto; margin: 0 0 12px; padding: 0; box-shadow: none; background: none; }
