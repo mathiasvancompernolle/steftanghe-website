@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750">
+  <defs>
+    <g id="blad">
+      <path d="M0 -26 C18 -14 18 14 0 26 C-18 14 -18 -14 0 -26 Z"/>
+      <path d="M0 -20 V26" stroke="#12241A" stroke-opacity="0.25" stroke-width="3" fill="none"/>
+    </g>
+  </defs>
+  <rect width="1200" height="750" fill="#EEF2EA"/>
+  <circle cx="190" cy="150" r="110" fill="#E1E9DA"/>
+  <rect y="590" width="1200" height="160" fill="#D5E3CD"/>
+  <path d="M0 590H1200" stroke="#B9CDB0" stroke-width="4"/>
+
+  <!-- luchtstroom -->
+  <g fill="none" stroke="#A9C2A4" stroke-width="8" stroke-linecap="round">
+    <path d="M985 470 Q1070 490 1140 560"/>
+    <path d="M975 500 Q1040 540 1080 610"/>
+    <path d="M990 440 Q1080 440 1160 480" stroke-dasharray="2 22"/>
+  </g>
+
+  <!-- blazer -->
+  <path d="M548 300 L940 446 L926 492 L546 366 Z" fill="#EE6A1F"/>
+  <path d="M930 440 L972 452 L958 504 L918 496 Z" fill="#12241A"/>
+  <path d="M370 282 Q370 168 470 168 Q548 168 548 282" fill="none" stroke="#12241A" stroke-width="30" stroke-linecap="round"/>
+  <rect x="452" y="200" width="22" height="40" rx="8" fill="#EE6A1F"/>
+  <rect x="330" y="266" width="236" height="136" rx="64" fill="#13782F"/>
+  <circle cx="520" cy="334" r="46" fill="#0C5420"/>
+  <circle cx="520" cy="334" r="24" fill="none" stroke="#13782F" stroke-width="6"/>
+  <rect x="240" y="282" width="110" height="104" rx="16" fill="#12241A"/>
+  <rect x="258" y="356" width="20" height="14" rx="3" fill="#7FD08A"/>
+  <rect x="284" y="356" width="20" height="14" rx="3" fill="#7FD08A"/>
+  <rect x="310" y="356" width="20" height="14" rx="3" fill="#7FD08A"/>
+  <path d="M300 296 L276 330 H294 L284 350 L314 312 H296 Z" fill="#EE6A1F"/>
+
+  <!-- bladeren -->
+  <use href="#blad" fill="#EE6A1F" transform="translate(1040 400) rotate(40)"/>
+  <use href="#blad" fill="#F2B33D" transform="translate(1110 470) rotate(-30) scale(0.8)"/>
+  <use href="#blad" fill="#9A6A3A" transform="translate(1000 540) rotate(80) scale(0.9)"/>
+  <use href="#blad" fill="#13782F" transform="translate(1130 360) rotate(10) scale(0.7)"/>
+  <use href="#blad" fill="#F2B33D" transform="translate(1060 600) rotate(100)"/>
+  <use href="#blad" fill="#EE6A1F" transform="translate(1150 620) rotate(70) scale(0.9)"/>
+  <use href="#blad" fill="#9A6A3A" transform="translate(880 610) rotate(95) scale(0.8)"/>
+  <use href="#blad" fill="#F2B33D" transform="translate(760 620) rotate(80) scale(0.9)"/>
+  <use href="#blad" fill="#EE6A1F" transform="translate(640 612) rotate(110) scale(0.75)"/>
+  <use href="#blad" fill="#9A6A3A" transform="translate(180 615) rotate(75) scale(0.85)"/>
+  <use href="#blad" fill="#F2B33D" transform="translate(90 630) rotate(105) scale(0.7)"/>
+</svg>

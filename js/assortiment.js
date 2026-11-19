@@ -171,7 +171,13 @@ window.ASSORTIMENT = (function () {
     'stroomgroepen', 'compressors', 'verwarmingstoestellen', 'ventilators', 'handgereedschap', 'rotoreg', 'gazonmaaiers',
     'bermmaaiers', 'overtopfrezen', 'maaiarmen', 'sproeimachines', 'houtklievers-aanbouw', 'aardappelrooier',
     'mestverspreider', 'kunstmeststrooiers'];
-  AANBOD.forEach(function (a) { if (!a.foto && FOTOS.indexOf(a.slug) > -1) a.foto = 'img/verkoop/' + a.slug + '.webp'; });
+  // Zelfgemaakte illustraties (img/verkoop/<slug>.svg) waar geen geschikte foto te vinden was.
+  var ILLUSTRATIES = ['stronkenfrezen', 'bladblazers-op-accu', 'waterpompen', 'bouwdrogers'];
+  AANBOD.forEach(function (a) {
+    if (a.foto) return;
+    if (FOTOS.indexOf(a.slug) > -1) a.foto = 'img/verkoop/' + a.slug + '.webp';
+    else if (ILLUSTRATIES.indexOf(a.slug) > -1) a.foto = 'img/verkoop/' + a.slug + '.svg';
+  });
 
   function cat(id) { for (var i = 0; i < CATS.length; i++) if (CATS[i].id === id) return CATS[i]; }
   function zoek(slug) { for (var i = 0; i < AANBOD.length; i++) if (AANBOD[i].slug === slug) return AANBOD[i]; }
