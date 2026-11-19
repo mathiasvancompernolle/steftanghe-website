@@ -228,6 +228,13 @@ p { margin: 0; }
 .tekstpagina .wrap { max-width: calc(820px + 2 * var(--rand)); display: flex; flex-direction: column; gap: 16px; }
 .tekstpagina h1 { font-weight: 800; font-size: clamp(48px, 7vw, 88px); color: var(--groen); margin-bottom: 16px; }
 .tekstpagina h2 { font-weight: 700; font-size: 32px; margin-top: 16px; }
+.tekstpagina ul { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; }
+.tekstpagina li::marker { color: var(--oranje); }
+.tekstpagina p, .tekstpagina li { max-width: 70ch; }
+.tekstpagina .bijgewerkt { font-size: 16px; color: var(--inkt-zacht); margin-top: -12px; }
+.tekstpagina .kort { background: #fff; border-left: 6px solid var(--groen); border-radius: 18px; padding: 24px 28px; margin: 8px 0 12px; box-shadow: 0 1px 3px rgba(18,36,26,0.06), 0 10px 30px rgba(18,36,26,0.06); }
+.tekstpagina .kort h2 { margin: 0 0 10px; font-size: 26px; color: var(--groen); }
+.tekstpagina .todo-blok { font-size: 17px; }
 
 /* ---------- Verhuurpagina ---------- */
 .pagina-kop { padding-top: calc(132px + var(--topbalk)); }
