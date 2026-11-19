@@ -93,6 +93,18 @@
     });
   }
 
+  // Knop "Naar boven" op lange pagina's
+  if (!document.body.classList.contains('niet-gevonden')) {
+    var boven = document.createElement('button');
+    boven.type = 'button'; boven.className = 'naar-boven';
+    boven.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>';
+    var bovenLabel = function () { boven.setAttribute('aria-label', window.ST ? window.ST.t('naar.boven') : 'Naar boven'); };
+    bovenLabel(); document.addEventListener('taal', bovenLabel);
+    boven.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: zacht ? 'auto' : 'smooth' }); });
+    document.body.appendChild(boven);
+    window.addEventListener('scroll', function () { boven.classList.toggle('zichtbaar', window.scrollY > window.innerHeight * 1.5); }, { passive: true });
+  }
+
   // Gsm-actiebalk: verbergen zolang de grote contactblok in beeld is (dubbel) of het menu open staat
   var actiebalk = document.getElementById('actiebalk');
   var contact = document.querySelector('.contact');

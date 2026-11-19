@@ -9,9 +9,9 @@
     hakselaar:    { dag: 110, weekend: 130, week: 330 }
   };
   var WERKTUIGEN = [
-    { id: 'frees', foto: 'img/frees.jpg' },
+    { id: 'frees', foto: 'img/klein/frees.webp' },
     { id: 'klepelmaaier', foto: '' },
-    { id: 'hakselaar', foto: 'img/hakselaar.jpg' }
+    { id: 'hakselaar', foto: 'img/klein/hakselaar.webp' }
   ];
   var KLUSSEN = [
     { id: 'frezen', zet: ['frees'] },
@@ -19,7 +19,7 @@
     { id: 'maaien', zet: ['klepelmaaier'] },
     { id: 'verzetten', zet: [] }
   ];
-  var FOTOS = ['img/kubota.jpg', 'img/kubota-hakselaar.jpg', 'img/frees.jpg', 'img/hakselaar.jpg'];
+  var FOTOS = ['img/kubota.webp', 'img/kubota-hakselaar.webp', 'img/frees.webp', 'img/hakselaar.webp'];
   var PERIODES = ['dag', 'weekend', 'week'];
 
   var t = window.ST.t;
@@ -38,19 +38,72 @@
   function naam(id) { return t('w.' + id); }
 
   // Galerij (bouwt één keer)
+  function toonFoto(i) {
+    i = (i + FOTOS.length) % FOTOS.length;
+    if (staat.foto === i) return;
+    staat.foto = i;
+    var hf = $('hoofdfoto');
+    hf.classList.add('wissel');
+    setTimeout(function () { hf.onload = hf.onerror = function () { hf.classList.remove('wissel'); }; hf.src = FOTOS[i]; }, 180);
+    document.querySelectorAll('.duim').forEach(function (d, j) { d.setAttribute('aria-pressed', j === i ? 'true' : 'false'); });
+    if (lb && lb.classList.contains('open')) lbFoto();
+  }
   FOTOS.forEach(function (src, i) {
     var b = el('button', { type: 'button', class: 'duim', 'aria-pressed': i === 0 ? 'true' : 'false', 'aria-label': 'Foto ' + (i + 1) },
-      '<img src="' + src + '" alt="" loading="lazy">');
-    b.addEventListener('click', function () {
-      if (staat.foto === i) return;
-      staat.foto = i;
-      var hf = $('hoofdfoto');
-      hf.classList.add('wissel');
-      setTimeout(function () { hf.onload = hf.onerror = function () { hf.classList.remove('wissel'); }; hf.src = src; }, 180);
-      document.querySelectorAll('.duim').forEach(function (d) { d.setAttribute('aria-pressed', d === b ? 'true' : 'false'); });
-    });
+      '<img src="' + src.replace('img/', 'img/klein/') + '" alt="" loading="lazy">');
+    b.addEventListener('click', function () { toonFoto(i); });
     $('duimen').appendChild(b);
   });
+
+  // Swipen over de grote foto (gsm)
+  function swipe(doel, links, rechts) {
+    var x0 = null;
+    doel.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    doel.addEventListener('touchend', function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0; x0 = null;
+      if (Math.abs(dx) > 45) (dx < 0 ? links : rechts)();
+    });
+  }
+  swipe($('hoofdfoto'), function () { toonFoto(staat.foto + 1); }, function () { toonFoto(staat.foto - 1); });
+
+  // Schermvullend bekijken (lightbox)
+  var lb = el('div', { class: 'lightbox', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Kubota B1820' },
+    '<img alt="">' +
+    '<button type="button" class="lb-knop lb-sluit"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
+    '<button type="button" class="lb-knop lb-vorige"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>' +
+    '<button type="button" class="lb-knop lb-volgende"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>' +
+    '<p class="lb-teller"></p>');
+  document.body.appendChild(lb);
+  function lbFoto() {
+    lb.querySelector('img').src = FOTOS[staat.foto];
+    lb.querySelector('.lb-teller').textContent = (staat.foto + 1) + ' / ' + FOTOS.length;
+  }
+  function lbLabels() {
+    lb.querySelector('.lb-sluit').setAttribute('aria-label', t('menu.sluiten'));
+    lb.querySelector('.lb-vorige').setAttribute('aria-label', t('lb.vorige'));
+    lb.querySelector('.lb-volgende').setAttribute('aria-label', t('lb.volgende'));
+    $('hoofdfoto').setAttribute('aria-label', t('lb.vergroot'));
+  }
+  function lbOpen() { lbFoto(); lb.classList.add('open'); document.body.classList.add('dialoog-open'); lb.querySelector('.lb-sluit').focus(); }
+  function lbSluit() { lb.classList.remove('open'); document.body.classList.remove('dialoog-open'); $('hoofdfoto').focus(); }
+  $('hoofdfoto').setAttribute('tabindex', '0');
+  $('hoofdfoto').setAttribute('role', 'button');
+  $('hoofdfoto').addEventListener('click', lbOpen);
+  $('hoofdfoto').addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); lbOpen(); } });
+  lb.querySelector('.lb-sluit').addEventListener('click', lbSluit);
+  lb.querySelector('.lb-vorige').addEventListener('click', function () { toonFoto(staat.foto - 1); });
+  lb.querySelector('.lb-volgende').addEventListener('click', function () { toonFoto(staat.foto + 1); });
+  lb.addEventListener('click', function (e) { if (e.target === lb) lbSluit(); });
+  swipe(lb, function () { toonFoto(staat.foto + 1); }, function () { toonFoto(staat.foto - 1); });
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') lbSluit();
+    if (e.key === 'ArrowRight') toonFoto(staat.foto + 1);
+    if (e.key === 'ArrowLeft') toonFoto(staat.foto - 1);
+  });
+  lbLabels();
+  document.addEventListener('taal', lbLabels);
 
   $('startdatum').min = new Date().toISOString().slice(0, 10);
   $('startdatum').addEventListener('change', function (e) { staat.datum = e.target.value; render(); });

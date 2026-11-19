@@ -67,14 +67,11 @@
   </section>
 
   <section class="wrap verkoop-layout">
-    <button type="button" class="btn btn-rand filter-knop" id="filter-knop" aria-expanded="false" aria-controls="filterpaneel">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
-      <span data-i18n="vk.filter">Filter</span> <span id="filter-knop-aantal"></span>
-    </button>
     <aside class="filterpaneel" id="filterpaneel" aria-label="Filter">
       <div class="filter-kop">
         <h2 data-i18n="vk.filter">Filter</h2>
         <button type="button" class="wis" id="wis" hidden data-i18n="vk.wis">Verwijder alle filters</button>
+        <button type="button" class="filter-sluit" id="filter-sluit" aria-label="Menu sluiten" data-i18n-attr="aria-label:menu.sluiten"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
       </div>
       <fieldset>
         <legend data-i18n="vk.percat">Volgens categorie</legend>
@@ -84,7 +81,9 @@
         <legend data-i18n="vk.permerk">Volgens merk</legend>
         <ul id="filter-merk" class="merklijst"></ul>
       </fieldset>
+      <div class="filter-voet"><button type="button" class="btn btn-groen" id="filter-toon"></button></div>
     </aside>
+    <div class="filter-achtergrond" id="filter-achtergrond" aria-hidden="true"></div>
     <div class="verkoop-resultaten">
       <form id="zoekform" role="search" class="zoekveld">
         <label for="zoek" class="sr-only" data-i18n="vk.zoek">Zoek binnen verkoop</label>
@@ -92,11 +91,27 @@
         <input type="search" id="zoek" autocomplete="off" placeholder="Zoek binnen verkoop" data-i18n-attr="placeholder:vk.zoek">
       </form>
       <div class="cat-chips" id="cat-chips" role="group" aria-label="Volgens categorie" data-i18n-attr="aria-label:vk.percat"></div>
-      <p class="teller" id="teller" aria-live="polite"></p>
+      <button type="button" class="kh-banner" id="kh-open" aria-haspopup="dialog">
+        <span class="kh-banner-icoon" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span>
+        <span class="kh-banner-tekst"><strong data-i18n="kh.knop.t">Welke maaier past bij jou?</strong><span data-i18n="kh.knop.p">Beantwoord 3 korte vragen en zie meteen wat bij je gazon past.</span></span>
+        <span class="kh-banner-pijl"><span data-i18n="kh.start">Start de keuzehulp</span> <span aria-hidden="true">→</span></span>
+      </button>
+      <div class="teller-rij">
+        <p class="teller" id="teller" aria-live="polite"></p>
+        <button type="button" class="btn btn-rand filter-knop" id="filter-knop" aria-expanded="false" aria-controls="filterpaneel">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+          <span data-i18n="vk.filter">Filter</span> <span id="filter-knop-aantal"></span>
+        </button>
+      </div>
       <div class="producten" id="producten"></div>
       <p class="geen" id="geen" hidden data-i18n="vk.geen">Geen machines gevonden. Pas je filters aan of bel Stef: hij zoekt het voor je uit.</p>
     </div>
   </section>
+  <dialog class="kh" id="keuzehulp" aria-labelledby="kh-titel">
+    <div class="kh-kop"><p class="kh-label" id="kh-titel" data-i18n="kh.titel">Keuzehulp maaier</p><button type="button" class="kh-sluit" id="kh-sluit" aria-label="Menu sluiten" data-i18n-attr="aria-label:menu.sluiten"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="kh-voortgang" aria-hidden="true"><span id="kh-balk"></span></div>
+    <div class="kh-inhoud" id="kh-inhoud" aria-live="polite"></div>
+  </dialog>
 </main>
 
 <footer class="contact" id="contact">
@@ -164,5 +179,6 @@
 <script src="js/main.js" defer></script>
 <script src="js/assortiment.js" defer></script>
 <script src="js/verkoop.js" defer></script>
+<script src="js/keuzehulp.js" defer></script>
 </body>
 </html>

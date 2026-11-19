@@ -59,10 +59,11 @@
     var items = A.AANBOD.filter(function (a) { return past(a); });
     $('teller').textContent = items.length + ' ' + t(items.length === 1 ? 'vk.resultaat' : 'vk.resultaten');
     $('geen').hidden = items.length > 0;
+    $('filter-toon').textContent = items.length === 1 ? t('vk.toon1') : t('vk.toon').replace('{n}', items.length);
     $('producten').innerHTML = items.map(function (a) {
       var href = window.ST.link('verkoop-detail.html?p=' + a.slug);
       var beeld = a.foto
-        ? '<img src="' + a.foto + '" alt="" loading="lazy">'
+        ? '<img src="' + A.klein(a.foto) + '" alt="" loading="lazy" width="640" height="400">'
         : '<span class="kaart-zonder-foto">Foto volgt</span>';
       return '<a class="product product-' + a.cat + '" href="' + href + '">' +
         '<span class="product-beeld">' + beeld + '</span>' +
@@ -113,11 +114,23 @@
     bewaar(); teken();
   });
   // Gsm: filterpaneel open/dicht
-  $('filter-knop').addEventListener('click', function () {
-    var open = this.getAttribute('aria-expanded') !== 'true';
-    this.setAttribute('aria-expanded', open ? 'true' : 'false');
-    document.querySelector('.filterpaneel').classList.toggle('open', open);
+  // Gsm: filterpaneel schuift van onder in, met "Toon x resultaten"
+  function zetFilter(open) {
+    $('filter-knop').setAttribute('aria-expanded', open ? 'true' : 'false');
+    $('filterpaneel').classList.toggle('open', open);
+    $('filter-achtergrond').classList.toggle('open', open);
+    document.body.classList.toggle('filter-open', open);
+    if (open) setTimeout(function () { $('filter-sluit').focus(); }, 50);
+    else $('filter-knop').focus({ preventScroll: true });
+  }
+  $('filter-knop').addEventListener('click', function () { zetFilter(true); });
+  $('filter-sluit').addEventListener('click', function () { zetFilter(false); });
+  $('filter-achtergrond').addEventListener('click', function () { zetFilter(false); });
+  $('filter-toon').addEventListener('click', function () {
+    zetFilter(false);
+    $('teller').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && $('filterpaneel').classList.contains('open')) zetFilter(false); });
 
   document.addEventListener('taal', teken);
   teken();

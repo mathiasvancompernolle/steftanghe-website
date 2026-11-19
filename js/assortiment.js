@@ -186,5 +186,13 @@ window.ASSORTIMENT = (function () {
     AANBOD.forEach(function (a) { a.merken.forEach(function (mk) { s[mk] = (s[mk] || 0) + 1; }); });
     return Object.keys(s).sort(function (a, b) { return a.localeCompare(b, 'nl', { sensitivity: 'base' }); });
   }
-  return { CATS: CATS, AANBOD: AANBOD, cat: cat, zoek: zoek, merken: merken };
+  // Kleine versie (640x400) voor kaarten en tegels; de grote foto blijft voor de detailpagina.
+  function klein(foto) {
+    if (!foto || /\.svg$/.test(foto)) return foto;
+    var m = foto.match(/^img\/verkoop\/([^/]+)\.webp$/);
+    if (m) return 'img/verkoop/klein/' + m[1] + '.webp';
+    m = foto.match(/^img\/([^/]+)\.(jpg|webp)$/);
+    return m ? 'img/klein/' + m[1] + '.webp' : foto;
+  }
+  return { CATS: CATS, AANBOD: AANBOD, cat: cat, zoek: zoek, merken: merken, klein: klein };
 })();

@@ -45,7 +45,7 @@
     $('verwant').closest('section').hidden = !verwant.length;
     $('verwant').innerHTML = verwant.map(function (a) {
       return '<a class="product product-' + a.cat + '" href="' + window.ST.link('verkoop-detail.html?p=' + a.slug) + '">' +
-        '<span class="product-beeld">' + (a.foto ? '<img src="' + a.foto + '" alt="" loading="lazy">' : '') + '</span>' +
+        '<span class="product-beeld">' + (a.foto ? '<img src="' + A.klein(a.foto) + '" alt="" loading="lazy" width="640" height="400">' : '') + '</span>' +
         '<span class="product-body"><span class="product-titel">' + esc(a.naam[taal()]) + '</span>' +
         '<span class="product-tekst">' + esc(a.tekst[taal()]) + '</span>' +
         '<span class="product-actie">' + t('vk.meerinfo') + ' <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></a>';
@@ -63,6 +63,16 @@
   });
   $('offerteform').addEventListener('input', function () {
     $('o-mail').href = 'mailto:info@steftanghe.be?subject=' + encodeURIComponent(t('vd.offerte') + ': ' + item.naam[taal()]) + '&body=' + encodeURIComponent(bericht());
+  });
+
+  // Deel deze machine: systeemmenu van de gsm, anders WhatsApp
+  $('deel').addEventListener('click', function () {
+    var naam = item.naam[taal()], url = location.href;
+    if (navigator.share) {
+      navigator.share({ title: naam + ' – Stef Tanghe', text: t('vd.deel.tekst') + ' ' + naam, url: url }).catch(function () {});
+    } else {
+      window.open('https://wa.me/?text=' + encodeURIComponent(t('vd.deel.tekst') + ' ' + naam + '\n' + url), '_blank', 'noopener');
+    }
   });
 
   document.addEventListener('taal', teken);
