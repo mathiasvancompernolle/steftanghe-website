@@ -270,6 +270,10 @@
     'h.l.afhaal': { nl: 'Graag ophalen op', en: 'Please collect at', fr: 'Merci de l’enlever à', de: 'Bitte abholen bei' },
     'contact.service': { nl: 'Machine stil?<br>Bel Stef.', en: 'Machine down?<br>Call Stef.', fr: 'Machine à l’arrêt ?<br>Appelez Stef.', de: 'Maschine steht still?<br>Rufen Sie Stef an.' },
 
+    // Topbalk (desktop)
+    'tb.uren': { nl: 'Op afspraak: bel of stuur een bericht', en: 'By appointment: call or send a message', fr: 'Sur rendez-vous : appelez ou écrivez', de: 'Nach Vereinbarung: anrufen oder schreiben' },
+    'tb.label': { nl: 'Contactgegevens', en: 'Contact details', fr: 'Coordonnées', de: 'Kontaktdaten' },
+
     // Algemene extra's
     'naar.boven': { nl: 'Naar boven', en: 'Back to top', fr: 'Haut de page', de: 'Nach oben' },
     'vk.toon': { nl: 'Toon {n} resultaten', en: 'Show {n} results', fr: 'Afficher {n} résultats', de: '{n} Ergebnisse anzeigen' },

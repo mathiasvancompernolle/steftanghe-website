@@ -67,7 +67,10 @@
     }
     if (Math.abs(verschil) > 6) vorige = y;
   }
-  window.addEventListener('scroll', function () { updateBalk(); verberg(); }, { passive: true });
+  // Topbalk klapt dicht zodra je begint te scrollen
+  function topbalk() { balk.classList.toggle('gescrold', window.scrollY > 40); }
+  window.addEventListener('scroll', function () { updateBalk(); verberg(); topbalk(); }, { passive: true });
+  topbalk();
   balk.addEventListener('focusin', function () { balk.classList.remove('is-weg'); });
   updateBalk();
 
