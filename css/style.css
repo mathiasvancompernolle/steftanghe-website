@@ -36,7 +36,10 @@ p { margin: 0; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* Knoppen */
-.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 14px 24px; border-radius: 12px; font-weight: 600; text-decoration: none; border: 2px solid transparent; cursor: pointer; font: inherit; font-weight: 600; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 14px 24px; border-radius: 12px; font-weight: 600; text-decoration: none; border: 2px solid transparent; cursor: pointer; font: inherit; font-weight: 600; transition: background 0.2s, transform 0.15s, box-shadow 0.2s; }
+.btn:active { transform: translateY(1px); }
+.btn-groot { min-height: 58px; font-size: 21px; padding: 14px 28px; }
+.btn-oranje:hover, .btn-groen:hover { box-shadow: 0 8px 20px rgba(18, 36, 26, 0.18); }
 .btn-oranje { background: var(--oranje); color: var(--inkt); }
 .btn-oranje:hover { background: #F57F3A; color: var(--inkt); }
 .btn-groen { background: var(--groen); color: #fff; }
@@ -102,7 +105,15 @@ p { margin: 0; }
 .hero { position: relative; min-height: 100svh; min-height: 100vh; display: flex; align-items: flex-end; background: #0E1A12; color: #fff; overflow: hidden; }
 @supports (min-height: 100svh) { .hero { min-height: 100svh; } }
 .hero picture, .hero picture img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; }
-.hero::after { content: ""; position: absolute; inset: 0; background: rgba(8, 18, 12, 0.58); }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(8, 18, 12, 0.78) 0%, rgba(8, 18, 12, 0.45) 55%, rgba(8, 18, 12, 0.15) 100%), linear-gradient(0deg, rgba(8, 18, 12, 0.7) 0%, rgba(8, 18, 12, 0) 45%), linear-gradient(180deg, rgba(8, 18, 12, 0.45) 0%, rgba(8, 18, 12, 0) 22%); }
+@media (max-width: 700px) { .hero::after { background: linear-gradient(0deg, rgba(8, 18, 12, 0.88) 0%, rgba(8, 18, 12, 0.5) 55%, rgba(8, 18, 12, 0.35) 100%); } }
+.troeven { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px 28px; font-weight: 600; font-size: 19px; color: #E3EADF; }
+.troeven li { display: inline-flex; align-items: center; gap: 10px; }
+.troeven li::before { content: ""; flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--oranje) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2312241A' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center / 15px no-repeat; }
+.scroll-pijl { position: absolute; z-index: 1; left: 50%; bottom: 22px; translate: -50% 0; display: inline-flex; width: 52px; height: 52px; align-items: center; justify-content: center; border-radius: 50%; color: #fff; border: 2px solid rgba(255,255,255,0.5); animation: stuiter 2.2s ease-in-out infinite; }
+.scroll-pijl:hover { color: #fff; background: rgba(255,255,255,0.12); }
+@keyframes stuiter { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+@media (max-width: 700px) { .scroll-pijl { display: none; } }
 .hero-inhoud { position: relative; z-index: 1; width: 100%; padding-top: 140px; padding-bottom: 112px; display: flex; flex-direction: column; gap: 28px; }
 .hero h1 { font-weight: 800; font-size: clamp(44px, 6.6vw, 108px); line-height: 0.92; letter-spacing: -0.5px; max-width: 18ch; hyphens: manual; text-wrap: balance; }
 .hero p { font-size: clamp(19px, 2vw, 23px); line-height: 1.4; color: #E3EADF; max-width: 36ch; }
@@ -111,12 +122,20 @@ p { margin: 0; }
 /* ---------- Secties ---------- */
 .sectie { padding: 96px 0; }
 .sectie-titel { font-weight: 800; font-size: clamp(40px, 5vw, 56px); margin-bottom: 32px; }
-.diensten { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; }
+.diensten { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
 @media (max-width: 1000px) { .diensten { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 560px) { .diensten { grid-template-columns: 1fr; } }
-.dienst { border-top: 8px solid var(--groen); padding-top: 20px; }
+@media (max-width: 560px) { .diensten { grid-template-columns: 1fr; gap: 14px; } }
+.dienst { position: relative; display: flex; flex-direction: column; gap: 10px; padding: 28px 26px 24px; border-radius: 22px; background: #fff; color: var(--inkt); text-decoration: none; border-top: 6px solid var(--groen); box-shadow: 0 1px 3px rgba(18,36,26,0.06), 0 10px 30px rgba(18,36,26,0.06); transition: transform 0.25s, box-shadow 0.25s; }
 .dienst:nth-child(n+3) { border-top-color: var(--oranje); }
-.dienst h3 { font-weight: 700; font-size: 34px; margin-bottom: 8px; }
+.dienst:hover { color: var(--inkt); transform: translateY(-4px); box-shadow: 0 2px 6px rgba(18,36,26,0.08), 0 18px 40px rgba(18,36,26,0.12); }
+.dienst h3 { font-weight: 800; font-size: 34px; }
+.dienst p { color: var(--inkt-zacht); }
+.dienst-icoon { display: inline-flex; width: 64px; height: 64px; align-items: center; justify-content: center; border-radius: 18px; background: #E3F0E3; color: var(--groen); margin-bottom: 4px; transition: transform 0.25s; }
+.dienst:nth-child(n+3) .dienst-icoon { background: #FDE8DA; color: #C9551A; }
+.dienst:hover .dienst-icoon { transform: rotate(-6deg) scale(1.06); }
+.dienst-link { margin-top: auto; padding-top: 8px; font-weight: 700; color: var(--groen); }
+.dienst-link span[aria-hidden] { display: inline-block; transition: transform 0.2s; }
+.dienst:hover .dienst-link span[aria-hidden] { transform: translateX(5px); }
 
 .huurblok { background: var(--groen); color: #fff; border-radius: 28px; overflow: hidden; display: flex; flex-wrap: wrap; }
 .huurblok picture { flex: 1.2 1 420px; min-width: 0; }
@@ -141,11 +160,23 @@ p { margin: 0; }
 .machine h3 { font-weight: 700; font-size: 28px; margin: 12px 0 4px; }
 
 /* ---------- Contact / voet ---------- */
-.contact { background: var(--groen); color: #fff; padding: 80px 0; }
+.contact { position: relative; overflow: hidden; background: var(--groen); color: #fff; padding: 88px 0 72px; }
+.contact::before { content: ""; position: absolute; right: -160px; top: -160px; width: 520px; height: 520px; border-radius: 50%; border: 70px solid rgba(255,255,255,0.05); pointer-events: none; }
 .contact a { color: #fff; }
-.contact-inner { display: flex; flex-wrap: wrap; gap: 48px; justify-content: space-between; align-items: flex-end; }
+.contact-inner { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 48px 64px; align-items: end; }
+@media (max-width: 1000px) { .contact-inner { grid-template-columns: 1fr; } }
 .contact-logo { width: 96px; height: 96px; padding: 10px; background: var(--plaat); border-radius: 22px; margin-bottom: 28px; }
-.contact h2 { font-weight: 800; font-size: clamp(48px, 6vw, 64px); line-height: 0.95; margin-bottom: 20px; }
+.contact h2 { font-weight: 800; font-size: clamp(48px, 6vw, 72px); line-height: 0.95; margin-bottom: 24px; }
+.contact-kolommen { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+@media (max-width: 700px) { .contact-kolommen { grid-template-columns: 1fr 1fr; } .contact-kolommen > :last-child { grid-column: 1 / -1; } }
+.contact-kolommen h3 { font-weight: 700; font-size: 15px; text-transform: uppercase; letter-spacing: 0.1em; color: #BFE0C4; margin-bottom: 14px; }
+.contact-kolommen ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 18px; }
+.contact-kolommen a { text-decoration: none; }
+.contact-kolommen a:hover { color: #FFD2B3; text-decoration: underline; }
+.met-icoon li, .met-icoon-p { display: flex; gap: 10px; align-items: flex-start; font-size: 18px; }
+.met-icoon svg, .met-icoon-p svg { flex: none; margin-top: 3px; color: #BFE0C4; width: 20px; height: 20px; }
+.route-link { display: inline-flex; gap: 6px; margin-top: 16px; padding: 8px 16px; border-radius: 999px; background: rgba(255,255,255,0.12); font-weight: 700; }
+.route-link:hover { background: rgba(255,255,255,0.2); text-decoration: none !important; }
 .contact-gegevens { display: flex; flex-direction: column; gap: 12px; font-size: 18px; }
 .contact .todo { color: #FFE2CF; border-color: #FFB27F; }
 .voet { background: #0B2E17; color: #D6E2D5; font-size: 15px; }
@@ -175,7 +206,16 @@ p { margin: 0; }
 .pagina-kop .intro { flex: 0 1 380px; font-size: 20px; }
 
 .galerij { display: grid; grid-template-columns: 4fr 1fr; gap: 16px; margin-top: 40px; }
-.galerij-hoofd img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 24px; }
+.galerij-hoofd img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 24px; transition: opacity 0.18s ease; }
+.galerij-hoofd img.wissel { opacity: 0; }
+.duim { transition: border-color 0.2s, opacity 0.2s; }
+.duim[aria-pressed="false"] { opacity: 0.75; }
+.duim:hover { opacity: 1; }
+.ab-totaal strong.tik { animation: tik 0.35s ease; }
+@keyframes tik { 40% { transform: scale(1.15); color: #FFD2B3; } }
+.klus, .periode, .werktuig { transition: border-color 0.2s, background 0.2s, transform 0.15s; }
+.klus:hover, .werktuig:hover { border-color: #8FB596; }
+.klus:active, .periode:active { transform: scale(0.98); }
 .galerij-duimen { display: grid; gap: 16px; grid-template-rows: repeat(4, minmax(0, 1fr)); contain: size; }
 .duim { padding: 0; border: 4px solid transparent; border-radius: 14px; overflow: hidden; cursor: pointer; background: none; }
 .duim[aria-pressed="true"] { border-color: var(--groen); }
@@ -279,8 +319,16 @@ p { margin: 0; }
 .producten { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 20px; }
 .product { display: flex; flex-direction: column; background: #fff; border-radius: 20px; overflow: hidden; color: var(--inkt); text-decoration: none; border: 2px solid transparent; box-shadow: 0 1px 3px rgba(18,36,26,0.08), 0 8px 24px rgba(18,36,26,0.06); transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; }
 .product:hover { color: var(--inkt); border-color: var(--groen); transform: translateY(-3px); box-shadow: 0 2px 6px rgba(18,36,26,0.1), 0 16px 32px rgba(18,36,26,0.1); }
-.product-beeld { display: block; aspect-ratio: 16 / 10; background: var(--groen); border-bottom: 1px solid var(--lijn); }
-.product-beeld img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; }
+.product-beeld { display: block; aspect-ratio: 16 / 10; background: var(--groen); border-bottom: 1px solid var(--lijn); overflow: hidden; }
+.product-beeld img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; transition: transform 0.6s cubic-bezier(.2,.7,.2,1); }
+.product:hover .product-beeld img { transform: scale(1.05); }
+.cat-chips { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; margin: -4px 0 18px; padding: 4px 2px; scroll-snap-type: x proximity; }
+.cat-chips::-webkit-scrollbar { display: none; }
+.chip { flex: none; scroll-snap-align: start; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 2px solid #C3CEBF; background: #fff; font: inherit; font-size: 17px; font-weight: 600; color: var(--inkt); cursor: pointer; transition: all 0.2s; }
+.chip span { font-size: 13px; padding: 2px 8px; border-radius: 999px; background: var(--grond); color: var(--inkt-zacht); }
+.chip:hover { border-color: var(--groen); }
+.chip[aria-pressed="true"] { background: var(--groen); border-color: var(--groen); color: #fff; }
+.chip[aria-pressed="true"] span { background: rgba(255,255,255,0.2); color: #fff; }
 .kaart-zonder-foto { display: flex; align-items: flex-end; height: 100%; padding: 14px 18px; box-sizing: border-box; font-size: 14px; color: rgba(255,255,255,0.75); background-image: repeating-linear-gradient(135deg, rgba(255,255,255,0.06) 0 12px, transparent 12px 24px); }
 .product-reiniging .product-beeld, .product-reiniging.detail-zonder-foto { background: var(--oranje); }
 .product-reiniging .kaart-zonder-foto { color: rgba(18,36,26,0.7); }
@@ -324,20 +372,90 @@ p { margin: 0; }
 .offerte h2 { font-weight: 800; font-size: 34px; color: var(--groen); }
 .offerte form { display: flex; flex-direction: column; gap: 6px; }
 .offerte label { font-weight: 600; margin-top: 8px; }
-.offerte input, .offerte textarea { width: 100%; min-height: 48px; padding: 10px 14px; border: 2px solid #8FA394; border-radius: 12px; font: inherit; background: #fff; color: var(--inkt); }
+.offerte input, .offerte textarea, .offerte select { width: 100%; min-height: 48px; padding: 10px 14px; border: 2px solid #8FA394; border-radius: 12px; font: inherit; background: #fff; color: var(--inkt); }
+.offerte select { appearance: none; padding-right: 44px; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2313782F' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") right 14px center / 20px no-repeat; cursor: pointer; }
+.verwant-sectie { background: var(--plaat); padding: 80px 0 96px; }
+.verwant { grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
+.verwant .product-titel { font-size: 26px; }
 .offerte .btn { margin-top: 16px; width: 100%; }
 @media (max-width: 960px) { .offerte { position: static; } }
 
 /* Homepage: categorietegels */
-.categorie-tegels { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
-@media (max-width: 1200px) { .categorie-tegels { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-@media (max-width: 700px) { .categorie-tegels { grid-template-columns: 1fr; } }
-.cat-tegel { display: flex; flex-direction: column; gap: 6px; min-height: 200px; padding: 24px; border-radius: 20px; background: var(--groen); color: #fff; text-decoration: none; transition: transform 0.2s; }
-.cat-tegel:hover { color: #fff; transform: translateY(-3px); }
-.cat-tegel.product-reiniging { background: var(--oranje); color: var(--inkt); }
-.cat-tegel.product-bouw { background: #0B2E17; }
-.cat-tegel.product-gereedschap { background: #3D4F43; }
-.cat-tegel.product-aanbouw { background: #2E6B3E; }
-.cat-tegel-naam { font-family: var(--cond); font-weight: 800; font-size: clamp(24px, 1.9vw, 34px); line-height: 1; overflow-wrap: anywhere; hyphens: auto; }
-.cat-tegel-aantal { font-weight: 600; opacity: 0.9; }
-.cat-tegel-vb { margin-top: auto; font-size: 15px; opacity: 0.85; }
+.categorie-tegels { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
+.cat-tegel:nth-child(-n+2) { grid-column: span 3; }
+.cat-tegel:nth-child(n+3) { grid-column: span 2; }
+@media (max-width: 900px) { .categorie-tegels { grid-template-columns: 1fr 1fr; } .cat-tegel:nth-child(n) { grid-column: span 1; } .cat-tegel:first-child { grid-column: 1 / -1; } }
+@media (max-width: 560px) { .categorie-tegels { grid-template-columns: 1fr; } .cat-tegel:nth-child(n) { grid-column: auto; } }
+.cat-tegel { position: relative; display: flex; align-items: flex-end; min-height: 280px; border-radius: 22px; overflow: hidden; background: var(--groen); color: #fff; text-decoration: none; isolation: isolate; }
+.cat-tegel img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform 0.6s cubic-bezier(.2,.7,.2,1); }
+.cat-tegel::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, rgba(8,24,14,0.92) 0%, rgba(8,24,14,0.55) 45%, rgba(8,24,14,0.05) 100%); }
+.cat-tegel.product-reiniging::before { background: linear-gradient(0deg, rgba(150,60,10,0.95) 0%, rgba(150,60,10,0.5) 45%, rgba(150,60,10,0) 100%); }
+.cat-tegel:hover { color: #fff; }
+.cat-tegel:hover img { transform: scale(1.06); }
+.cat-tegel-tekst { display: flex; flex-direction: column; gap: 4px; padding: 24px 72px 24px 24px; }
+.cat-tegel-naam { font-family: var(--cond); font-weight: 800; font-size: clamp(30px, 2.6vw, 42px); line-height: 1; }
+.cat-tegel-aantal { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #FFD2B3; }
+.cat-tegel.product-reiniging .cat-tegel-aantal { color: #FFE9D9; }
+.cat-tegel-vb { font-size: 16px; opacity: 0.88; }
+.cat-tegel-pijl { position: absolute; right: 20px; bottom: 22px; display: inline-flex; width: 44px; height: 44px; align-items: center; justify-content: center; border-radius: 50%; background: var(--oranje); color: var(--inkt); font-weight: 800; font-size: 22px; transition: transform 0.2s; }
+.cat-tegel.product-reiniging .cat-tegel-pijl { background: #fff; }
+.cat-tegel:hover .cat-tegel-pijl { transform: translateX(4px); }
+
+/* ---------- Herstelling aanvragen (homepage) ---------- */
+.herstel-sectie { background: var(--grond); }
+.herstel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px 72px; align-items: start; }
+@media (max-width: 960px) { .herstel { grid-template-columns: 1fr; } }
+.herstel-sub { font-size: 21px; color: var(--inkt-zacht); max-width: 46ch; margin: -12px 0 36px; }
+.stappen { list-style: none; margin: 0; padding: 0; counter-reset: stap; display: flex; flex-direction: column; gap: 4px; }
+.stappen li { counter-increment: stap; position: relative; display: flex; flex-direction: column; gap: 2px; padding: 0 0 28px 76px; min-height: 56px; }
+.stappen li::before { content: counter(stap); position: absolute; left: 0; top: 0; width: 54px; height: 54px; border-radius: 16px; background: var(--groen); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 28px; }
+.stappen li:not(:last-child)::after { content: ""; position: absolute; left: 26px; top: 62px; bottom: 6px; border-left: 3px dashed #A9C2A4; }
+.stappen li:last-child::before { background: var(--oranje); color: var(--inkt); }
+.stappen strong { font-size: 26px; font-weight: 800; line-height: 1.1; }
+.stappen span { color: var(--inkt-zacht); max-width: 44ch; }
+.herstel-form { display: flex; flex-direction: column; gap: 6px; background: #fff; border-radius: 28px; padding: 32px; box-shadow: 0 2px 6px rgba(18,36,26,0.06), 0 24px 60px rgba(18,36,26,0.1); border-top: 8px solid var(--oranje); }
+.herstel-form label, .herstel-form legend { font-weight: 600; margin-top: 10px; }
+.herstel-form input:not([type="radio"]), .herstel-form textarea { width: 100%; min-height: 52px; padding: 12px 16px; border: 2px solid #C3CEBF; border-radius: 14px; font: inherit; background: var(--plaat); color: var(--inkt); transition: border-color 0.2s, background 0.2s; }
+.herstel-form input:focus, .herstel-form textarea:focus, .offerte input:focus, .offerte textarea:focus, .offerte select:focus { outline: none; border-color: var(--groen); background: #fff; }
+.herstel-form .btn { margin-top: 18px; width: 100%; }
+.herstel-form .alt-links { margin-top: 12px; font-weight: 500; color: var(--inkt-zacht); }
+.herstel-form .alt-links a { font-weight: 700; }
+.form-rij { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+@media (max-width: 520px) { .form-rij { grid-template-columns: 1fr; } .herstel-form { padding: 24px 20px; } }
+.soort-keuze { border: 0; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.soort-keuze legend { grid-column: 1 / -1; margin: 0 0 8px; padding: 0; }
+.soort-keuze label { margin: 0; position: relative; }
+.soort-keuze input { position: absolute; opacity: 0; }
+.soort-keuze span { display: flex; align-items: center; justify-content: center; min-height: 54px; border-radius: 14px; border: 2px solid #C3CEBF; background: var(--plaat); font-weight: 700; font-size: 20px; cursor: pointer; transition: all 0.2s; }
+.soort-keuze input:checked + span { border-color: var(--groen); background: var(--groen); color: #fff; }
+.soort-keuze input:focus-visible + span { outline: 3px solid var(--oranje); outline-offset: 2px; }
+
+/* ---------- Gsm-actiebalk ---------- */
+.actiebalk { display: none; }
+@media (max-width: 900px) {
+  body { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
+  .actiebalk { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; position: fixed; z-index: 40; left: 10px; right: 10px; bottom: calc(10px + env(safe-area-inset-bottom)); padding: 6px; border-radius: 20px; background: rgba(11, 46, 23, 0.96); box-shadow: 0 10px 30px rgba(5, 15, 9, 0.35); backdrop-filter: blur(8px); transition: transform 0.35s cubic-bezier(.2,.7,.2,1), opacity 0.35s; }
+  .actiebalk.weg { transform: translateY(140%); opacity: 0; }
+  .actiebalk > a:not(.btn) { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 54px; border-radius: 14px; color: #fff; text-decoration: none; font-weight: 700; font-size: 15px; }
+  .actiebalk > a:not(.btn):first-child { background: var(--oranje); color: var(--inkt); }
+  .actiebalk > a:not(.btn):active { background: rgba(255,255,255,0.12); }
+  .actiebalk-huur { grid-template-columns: 1fr auto; align-items: center; padding: 8px 8px 8px 18px; }
+  .ab-totaal { display: flex; flex-direction: column; color: #fff; line-height: 1; }
+  .ab-totaal span { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: #BFE0C4; }
+  .ab-totaal strong { font-size: 32px; font-weight: 800; }
+  .actiebalk-huur .btn { background: var(--oranje); color: var(--inkt); min-height: 52px; border-radius: 14px; }
+  body.menu-open .actiebalk { transform: translateY(140%); }
+}
+
+/* ---------- 404 ---------- */
+.nf { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 48px 20px; text-align: center; }
+.nf-logo img { height: 64px; width: auto; margin-bottom: 12px; }
+.nf-code { font-weight: 800; font-size: clamp(120px, 22vw, 240px); line-height: 0.8; color: var(--groen); letter-spacing: -4px; }
+.nf h1 { font-weight: 800; font-size: clamp(34px, 5vw, 56px); }
+.nf p:not(.nf-code) { max-width: 40ch; color: var(--inkt-zacht); }
+.nf .knoppen { justify-content: center; margin-top: 8px; }
+body.niet-gevonden { padding-bottom: 0; }
+
+/* ---------- Verschijnen bij scrollen ---------- */
+.verschijn { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(.2,.7,.2,1); }
+.verschijn.in-beeld { opacity: 1; transform: none; }

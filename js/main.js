@@ -73,4 +73,31 @@
   document.querySelectorAll('[data-jaar]').forEach(function (el) {
     el.textContent = new Date().getFullYear();
   });
+
+  // Secties schuiven zacht in beeld bij het scrollen (niet bij "minder beweging")
+  var zacht = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if ('IntersectionObserver' in window && !zacht) {
+    var doelen = document.querySelectorAll('main > section:not(.hero):not(.pagina-kop), .contact-inner > *, .dienst, .stappen li');
+    var io = new IntersectionObserver(function (items) {
+      items.forEach(function (it) {
+        if (it.isIntersecting) { it.target.classList.add('in-beeld'); io.unobserve(it.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    doelen.forEach(function (d, i) {
+      // wat al zichtbaar is bij het laden, niet animeren
+      if (d.getBoundingClientRect().top < window.innerHeight) return;
+      d.classList.add('verschijn');
+      if (d.matches('.dienst, .stappen li')) d.style.transitionDelay = (Array.prototype.indexOf.call(d.parentNode.children, d) * 90) + 'ms';
+      io.observe(d);
+    });
+  }
+
+  // Gsm-actiebalk: verbergen zolang de grote contactblok in beeld is (dubbel) of het menu open staat
+  var actiebalk = document.getElementById('actiebalk');
+  var contact = document.querySelector('.contact');
+  if (actiebalk && contact && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (items) {
+      actiebalk.classList.toggle('weg', items[0].isIntersecting);
+    }, { threshold: 0.15 }).observe(contact);
+  }
 })();

@@ -77,7 +77,25 @@
     }).join('');
   }
 
-  function teken() { tekenFilters(); tekenKaarten(); }
+  // Snelle categorieknoppen boven de kaarten (één categorie tegelijk; "Alles" wist de categoriefilter)
+  function tekenChips() {
+    var alle = [{ id: '', naam: t('vk.alle'), n: A.AANBOD.filter(function (a) { return past(a, 'cat'); }).length }]
+      .concat(A.CATS.map(function (c) {
+        return { id: c.id, naam: c.naam[taal()], n: A.AANBOD.filter(function (a) { return a.cat === c.id && past(a, 'cat'); }).length };
+      }));
+    $('cat-chips').innerHTML = alle.map(function (c) {
+      var aan = c.id ? (staat.cats.length === 1 && staat.cats[0] === c.id) : !staat.cats.length;
+      return '<button type="button" class="chip" data-cat="' + c.id + '" aria-pressed="' + aan + '">' + esc(c.naam) + ' <span>' + c.n + '</span></button>';
+    }).join('');
+  }
+  $('cat-chips').addEventListener('click', function (e) {
+    var b = e.target.closest('.chip'); if (!b) return;
+    staat.cats = b.dataset.cat ? [b.dataset.cat] : [];
+    bewaar(); teken();
+    var terug = document.querySelector('.chip[data-cat="' + b.dataset.cat + '"]'); if (terug) terug.focus();
+  });
+
+  function teken() { tekenFilters(); tekenChips(); tekenKaarten(); }
 
   document.querySelector('.filterpaneel').addEventListener('change', function (e) {
     var el = e.target; if (!el.dataset.groep) return;

@@ -34,8 +34,8 @@
           <div class="dropdown-paneel" id="diensten-menu">
             <a href="verkoop.html" data-intern><strong data-i18n="nav.verkoop">Verkoop</strong><span data-i18n="nav.verkoop.sub">Tuin- en reinigingsmachines</span></a>
             <a href="verhuur.html" data-intern><strong data-i18n="nav.verhuur">Verhuur</strong><span data-i18n="nav.verhuur.sub">Kubota met werktuigen, per dag of week</span></a>
-            <a href="#diensten"><strong data-i18n="nav.onderhoud">Onderhoud</strong><span data-i18n="nav.onderhoud.sub">Een vaste beurt voor het seizoen</span></a>
-            <a href="#diensten"><strong data-i18n="nav.herstel">Herstellingen</strong><span data-i18n="nav.herstel.sub">Snel terug aan het werk na een panne</span></a>
+            <a href="./#herstelling" data-intern><strong data-i18n="nav.onderhoud">Onderhoud</strong><span data-i18n="nav.onderhoud.sub">Een vaste beurt voor het seizoen</span></a>
+            <a href="./#herstelling" data-intern><strong data-i18n="nav.herstel">Herstellingen</strong><span data-i18n="nav.herstel.sub">Snel terug aan het werk na een panne</span></a>
           </div>
         </div>
         <a href="verkoop.html" data-intern data-i18n="nav.verkoop">Verkoop</a>
@@ -74,9 +74,17 @@
       <p data-i18n="hero.p">Verkoop, verhuur en herstel in Izegem en Meulebeke. Voor de doe-het-zelver én de vakman.</p>
       <div class="knoppen">
         <a href="verhuur.html" class="btn btn-oranje" data-intern data-i18n="nav.huren">Tractor huren</a>
-        <a href="#contact" class="btn btn-rand-wit" data-i18n="hero.herstel">Herstelling aanvragen</a>
+        <a href="#herstelling" class="btn btn-rand-wit" data-i18n="hero.herstel">Herstelling aanvragen</a>
       </div>
+      <ul class="troeven">
+        <li data-i18n="usp.werkplaats">Eigen werkplaats in Izegem</li>
+        <li data-i18n="usp.merken">Herstelling van alle merken</li>
+        <li data-i18n="usp.advies">Persoonlijk advies van Stef</li>
+      </ul>
     </div>
+    <a href="#welkom" class="scroll-pijl" aria-label="Scroll naar beneden" data-i18n-attr="aria-label:hero.scroll">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </a>
   </section>
 
   <section class="sectie" id="welkom">
@@ -99,10 +107,26 @@
     <div class="wrap">
       <h2 class="sectie-titel" data-i18n="diensten.titel">Wat Stef voor je doet</h2>
       <div class="diensten">
-        <div class="dienst"><h3 data-i18n="nav.verkoop">Verkoop</h3><p data-i18n="dienst.verkoop">Hoogwaardige tuin- en reinigingsmachines, met advies en service na aankoop.</p></div>
-        <div class="dienst"><h3 data-i18n="nav.verhuur">Verhuur</h3><p data-i18n="dienst.verhuur">Een machine nodig voor een dag of een seizoen? Huur ze uit onze verhuurvloot.</p></div>
-        <div class="dienst"><h3 data-i18n="nav.onderhoud">Onderhoud</h3><p data-i18n="dienst.onderhoud">Een vaste beurt, zodat je machine klaar is als het seizoen begint.</p></div>
-        <div class="dienst"><h3 data-i18n="nav.herstel">Herstellingen</h3><p data-i18n="dienst.herstel">Ook voor Honda, Husqvarna en machines die je elders kocht. Ruime voorraad wisselstukken.</p></div>
+        <a class="dienst" href="verkoop.html" data-intern>
+          <span class="dienst-icoon" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+          <h3 data-i18n="nav.verkoop">Verkoop</h3><p data-i18n="dienst.verkoop">Hoogwaardige tuin- en reinigingsmachines, met advies en service na aankoop.</p>
+          <span class="dienst-link"><span data-i18n="dl.verkoop">Bekijk het aanbod</span> <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="dienst" href="verhuur.html" data-intern>
+          <span class="dienst-icoon" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M9 16l2 2 4-4"/></svg></span>
+          <h3 data-i18n="nav.verhuur">Verhuur</h3><p data-i18n="dienst.verhuur">Een machine nodig voor een dag of een seizoen? Huur ze uit onze verhuurvloot.</p>
+          <span class="dienst-link"><span data-i18n="dl.verhuur">Stel je huur samen</span> <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="dienst" href="#herstelling" data-soort="onderhoud">
+          <span class="dienst-icoon" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 0 1-4 0v-.1A1.7 1.7 0 0 0 9 19.4a1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 0 1 0-4h.1A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 0 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 0 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></span>
+          <h3 data-i18n="nav.onderhoud">Onderhoud</h3><p data-i18n="dienst.onderhoud">Een vaste beurt, zodat je machine klaar is als het seizoen begint.</p>
+          <span class="dienst-link"><span data-i18n="dl.onderhoud">Plan een beurt</span> <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="dienst" href="#herstelling" data-soort="herstel">
+          <span class="dienst-icoon" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9l-3.8 3.8z"/></svg></span>
+          <h3 data-i18n="nav.herstel">Herstellingen</h3><p data-i18n="dienst.herstel">Ook voor Honda, Husqvarna en machines die je elders kocht. Ruime voorraad wisselstukken.</p>
+          <span class="dienst-link"><span data-i18n="dl.herstel">Vraag een herstelling aan</span> <span aria-hidden="true">→</span></span>
+        </a>
       </div>
     </div>
   </section>
@@ -137,19 +161,79 @@
       </div>
     </div>
   </section>
+
+  <section class="sectie herstel-sectie" id="herstelling">
+    <div class="wrap herstel">
+      <div class="herstel-uitleg">
+        <h2 class="sectie-titel" data-i18n="h.titel">Herstelling of onderhoud aanvragen</h2>
+        <p class="herstel-sub" data-i18n="h.sub">Laat kort weten wat er scheelt. Stef belt of stuurt je een bericht om een moment af te spreken.</p>
+        <ol class="stappen">
+          <li><strong data-i18n="s1.t">Laat weten wat er scheelt</strong><span data-i18n="s1.p">Via dit formulier, WhatsApp of telefoon. Een foto van de machine of het typeplaatje helpt.</span></li>
+          <li><strong data-i18n="s2.t">Breng je machine binnen</strong><span data-i18n="s2.p">Op een afgesproken moment, in de werkplaats in Izegem.</span></li>
+          <li><strong data-i18n="s3.t">Klaar voor het werk</strong><span data-i18n="s3.p">Stef herstelt of onderhoudt je machine en laat weten wanneer ze klaar is.</span></li>
+        </ol>
+      </div>
+      <form class="herstel-form" id="herstelform">
+        <fieldset class="soort-keuze">
+          <legend data-i18n="h.soort">Wat heb je nodig?</legend>
+          <label><input type="radio" name="soort" value="herstel" checked><span data-i18n="h.herstel">Herstelling</span></label>
+          <label><input type="radio" name="soort" value="onderhoud"><span data-i18n="h.onderhoud">Onderhoudsbeurt</span></label>
+        </fieldset>
+        <label for="h-machine" data-i18n="h.machine">Machine en merk</label>
+        <input id="h-machine" name="machine" required placeholder="bv. Honda grasmaaier" data-i18n-attr="placeholder:h.machine.ph">
+        <label for="h-probleem" data-i18n="h.probleem">Wat scheelt er?</label>
+        <textarea id="h-probleem" name="probleem" rows="3" placeholder="bv. start niet meer, trekt slecht, jaarlijkse beurt…" data-i18n-attr="placeholder:h.probleem.ph"></textarea>
+        <div class="form-rij">
+          <div><label for="h-naam" data-i18n="vd.naam">Naam</label><input id="h-naam" name="naam" autocomplete="name" required></div>
+          <div><label for="h-tel" data-i18n="vd.tel">Telefoon</label><input id="h-tel" name="tel" type="tel" autocomplete="tel"></div>
+        </div>
+        <button type="submit" class="btn btn-groen btn-groot">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2 .7 2.8.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.2z"/></svg>
+          <span data-i18n="vd.verstuur">Verstuur via WhatsApp</span>
+        </button>
+        <div class="alt-links">
+          <span data-i18n="h.of">Liever meteen iemand aan de lijn?</span>
+          <a href="tel:+32473235755" data-i18n="nav.bel">Bel 0473 23 57 55</a>
+          <a id="h-mail" href="mailto:info@steftanghe.be" data-i18n="v.mail">Mail uw aanvraag</a>
+        </div>
+      </form>
+    </div>
+  </section>
 </main>
 
 <footer class="contact" id="contact">
   <div class="wrap contact-inner">
-    <div>
+    <div class="contact-cta">
       <img src="img/logo-vierkant.png" alt="" width="96" height="96" class="contact-logo" loading="lazy">
-      <h2 data-i18n-html="contact.home">Machine stil?<br>Bel Stef.</h2>
-      <a href="tel:+32473235755" class="btn btn-oranje" style="font-size: 22px">+32 473 23 57 55</a>
+      <h2 data-i18n-html="contact.home"></h2>
+      <div class="knoppen">
+        <a href="tel:+32473235755" class="btn btn-oranje btn-groot"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg> +32 473 23 57 55</a>
+        <a href="https://wa.me/32473235755" target="_blank" rel="noopener" class="btn btn-rand-wit btn-groot"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2 .7 2.8.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.2z"/></svg> WhatsApp</a>
+      </div>
     </div>
-    <div class="contact-gegevens">
-      <a href="mailto:info@steftanghe.be">info@steftanghe.be</a>
-      <a href="https://www.google.com/maps/search/?api=1&amp;query=Steenovenstraat+4+8870+Izegem" target="_blank" rel="noopener">Steenovenstraat 4, 8870 Izegem</a>
-      <span data-i18n="contact.uren">Geen vaste openingsuren: bel of stuur even een bericht, we zijn flexibel.</span>
+    <div class="contact-kolommen">
+      <div>
+        <h3 data-i18n="f.menu">Menu</h3>
+        <ul>
+          <li><a href="verkoop.html" data-intern data-i18n="nav.verkoop">Verkoop</a></li>
+          <li><a href="verhuur.html" data-intern data-i18n="nav.huren">Tractor huren</a></li>
+          <li><a href="./#herstelling" data-intern data-i18n="hero.herstel">Herstelling aanvragen</a></li>
+          <li><a href="voorwaarden.html" data-intern data-i18n="voet.voorwaarden">Huurvoorwaarden</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 data-i18n="nav.contact">Contact</h3>
+        <ul class="met-icoon">
+          <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><a href="tel:+32473235755">+32 473 23 57 55</a></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg><a href="mailto:info@steftanghe.be">info@steftanghe.be</a></li>
+          <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Steenovenstraat 4<br>8870 Izegem</span></li>
+        </ul>
+        <a class="route-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=Steenovenstraat+4+8870+Izegem" target="_blank" rel="noopener"><span data-i18n="f.route">Plan je route</span> <span aria-hidden="true">→</span></a>
+      </div>
+      <div>
+        <h3 data-i18n="f.uren">Openingsuren</h3>
+        <p class="met-icoon-p"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span data-i18n="contact.uren">Geen vaste openingsuren: bel of stuur even een bericht, we zijn flexibel.</span></p>
+      </div>
     </div>
   </div>
 </footer>
@@ -171,6 +255,12 @@
     </div>
   </div>
 </div>
+
+<nav class="actiebalk" id="actiebalk" aria-label="Snel contact" data-i18n-attr="aria-label:mb.label">
+  <a href="tel:+32473235755"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span data-i18n="vk.bel">Bellen</span></a>
+  <a href="https://wa.me/32473235755" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2 .7 2.8.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.2z"/></svg><span>WhatsApp</span></a>
+  <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Steenovenstraat+4+8870+Izegem" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="mb.route">Route</span></a>
+</nav>
 
 <script src="js/i18n.js"></script>
 <script src="js/main.js" defer></script>

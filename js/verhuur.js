@@ -42,7 +42,11 @@
     var b = el('button', { type: 'button', class: 'duim', 'aria-pressed': i === 0 ? 'true' : 'false', 'aria-label': 'Foto ' + (i + 1) },
       '<img src="' + src + '" alt="" loading="lazy">');
     b.addEventListener('click', function () {
-      staat.foto = i; $('hoofdfoto').src = src;
+      if (staat.foto === i) return;
+      staat.foto = i;
+      var hf = $('hoofdfoto');
+      hf.classList.add('wissel');
+      setTimeout(function () { hf.onload = hf.onerror = function () { hf.classList.remove('wissel'); }; hf.src = src; }, 180);
       document.querySelectorAll('.duim').forEach(function (d) { d.setAttribute('aria-pressed', d === b ? 'true' : 'false'); });
     });
     $('duimen').appendChild(b);
@@ -125,6 +129,14 @@
       (namen.length ? ', ' + t('msg.met') + ' ' + namen.join(' ' + t('en') + ' ') : '') +
       t('msg.de.huren') + '. ' + t('msg.eind') + ' € ' + totaal + '.';
     $('wa-link').href = 'https://wa.me/32473235755?text=' + encodeURIComponent(tekst);
+    // Gsm-balk onderaan: live totaal + aanvragen
+    if ($('ab-totaal')) {
+      if ($('ab-totaal').textContent !== '€ ' + totaal) {
+        $('ab-totaal').textContent = '€ ' + totaal;
+        $('ab-totaal').classList.remove('tik'); void $('ab-totaal').offsetWidth; $('ab-totaal').classList.add('tik');
+      }
+      $('ab-wa').href = $('wa-link').href;
+    }
     $('mail-link').href = 'mailto:info@steftanghe.be?subject=' + encodeURIComponent(t('msg.onderwerp')) + '&body=' + encodeURIComponent(tekst);
   }
 

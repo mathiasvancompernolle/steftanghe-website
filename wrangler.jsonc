@@ -5,6 +5,8 @@
   "workers_dev": true,
   "preview_urls": true,
   "assets": {
-    "directory": "./"
+    "directory": "./",
+    // Onbekende adressen tonen 404.html (met status 404)
+    "not_found_handling": "404-page"
   }
 }

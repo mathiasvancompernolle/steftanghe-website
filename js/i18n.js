@@ -186,7 +186,56 @@
     'msg.met': { nl: 'met', en: 'with', fr: 'avec', de: 'mit' },
     'msg.eind': { nl: 'Totaal volgens de website:', en: 'Total according to the website:', fr: 'Total selon le site :', de: 'Gesamt laut Website:' },
     'msg.de.huren': { nl: '', en: '', fr: '', de: ' mieten' },
-    'msg.onderwerp': { nl: 'Huuraanvraag Kubota', en: 'Kubota rental request', fr: 'Demande de location Kubota', de: 'Mietanfrage Kubota' }
+    'msg.onderwerp': { nl: 'Huuraanvraag Kubota', en: 'Kubota rental request', fr: 'Demande de location Kubota', de: 'Mietanfrage Kubota' },
+
+    // Homepage: troeven, diensten, herstelling
+    'usp.werkplaats': { nl: 'Eigen werkplaats in Izegem', en: 'Own workshop in Izegem', fr: 'Atelier propre à Izegem', de: 'Eigene Werkstatt in Izegem' },
+    'usp.merken': { nl: 'Herstelling van alle merken', en: 'Repairs for all brands', fr: 'Réparation toutes marques', de: 'Reparatur aller Marken' },
+    'usp.advies': { nl: 'Persoonlijk advies van Stef', en: 'Personal advice from Stef', fr: 'Conseils personnalisés de Stef', de: 'Persönliche Beratung von Stef' },
+    'hero.scroll': { nl: 'Scroll naar beneden', en: 'Scroll down', fr: 'Défiler vers le bas', de: 'Nach unten scrollen' },
+    'dl.verkoop': { nl: 'Bekijk het aanbod', en: 'See the range', fr: 'Voir l’offre', de: 'Angebot ansehen' },
+    'dl.verhuur': { nl: 'Stel je huur samen', en: 'Build your rental', fr: 'Composer votre location', de: 'Miete zusammenstellen' },
+    'dl.onderhoud': { nl: 'Plan een beurt', en: 'Book a service', fr: 'Planifier un entretien', de: 'Wartung planen' },
+    'dl.herstel': { nl: 'Vraag een herstelling aan', en: 'Request a repair', fr: 'Demander une réparation', de: 'Reparatur anfragen' },
+    'h.titel': { nl: 'Herstelling of onderhoud aanvragen', en: 'Request a repair or service', fr: 'Demander une réparation ou un entretien', de: 'Reparatur oder Wartung anfragen' },
+    'h.sub': { nl: 'Laat kort weten wat er scheelt. Stef belt of stuurt je een bericht om een moment af te spreken.', en: 'Tell us briefly what is wrong. Stef will call or message you to arrange a time.', fr: 'Décrivez brièvement le problème. Stef vous appelle ou vous écrit pour convenir d’un moment.', de: 'Beschreiben Sie kurz das Problem. Stef ruft an oder schreibt Ihnen, um einen Termin zu vereinbaren.' },
+    's1.t': { nl: 'Laat weten wat er scheelt', en: 'Tell us what is wrong', fr: 'Dites-nous ce qui ne va pas', de: 'Sagen Sie uns, was los ist' },
+    's1.p': { nl: 'Via dit formulier, WhatsApp of telefoon. Een foto van de machine of het typeplaatje helpt.', en: 'Via this form, WhatsApp or phone. A photo of the machine or its type plate helps.', fr: 'Via ce formulaire, WhatsApp ou téléphone. Une photo de la machine ou de sa plaque signalétique aide.', de: 'Über dieses Formular, WhatsApp oder Telefon. Ein Foto der Maschine oder des Typenschilds hilft.' },
+    's2.t': { nl: 'Breng je machine binnen', en: 'Bring your machine in', fr: 'Apportez votre machine', de: 'Bringen Sie Ihre Maschine vorbei' },
+    's2.p': { nl: 'Op een afgesproken moment, in de werkplaats in Izegem.', en: 'At an agreed time, at the workshop in Izegem.', fr: 'À un moment convenu, à l’atelier d’Izegem.', de: 'Zu einem vereinbarten Termin in der Werkstatt in Izegem.' },
+    's3.t': { nl: 'Klaar voor het werk', en: 'Ready for work', fr: 'Prête à travailler', de: 'Bereit für die Arbeit' },
+    's3.p': { nl: 'Stef herstelt of onderhoudt je machine en laat weten wanneer ze klaar is.', en: 'Stef repairs or services your machine and lets you know when it is ready.', fr: 'Stef répare ou entretient votre machine et vous prévient quand elle est prête.', de: 'Stef repariert oder wartet Ihre Maschine und sagt Bescheid, wenn sie fertig ist.' },
+    'h.soort': { nl: 'Wat heb je nodig?', en: 'What do you need?', fr: 'De quoi avez-vous besoin ?', de: 'Was brauchen Sie?' },
+    'h.herstel': { nl: 'Herstelling', en: 'Repair', fr: 'Réparation', de: 'Reparatur' },
+    'h.onderhoud': { nl: 'Onderhoudsbeurt', en: 'Service', fr: 'Entretien', de: 'Wartung' },
+    'h.machine': { nl: 'Machine en merk', en: 'Machine and brand', fr: 'Machine et marque', de: 'Maschine und Marke' },
+    'h.machine.ph': { nl: 'bv. Honda grasmaaier', en: 'e.g. Honda lawn mower', fr: 'p. ex. tondeuse Honda', de: 'z. B. Honda-Rasenmäher' },
+    'h.probleem': { nl: 'Wat scheelt er?', en: 'What is the problem?', fr: 'Quel est le problème ?', de: 'Was ist das Problem?' },
+    'h.probleem.ph': { nl: 'bv. start niet meer, trekt slecht, jaarlijkse beurt…', en: 'e.g. will not start, runs poorly, yearly service…', fr: 'p. ex. ne démarre plus, tourne mal, entretien annuel…', de: 'z. B. springt nicht an, läuft schlecht, Jahreswartung…' },
+    'h.msg': { nl: 'Hallo Stef, ik heb een aanvraag via de website.', en: 'Hello Stef, I have a request via the website.', fr: 'Bonjour Stef, j’ai une demande via le site.', de: 'Hallo Stef, ich habe eine Anfrage über die Website.' },
+    'h.l.soort': { nl: 'Soort', en: 'Type', fr: 'Type', de: 'Art' },
+    'h.l.machine': { nl: 'Machine', en: 'Machine', fr: 'Machine', de: 'Maschine' },
+    'h.l.probleem': { nl: 'Probleem', en: 'Problem', fr: 'Problème', de: 'Problem' },
+    'h.onderwerp': { nl: 'Aanvraag via de website', en: 'Request via the website', fr: 'Demande via le site', de: 'Anfrage über die Website' },
+    'h.of': { nl: 'Liever meteen iemand aan de lijn?', en: 'Rather talk to someone right away?', fr: 'Vous préférez parler à quelqu’un tout de suite ?', de: 'Lieber gleich jemanden sprechen?' },
+
+    // Actiebalk (gsm), voettekst, 404
+    'mb.route': { nl: 'Route', en: 'Directions', fr: 'Itinéraire', de: 'Route' },
+    'mb.aanvragen': { nl: 'Aanvragen', en: 'Request', fr: 'Demander', de: 'Anfragen' },
+    'mb.label': { nl: 'Snel contact', en: 'Quick contact', fr: 'Contact rapide', de: 'Schnellkontakt' },
+    'f.menu': { nl: 'Menu', en: 'Menu', fr: 'Menu', de: 'Menü' },
+    'f.route': { nl: 'Plan je route', en: 'Get directions', fr: 'Calculer l’itinéraire', de: 'Route planen' },
+    'f.uren': { nl: 'Openingsuren', en: 'Opening hours', fr: 'Horaires', de: 'Öffnungszeiten' },
+    'contact.alg': { nl: 'Vragen?<br>Bel Stef.', en: 'Questions?<br>Call Stef.', fr: 'Des questions ?<br>Appelez Stef.', de: 'Fragen?<br>Rufen Sie Stef an.' },
+    'nf.titel': { nl: 'Deze pagina bestaat niet', en: 'This page does not exist', fr: 'Cette page n’existe pas', de: 'Diese Seite gibt es nicht' },
+    'nf.p': { nl: 'Misschien is ze verhuisd of klopt de link niet. Hiermee kom je wel verder:', en: 'It may have moved, or the link is wrong. These will get you further:', fr: 'Elle a peut-être été déplacée ou le lien est erroné. Ceci vous aidera :', de: 'Vielleicht wurde sie verschoben oder der Link stimmt nicht. Hier geht es weiter:' },
+    'nf.home': { nl: 'Naar de homepage', en: 'Go to the homepage', fr: 'Vers l’accueil', de: 'Zur Startseite' },
+
+    // Detailpagina
+    'vd.meer': { nl: 'Meer in {x}', en: 'More in {x}', fr: 'Plus dans {x}', de: 'Mehr in {x}' },
+    'vd.merk': { nl: 'Merk (optioneel)', en: 'Brand (optional)', fr: 'Marque (facultatif)', de: 'Marke (optional)' },
+    'vd.merk.geen': { nl: 'Nog geen voorkeur', en: 'No preference yet', fr: 'Pas encore de préférence', de: 'Noch keine Präferenz' },
+    'vd.msg.merk': { nl: 'Merk:', en: 'Brand:', fr: 'Marque :', de: 'Marke:' }
   };
 
   function leesTaal() {
