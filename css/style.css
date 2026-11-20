@@ -636,18 +636,17 @@ body.niet-gevonden { padding-bottom: 0; }
 @keyframes wissel-tekst { from { opacity: 0; transform: translateY(-4px); } }
 
 /* ---------- Homepage: reuzewoorden en fotostrook (schuiven mee met scrollen) ---------- */
-.reuzewoorden { overflow: hidden; padding: 64px 0 0; background: var(--grond); }
-.rw-rij { display: flex; width: max-content; white-space: nowrap; font-weight: 800; font-size: clamp(64px, 11vw, 190px); line-height: 0.98; letter-spacing: -0.01em; color: var(--groen); will-change: transform; }
+.reuzewoorden { overflow: hidden; padding: 0 0 80px; margin-top: -24px; background: var(--grond); }
+.rw-rij { display: flex; width: max-content; white-space: nowrap; font-weight: 800; font-size: clamp(56px, 9.5vw, 160px); line-height: 0.98; letter-spacing: -0.01em; color: var(--groen); will-change: transform; }
 .rw-rij span { padding: 0 0.12em; }
 .rw-stip { color: var(--oranje); }
 .rw-rand { color: transparent; -webkit-text-stroke: 2px var(--groen); }
 .rw-rand .rw-stip { -webkit-text-stroke: 0; color: var(--oranje); }
 @supports not (-webkit-text-stroke: 2px black) { .rw-rand { color: #A9C2A4; } }
-.reuzewoorden + .sectie { padding-top: 72px; }
 .fotostrook { overflow: hidden; padding: 0 0 96px; }
 .fs-rij { display: flex; gap: 16px; width: max-content; will-change: transform; }
 .fs-rij img { height: clamp(200px, 24vw, 340px); width: auto; border-radius: 22px; object-fit: cover; box-shadow: 0 10px 30px rgba(18,36,26,0.12); }
-@media (max-width: 640px) { .reuzewoorden { padding-top: 40px; } .rw-rand { -webkit-text-stroke-width: 1.5px; } .fotostrook { padding-bottom: 64px; } .fs-rij { gap: 10px; } .fs-rij img { border-radius: 16px; } }
+@media (max-width: 640px) { .reuzewoorden { padding-bottom: 56px; margin-top: -32px; } .rw-rand { -webkit-text-stroke-width: 1.5px; } .fotostrook { padding-bottom: 64px; } .fs-rij { gap: 10px; } .fs-rij img { border-radius: 16px; } }
 
 /* ---------- Genummerde diensten (homepage) ---------- */
 .diensten { counter-reset: dienst; }
