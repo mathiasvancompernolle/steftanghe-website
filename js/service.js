@@ -7,20 +7,36 @@
   var form = $('aanvragen');
   if (!form) return;
   var SOORT = { herstel: 'h.herstel', onderhoud: 'h.onderhoud', slijp: 'h.slijp' };
+  // De tweede vraag past zich aan de keuze aan: [vraag, voorbeeld, label in het bericht]
+  var VRAAG = {
+    herstel: ['h.probleem', 'h.probleem.ph', 'h.l.probleem'],
+    onderhoud: ['h.vraag.onderhoud', 'h.ph.onderhoud', 'h.l.onderhoud'],
+    slijp: ['h.vraag.slijp', 'h.ph.slijp', 'h.l.slijp']
+  };
+  function soort() { return form.querySelector('input[name="soort"]:checked').value; }
+  function vraagTekst() {
+    var v = VRAAG[soort()];
+    var label = form.querySelector('label[for="h-probleem"]');
+    if (label.textContent !== t(v[0])) {
+      label.textContent = t(v[0]);
+      $('h-probleem').placeholder = t(v[1]);
+      label.classList.remove('wissel-tekst'); void label.offsetWidth; label.classList.add('wissel-tekst');
+    }
+  }
 
   function bericht() {
-    var soort = form.querySelector('input[name="soort"]:checked').value;
     var regels = [t('h.msg'), '',
-      t('h.l.soort') + ': ' + t(SOORT[soort]),
+      t('h.l.soort') + ': ' + t(SOORT[soort()]),
       t('h.l.machine') + ': ' + $('h-machine').value.trim()];
     var p = $('h-probleem').value.trim();
-    if (p) regels.push(t('h.l.probleem') + ': ' + p);
+    if (p) regels.push(t(VRAAG[soort()][2]) + ': ' + p);
     if ($('h-afhalen').checked) regels.push(t('h.l.afhaal') + ': ' + ($('h-adres').value.trim() || '…'));
     var naam = $('h-naam').value.trim(), tel = $('h-tel').value.trim();
     if (naam || tel) regels.push('', naam + (naam && tel ? ' – ' : '') + tel);
     return regels.join('\n');
   }
   function bijwerken() {
+    vraagTekst();
     $('h-adres-blok').hidden = !$('h-afhalen').checked;
     $('h-adres').required = $('h-afhalen').checked;
     $('h-mail').href = 'mailto:info@steftanghe.be?subject=' + encodeURIComponent(t('h.onderwerp')) + '&body=' + encodeURIComponent(bericht());

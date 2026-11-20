@@ -630,3 +630,7 @@ body.niet-gevonden { padding-bottom: 0; }
 /* ---------- Verschijnen bij scrollen ---------- */
 .verschijn { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(.2,.7,.2,1); }
 .verschijn.in-beeld { opacity: 1; transform: none; }
+
+/* Service: tweede vraag wisselt mee met de keuze */
+.wissel-tekst { animation: wissel-tekst 0.45s ease; }
+@keyframes wissel-tekst { from { opacity: 0; transform: translateY(-4px); } }
