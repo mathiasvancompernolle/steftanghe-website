@@ -512,7 +512,8 @@ p { margin: 0; }
 .sv-dienst .dienst-link:hover span[aria-hidden] { transform: translateX(5px); }
 .sv-dienst:target { box-shadow: 0 0 0 4px var(--oranje), 0 10px 30px rgba(18,36,26,0.1); }
 
-.sv-machines { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.sv-machines { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 1100px) { .sv-machines { grid-template-columns: 1fr 1fr; } .sv-machines .cat-tegel:first-child { grid-column: 1 / -1 !important; } }
 @media (max-width: 760px) { .sv-machines { grid-template-columns: 1fr; } }
 .sv-machines .cat-tegel { min-height: 340px; grid-column: auto !important; }
 .sv-machines .cat-tegel picture { position: absolute; inset: 0; z-index: -2; }
