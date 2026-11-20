@@ -68,6 +68,7 @@
     'aanbod.titel': { nl: 'Wat Stef verkoopt', en: 'What Stef sells', fr: 'Ce que Stef vend', de: 'Was Stef verkauft' },
     'over.titel': { nl: 'Welkom bij Stef Tanghe', en: 'Welcome to Stef Tanghe', fr: 'Bienvenue chez Stef Tanghe', de: 'Willkommen bei Stef Tanghe' },
     'alt.stef': { nl: 'Stef Tanghe aan het werk met zijn gereedschapskoffer in de bestelwagen', en: 'Stef Tanghe at work with the toolbox in his van', fr: 'Stef Tanghe au travail avec sa caisse à outils dans sa camionnette', de: 'Stef Tanghe bei der Arbeit mit dem Werkzeugkasten im Transporter' },
+    'alt.stef.bus': { nl: 'Stef Tanghe in zijn servicewagen', en: 'Stef Tanghe in his service van', fr: 'Stef Tanghe dans sa camionnette de service', de: 'Stef Tanghe in seinem Servicewagen' },
     'alt.bord': { nl: 'Het bord van Stef Tanghe langs een veldweg', en: 'The Stef Tanghe sign along a farm road', fr: 'Le panneau Stef Tanghe le long d’un chemin de campagne', de: 'Das Schild von Stef Tanghe an einem Feldweg' },
     'contact.home': { nl: 'Machine stil?<br>Bel Stef.', en: 'Machine down?<br>Call Stef.', fr: 'Machine à l’arrêt ?<br>Appelez Stef.', de: 'Maschine steht still?<br>Rufen Sie Stef an.' },
 
