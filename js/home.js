@@ -24,3 +24,58 @@
   document.addEventListener('taal', tegels);
   tegels();
 })();
+
+// Homepage: reuzewoorden en fotostrook die zijwaarts meeschuiven met het scrollen.
+// Licht gehouden: één scroll-luisteraar, enkel actief als het blok in beeld is,
+// en volledig stil bij "minder beweging".
+(function () {
+  var t = window.ST.t;
+  var rijen = [].slice.call(document.querySelectorAll('.rw-rij, .fs-rij'));
+  if (!rijen.length) return;
+
+  // Reuzewoorden in de gekozen taal, een paar keer herhaald zodat de rij nooit "op" raakt
+  function woorden() {
+    document.querySelectorAll('.rw-rij[data-woorden]').forEach(function (r) {
+      var stuk = r.dataset.woorden.split(',').map(function (k) {
+        return '<span>' + t(k) + '</span><span class="rw-stip">·</span>';
+      }).join('');
+      r.innerHTML = new Array(5).join(stuk);
+    });
+  }
+  woorden();
+  document.addEventListener('taal', function () { woorden(); beweeg(); });
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var zichtbaar = new Set(), bezig = false;
+  function beweeg() {
+    bezig = false;
+    zichtbaar.forEach(function (r) {
+      var sectie = r.parentNode, box = sectie.getBoundingClientRect();
+      var voortgang = window.innerHeight - box.top;            // pixels sinds het blok onderaan binnenkwam
+      var richting = +r.dataset.richting || -1;
+      var snelheid = r.classList.contains('fs-rij') ? 0.35 : 0.5;
+      // naar rechts schuivende rijen starten al naar links verschoven, zodat er nooit een leeg begin zichtbaar is
+      var start = richting > 0 ? -r.scrollWidth * 0.45 : 0;
+      r.style.transform = 'translate3d(' + (start + richting * voortgang * snelheid).toFixed(1) + 'px,0,0)';
+    });
+  }
+  function opScroll() { if (!bezig && zichtbaar.size) { bezig = true; requestAnimationFrame(beweeg); } }
+  // per sectie volgen we alle rijen erin
+  var secties = [];
+  rijen.forEach(function (r) { if (secties.indexOf(r.parentNode) < 0) secties.push(r.parentNode); });
+  var io = new IntersectionObserver(function (items) {
+    items.forEach(function (it) {
+      [].forEach.call(it.target.querySelectorAll('.rw-rij, .fs-rij'), function (r) {
+        if (it.isIntersecting) zichtbaar.add(r); else zichtbaar.delete(r);
+      });
+    });
+    opScroll();
+  }, { rootMargin: '100px 0px' });
+  secties.forEach(function (s) { io.observe(s); });
+  window.addEventListener('scroll', opScroll, { passive: true });
+  window.addEventListener('resize', opScroll);
+  rijen.forEach(function (r) { zichtbaar.add(r); });
+  beweeg();
+  zichtbaar.clear();
+})();
