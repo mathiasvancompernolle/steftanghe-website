@@ -653,3 +653,17 @@ body.niet-gevonden { padding-bottom: 0; }
 .dienst { counter-increment: dienst; }
 .dienst::after { content: "/0" counter(dienst); position: absolute; top: 26px; right: 26px; font-weight: 700; font-size: 17px; letter-spacing: 0.04em; color: #A9C2A4; }
 .dienst:nth-child(n+3)::after { color: #F2B48A; }
+
+/* Meeschuiven via CSS (scroll-driven animations): draait op de grafische kaart, ook vloeiend bij snel swipen op gsm */
+.reuzewoorden, .fotostrook { overflow: clip; }
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reuzewoorden, .fotostrook { view-timeline: --strook block; }
+    .rw-rij, .fs-rij { animation: schuif-links linear both; animation-timeline: --strook; animation-range: entry 0% exit 100%; }
+    .rw-rij[data-richting="1"] { animation-name: schuif-rechts; }
+    .fs-rij { animation-name: schuif-links-traag; }
+  }
+}
+@keyframes schuif-links { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-75vh, 0, 0); } }
+@keyframes schuif-links-traag { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-55vh, 0, 0); } }
+@keyframes schuif-rechts { from { transform: translate3d(calc(-45% ), 0, 0); } to { transform: translate3d(calc(-45% + 75vh), 0, 0); } }

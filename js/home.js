@@ -43,25 +43,36 @@
     });
   }
   woorden();
-  document.addEventListener('taal', function () { woorden(); beweeg(); });
+  document.addEventListener('taal', woorden);
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  // Nieuwe browsers: de beweging zit volledig in CSS (scroll-driven animation) en draait
+  // op de grafische kaart, dus altijd vloeiend. Het script hoeft dan niets te doen.
+  if (window.CSS && CSS.supports('animation-timeline: view()')) return;
+  document.documentElement.classList.add('schuif-js');
 
-  var zichtbaar = new Set(), bezig = false;
-  function beweeg() {
-    bezig = false;
-    zichtbaar.forEach(function (r) {
-      var sectie = r.parentNode, box = sectie.getBoundingClientRect();
-      var voortgang = window.innerHeight - box.top;            // pixels sinds het blok onderaan binnenkwam
-      var richting = +r.dataset.richting || -1;
-      var snelheid = r.classList.contains('fs-rij') ? 0.35 : 0.5;
-      // naar rechts schuivende rijen starten al naar links verschoven, zodat er nooit een leeg begin zichtbaar is
-      var start = richting > 0 ? -r.scrollWidth * 0.45 : 0;
-      r.style.transform = 'translate3d(' + (start + richting * voortgang * snelheid).toFixed(1) + 'px,0,0)';
-    });
+  // Oudere browsers: elke frame zacht naar de doelpositie glijden (geen sprongen bij snel scrollen)
+  var pos = new Map(), zichtbaar = new Set(), loopt = false;
+  function doel(r) {
+    var box = r.parentNode.getBoundingClientRect();
+    var voortgang = window.innerHeight - box.top;               // pixels sinds het blok onderaan binnenkwam
+    var richting = +r.dataset.richting || -1;
+    var snelheid = r.classList.contains('fs-rij') ? 0.35 : 0.5;
+    var start = richting > 0 ? -r.scrollWidth * 0.45 : 0;      // naar rechts: links beginnen, nooit een leeg begin
+    return start + richting * voortgang * snelheid;
   }
-  function opScroll() { if (!bezig && zichtbaar.size) { bezig = true; requestAnimationFrame(beweeg); } }
-  // per sectie volgen we alle rijen erin
+  function frame() {
+    var nogBezig = false;
+    zichtbaar.forEach(function (r) {
+      var d = doel(r), x = pos.has(r) ? pos.get(r) : d;
+      x += (d - x) * 0.14;                                       // zacht volgen
+      if (Math.abs(d - x) > 0.3) nogBezig = true; else x = d;
+      pos.set(r, x);
+      r.style.transform = 'translate3d(' + x.toFixed(2) + 'px,0,0)';
+    });
+    if (nogBezig) requestAnimationFrame(frame); else loopt = false;
+  }
+  function start() { if (!loopt && zichtbaar.size) { loopt = true; requestAnimationFrame(frame); } }
   var secties = [];
   rijen.forEach(function (r) { if (secties.indexOf(r.parentNode) < 0) secties.push(r.parentNode); });
   var io = new IntersectionObserver(function (items) {
@@ -70,12 +81,12 @@
         if (it.isIntersecting) zichtbaar.add(r); else zichtbaar.delete(r);
       });
     });
-    opScroll();
-  }, { rootMargin: '100px 0px' });
+    start();
+  }, { rootMargin: '150px 0px' });
   secties.forEach(function (s) { io.observe(s); });
-  window.addEventListener('scroll', opScroll, { passive: true });
-  window.addEventListener('resize', opScroll);
-  rijen.forEach(function (r) { zichtbaar.add(r); });
-  beweeg();
-  zichtbaar.clear();
+  window.addEventListener('scroll', start, { passive: true });
+  window.addEventListener('resize', start);
+  document.addEventListener('taal', start);
+  // beginpositie meteen juist zetten (zonder glijden)
+  rijen.forEach(function (r) { var d = doel(r); pos.set(r, d); r.style.transform = 'translate3d(' + d.toFixed(2) + 'px,0,0)'; });
 })();
