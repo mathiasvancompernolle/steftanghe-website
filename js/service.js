@@ -4,7 +4,7 @@
 (function () {
   var t = window.ST.t;
   var $ = function (id) { return document.getElementById(id); };
-  var form = $('herstelform');
+  var form = $('aanvragen');
   if (!form) return;
   var SOORT = { herstel: 'h.herstel', onderhoud: 'h.onderhoud', slijp: 'h.slijp' };
 

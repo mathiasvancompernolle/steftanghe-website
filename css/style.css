@@ -515,13 +515,10 @@ p { margin: 0; }
 .sv-machines { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 @media (max-width: 1100px) { .sv-machines { grid-template-columns: 1fr 1fr; } .sv-machines .cat-tegel:first-child { grid-column: 1 / -1 !important; } }
 @media (max-width: 760px) { .sv-machines { grid-template-columns: 1fr; } }
-.sv-machines .cat-tegel { min-height: 340px; grid-column: auto !important; }
+.sv-machines .cat-tegel { min-height: 280px; grid-column: auto !important; }
 .sv-machines .cat-tegel picture { position: absolute; inset: 0; z-index: -2; }
 .sv-machines .cat-tegel-tekst { padding-right: 24px; }
 
-.seizoen { background: var(--oranje); color: var(--inkt); }
-.seizoen .btn-oranje { background: var(--inkt); color: #fff; }
-.seizoen .btn-oranje:hover { background: #0B2E17; color: #fff; }
 
 .soort-drie { grid-template-columns: repeat(3, 1fr); }
 .soort-drie span { padding: 6px 8px; text-align: center; line-height: 1.1; }
@@ -535,6 +532,29 @@ p { margin: 0; }
 .schakel input:focus-visible + .schakel-knop { outline: 3px solid var(--oranje); outline-offset: 2px; }
 .schakel strong { display: block; line-height: 1.2; }
 .schakel small { display: block; font-size: 15px; font-weight: 400; color: var(--inkt-zacht); }
+
+/* Service: formulier bovenaan */
+.sv-kop { padding-bottom: 56px; }
+.sv-kop-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 580px); gap: 40px 72px; align-items: start; }
+@media (max-width: 960px) { .sv-kop-grid { grid-template-columns: minmax(0, 1fr); } }
+.sv-kop-tekst { display: flex; flex-direction: column; gap: 18px; }
+.sv-kop-tekst .kruimel { margin-bottom: 0; }
+@media (min-width: 961px) and (max-height: 820px) { .sv-kop { padding-top: calc(104px + var(--topbalk)); } .sv-kop .form-sub { display: none; } .sv-kop .herstel-form textarea { min-height: 56px; height: 56px; } }
+.sv-kop .intro { flex: none; max-width: 46ch; font-size: 21px; }
+@media (min-width: 961px) { .sv-kop .herstel-form { padding: 24px 28px; gap: 4px; } .sv-kop .herstel-form label, .sv-kop .herstel-form legend { margin-top: 6px; } .sv-kop .herstel-form input:not([type="radio"]):not([type="checkbox"]) { min-height: 46px; padding: 8px 14px; } .sv-kop .herstel-form textarea { min-height: 70px; height: 70px; } .sv-kop .soort-keuze span { min-height: 46px; } .sv-kop .schakel { margin: 10px 0 2px !important; padding: 10px 14px; } .sv-kop .herstel-form .btn { margin-top: 12px; } .sv-kop .herstel-form .alt-links { margin-top: 6px; } }
+.sv-kop .vinklijst { margin-top: 8px; }
+.form-titel { font-weight: 800; font-size: 36px; color: var(--groen); line-height: 1; }
+.form-sub { color: var(--inkt-zacht); font-size: 17px; margin-bottom: 4px; }
+#aanvragen { scroll-margin-top: 110px; }
+@media (max-width: 960px) { .enkel-desktop { display: none !important; } }
+@media (min-width: 961px) { .enkel-gsm { display: none !important; } }
+.sv-stappen-strook { background: #fff; padding: 44px 0; }
+.strook-titel { font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--groen); margin-bottom: 22px; }
+.stappen-rij { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.stappen-rij li { padding-bottom: 0; }
+.stappen-rij li::after { display: none; }
+@media (max-width: 760px) { .stappen-rij { grid-template-columns: minmax(0, 1fr); gap: 18px; } }
+.sv-tip { font-size: 16px; color: var(--inkt); background: #FDF1E8; border-radius: 12px; padding: 10px 14px; }
 
 .herstel-teaser { align-items: center; }
 .herstel-teaser .herstel-sub { margin-bottom: 28px; }
