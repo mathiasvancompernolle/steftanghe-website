@@ -19,7 +19,7 @@
 </head>
 <body>
 
-<header class="balk balk-transparant" id="balk">
+<header class="balk balk-licht" id="balk">
   <div class="topbalk">
     <div class="wrap topbalk-inner">
       <ul class="topbalk-troeven">
@@ -67,27 +67,29 @@
 </header>
 
 <main>
-  <section class="hero">
-    <picture>
-      <source srcset="img/kubota.webp" type="image/webp">
-      <img src="img/kubota.jpg" alt="" width="1800" height="1350" fetchpriority="high">
-    </picture>
-    <div class="wrap hero-inhoud">
-      <h1 data-i18n-html="hero.h1">Tuin- en reinigings&shy;machines</h1>
-      <p data-i18n="hero.p">Verkoop, verhuur en herstel in Izegem en Meulebeke. Voor de doe-het-zelver én de vakman.</p>
-      <div class="knoppen">
-        <a href="verhuur.html" class="btn btn-oranje" data-intern data-i18n="nav.huren">Tractor huren</a>
-        <a href="service.html#aanvragen" class="btn btn-rand-wit" data-intern data-i18n="hero.herstel">Herstelling aanvragen</a>
+  <section class="hero hero-licht">
+    <div class="wrap hero-grid">
+      <div class="hero-inhoud">
+        <h1 data-i18n-html="hero.h1">Tuin- en reinigings&shy;machines</h1>
+        <p data-i18n="hero.p">Verkoop, verhuur en herstel in Izegem en Meulebeke. Voor de doe-het-zelver én de vakman.</p>
+        <div class="knoppen">
+          <a href="verhuur.html" class="btn btn-oranje btn-groot" data-intern data-i18n="nav.huren">Tractor huren</a>
+          <a href="service.html#aanvragen" class="btn btn-rand btn-groot" data-intern data-i18n="hero.herstel">Herstelling aanvragen</a>
+        </div>
+        <ul class="troeven">
+          <li data-i18n="usp.werkplaats">Eigen werkplaats in Meulebeke</li>
+          <li data-i18n="usp.merken">Herstelling van alle merken</li>
+          <li data-i18n="usp.advies">Persoonlijk advies van Stef</li>
+        </ul>
       </div>
-      <ul class="troeven">
-        <li data-i18n="usp.werkplaats">Eigen werkplaats in Meulebeke</li>
-        <li data-i18n="usp.merken">Herstelling van alle merken</li>
-        <li data-i18n="usp.advies">Persoonlijk advies van Stef</li>
-      </ul>
+      <div class="hero-fotos">
+        <picture class="hero-foto-groot">
+          <source srcset="img/hero-kubota.webp" type="image/webp">
+          <img src="img/hero-kubota.jpg" alt="Kubota B1820 met frontlader en frees" width="1400" height="1050" fetchpriority="high">
+        </picture>
+        <img class="hero-foto-klein" src="img/hero-bord.webp" alt="" width="480" height="600">
+      </div>
     </div>
-    <a href="#welkom" class="scroll-pijl" aria-label="Scroll naar beneden" data-i18n-attr="aria-label:hero.scroll">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-    </a>
   </section>
 
   <section class="sectie" id="welkom">

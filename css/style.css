@@ -667,3 +667,34 @@ body.niet-gevonden { padding-bottom: 0; }
 @keyframes schuif-links { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-75vh, 0, 0); } }
 @keyframes schuif-links-traag { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-55vh, 0, 0); } }
 @keyframes schuif-rechts { from { transform: translate3d(calc(-45% ), 0, 0); } to { transform: translate3d(calc(-45% + 75vh), 0, 0); } }
+
+/* ---------- Lichte hero (homepage): tekst links, foto's rechts ---------- */
+.hero.hero-licht { min-height: 0; display: block; background: var(--grond); color: var(--inkt); overflow: visible; padding: calc(132px + var(--topbalk)) 0 88px; }
+.hero.hero-licht::after { display: none; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 48px 72px; align-items: center; }
+.hero-licht .hero-inhoud { padding: 0; gap: 26px; }
+.hero-licht h1 { color: var(--groen); font-size: clamp(40px, 4.9vw, 92px); line-height: 0.92; max-width: none; }
+.hero-licht p { color: var(--inkt-zacht); font-size: clamp(20px, 1.7vw, 24px); max-width: 34ch; }
+.hero-licht .troeven { color: var(--inkt); font-size: 18px; }
+@media (min-width: 901px) { .hero-licht .troeven { display: none; } }
+.hero-fotos { position: relative; padding: 0 0 44px 44px; }
+.hero-foto-groot img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 28px; box-shadow: 0 24px 60px rgba(18,36,26,0.18); }
+.hero-foto-klein { position: absolute; left: 0; bottom: 0; width: 34%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 22px; border: 8px solid var(--grond); box-shadow: 0 16px 40px rgba(18,36,26,0.2); }
+.hero-fotos::before { content: ""; position: absolute; right: -18px; top: -18px; width: 42%; height: 46%; border-radius: 28px; background: var(--oranje); z-index: -1; }
+.hero-licht .hero-fotos { isolation: isolate; }
+@media (max-width: 900px) {
+  .hero.hero-licht { padding-top: 112px; padding-bottom: 56px; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .hero-fotos { padding: 0 0 30px 24px; margin-right: 6px; }
+  .hero-foto-groot img { border-radius: 22px; }
+  .hero-foto-klein { width: 36%; border-width: 6px; border-radius: 16px; }
+  .hero-fotos::before { right: -6px; top: -12px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-licht .hero-foto-groot img { animation: hero-in 1s cubic-bezier(.2,.7,.2,1) both; }
+  .hero-licht .hero-foto-klein { animation: hero-in 1s 0.25s cubic-bezier(.2,.7,.2,1) both; }
+  .hero-licht .hero-fotos::before { animation: hero-in 1s 0.15s cubic-bezier(.2,.7,.2,1) both; }
+}
+@keyframes hero-in { from { opacity: 0; transform: translateY(24px) scale(0.98); } to { opacity: 1; transform: none; } }
+.hero-licht picture, .hero-licht picture img { position: static; inset: auto; height: auto; }
+.hero-licht picture { display: block; }
