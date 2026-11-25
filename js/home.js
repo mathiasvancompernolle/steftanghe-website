@@ -14,7 +14,6 @@
       return '<a class="cat-tegel product-' + c.id + '" href="' + window.ST.link('verkoop.html?cat=' + c.id) + '">' +
         (foto ? '<img src="' + foto + '" alt="" loading="lazy">' : '') +
         '<span class="cat-tegel-tekst">' +
-          '<span class="cat-tegel-aantal">' + items.length + ' ' + t(items.length === 1 ? 'aanbod.machine' : 'aanbod.machines') + '</span>' +
           '<span class="cat-tegel-naam">' + c.naam[taal] + '</span>' +
           '<span class="cat-tegel-vb">' + voorbeelden + (items.length > 4 ? ', …' : '') + '</span>' +
         '</span>' +

@@ -72,7 +72,7 @@
           '<span class="product-titel">' + esc(a.naam[taal()]) + '</span>' +
           '<span class="product-tekst">' + esc(a.tekst[taal()]) + '</span>' +
           '<span class="product-merken"><span>' + a.merken.map(esc).join(' | ') + '</span></span>' +
-          '<span class="product-actie">' + t('vk.meerinfo') + ' <span aria-hidden="true">|</span> ' + t('vk.kopen') +
+          '<span class="product-actie">' + t('vk.meerinfo') +
             ' <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>' +
         '</span></a>';
     }).join('');
@@ -86,7 +86,7 @@
       }));
     $('cat-chips').innerHTML = alle.map(function (c) {
       var aan = c.id ? (staat.cats.length === 1 && staat.cats[0] === c.id) : !staat.cats.length;
-      return '<button type="button" class="chip" data-cat="' + c.id + '" aria-pressed="' + aan + '">' + esc(c.naam) + ' <span>' + c.n + '</span></button>';
+      return '<button type="button" class="chip" data-cat="' + c.id + '" aria-pressed="' + aan + '">' + esc(c.naam) + '</button>';
     }).join('');
   }
   $('cat-chips').addEventListener('click', function (e) {

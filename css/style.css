@@ -4,6 +4,10 @@
 @font-face { font-family: "Barlow Condensed"; font-weight: 500; font-display: swap; src: url("../fonts/barlow-condensed-latin-500-normal.woff2") format("woff2"); }
 @font-face { font-family: "Barlow Condensed"; font-weight: 600; font-display: swap; src: url("../fonts/barlow-condensed-latin-600-normal.woff2") format("woff2"); }
 @font-face { font-family: "Barlow Condensed"; font-weight: 700; font-display: swap; src: url("../fonts/barlow-condensed-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Barlow"; font-weight: 400; font-display: swap; src: url("../fonts/barlow-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Barlow"; font-weight: 500; font-display: swap; src: url("../fonts/barlow-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Barlow"; font-weight: 600; font-display: swap; src: url("../fonts/barlow-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Barlow"; font-weight: 700; font-display: swap; src: url("../fonts/barlow-latin-700-normal.woff2") format("woff2"); }
 @font-face { font-family: "Barlow Condensed"; font-weight: 800; font-display: swap; src: url("../fonts/barlow-condensed-latin-800-normal.woff2") format("woff2"); }
 
 :root {
@@ -13,19 +17,21 @@
   --inkt: #12241A;
   --inkt-zacht: #3D4F43;
   --grond: #E7EBE4;
+  --creme: #FAF7F0;
   --plaat: #F7F8F5;
   --lijn: #CBD3C6;
   --todo: #8A3A0B;
   --max: 2200px;
   --rand: clamp(20px, 5vw, 120px);
   --cond: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --tekst: "Barlow", "Segoe UI", Arial, sans-serif;
   --topbalk: 44px;
 }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 96px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
-body { margin: 0; background: var(--grond); color: var(--inkt); font-family: var(--cond); font-size: 20px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+body { margin: 0; background: var(--grond); color: var(--inkt); font-family: var(--tekst); font-size: 18px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 img { max-width: 100%; height: auto; display: block; }
 a { color: var(--groen); }
 a:hover { color: var(--groen-donker); }
@@ -33,7 +39,7 @@ a:hover { color: var(--groen-donker); }
 h1, h2, h3 { font-family: var(--cond); line-height: 1; margin: 0; }
 p { margin: 0; }
 .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--rand); }
-@media (max-width: 640px) { body { font-size: 17px; } }
+@media (max-width: 640px) { body { font-size: 16.5px; } }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* Knoppen */
@@ -676,7 +682,6 @@ body.niet-gevonden { padding-bottom: 0; }
 .hero-licht h1 { color: var(--groen); font-size: clamp(40px, 4.9vw, 92px); line-height: 0.92; max-width: none; }
 .hero-licht p { color: var(--inkt-zacht); font-size: clamp(20px, 1.7vw, 24px); max-width: 34ch; }
 .hero-licht .troeven { color: var(--inkt); font-size: 18px; }
-@media (min-width: 901px) { .hero-licht .troeven { display: none; } }
 .hero-fotos { position: relative; padding: 0 0 44px 44px; }
 .hero-foto-groot img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 28px; box-shadow: 0 24px 60px rgba(18,36,26,0.18); }
 .hero-foto-klein { position: absolute; left: 0; bottom: 0; width: 34%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 22px; border: 8px solid var(--grond); box-shadow: 0 16px 40px rgba(18,36,26,0.2); }
@@ -698,3 +703,42 @@ body.niet-gevonden { padding-bottom: 0; }
 @keyframes hero-in { from { opacity: 0; transform: translateY(24px) scale(0.98); } to { opacity: 1; transform: none; } }
 .hero-licht picture, .hero-licht picture img { position: static; inset: auto; height: auto; }
 .hero-licht picture { display: block; }
+
+/* ---------- Lettertypes: lopende tekst in Barlow, korte kopjes/knoppen/labels in Barlow Condensed ---------- */
+.btn, .menu, .menu-knop, .topbalk, .actiebalk, .chip, .dienst-link, .troeven, .vinklijst, .stappen strong,
+.cat-tegel-tekst, .taal-optie, .soort-keuze span, .periode, .klus strong, .werktuig-kop, .route-link, .alt-links,
+.product-cat, .product-actie, .product-merken, .ab-totaal, .deel-knop, .handtekening, .kruimel, .teller, .lb-teller,
+.filter-knop, .wis, .schakel strong, .herstel-form label, .herstel-form legend, .offerte label, .lijn, .totaal,
+.contact-kolommen ul, .voet, .strook-titel, .sv-keuze a, .hero-boven, .terug, .nf-code { font-family: var(--cond); }
+.dienst p, .product-tekst, .cat-tegel-vb, .stappen span { line-height: 1.5; }
+.dienst p { font-size: 16.5px; }
+.product-tekst { font-size: 15.5px; }
+.cat-tegel-vb { font-family: var(--tekst); font-size: 14.5px; }
+
+/* ---------- Hero (homepage): groter, met kicker en troeven ook op desktop ---------- */
+.hero.hero-licht { padding-bottom: 56px; }
+.hero-boven { display: inline-flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--oranje); }
+.hero-boven::before { content: ""; width: 32px; height: 3px; border-radius: 2px; background: currentColor; }
+.hero-licht h1 { font-size: clamp(44px, 5.6vw, 104px); }
+.hero-licht p { font-size: clamp(18px, 1.35vw, 21px); line-height: 1.55; max-width: 38ch; }
+.hero-licht .troeven { display: flex; font-size: 18px; margin-top: 6px; }
+@media (min-width: 901px) { .hero-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); } .hero-licht .hero-inhoud > * { margin: 0; } }
+@media (max-width: 900px) { .hero.hero-licht { padding-bottom: 40px; } .hero-boven { font-size: 15px; } }
+
+/* ---------- Ritme: afwisselende achtergronden op de homepage ---------- */
+.sectie-creme { background: var(--creme); }
+.sectie-donker { background: #0B2E17; color: #fff; }
+.sectie-donker .sectie-titel { color: #fff; }
+.sectie-donker .aanbod-intro { color: #C9D9C8; }
+.sectie-donker .btn-rand { color: #fff; }
+.sectie-donker .btn-rand:hover { background: rgba(255,255,255,0.1); color: #fff; }
+.sectie-donker .cat-tegel { box-shadow: 0 0 0 1px rgba(255,255,255,0.06); }
+.over-tekst p:not(.handtekening) { font-size: 19px; }
+
+/* ---------- Verkoopkaarten: hele kaart klikbaar, rustige link i.p.v. oranje knop ---------- */
+.product-actie { justify-content: flex-start; min-height: 0; padding: 12px 0 0; border-top: 1px solid var(--lijn); border-radius: 0; background: none; color: var(--groen); font-size: 19px; text-transform: none; letter-spacing: 0; }
+.product:hover .product-actie { background: none; color: var(--groen-donker); }
+.product-merken { margin-bottom: 4px; }
+
+/* ---------- Gsm: geen naar-boven-knop naast de actiebalk ---------- */
+@media (max-width: 900px) { .naar-boven { display: none; } }
